@@ -1,0 +1,14 @@
+site_name: CryoSiam Documentation
+theme:
+  name: material
+  logo: images/CryoSiam_logo.png  # Path to the logo
+  favicon: images/CryoSiam_logo.png  # (Optional) Set as the browser tab icon
+  features:
+    - navigation.tabs
+    - search.highlight
+    - search.share
+nav:
+  - Home: index.md
+  - Installation: installation.md
+  - Usage: usage.md
+  - FAQ: faq.md
