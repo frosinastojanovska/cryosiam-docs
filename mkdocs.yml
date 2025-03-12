@@ -1,8 +1,8 @@
 site_name: CryoSiam Documentation
 theme:
   name: material
-  logo: images/CryoSiam_logo.png  # Path to the logo
-  favicon: images/CryoSiam_logo.png  # (Optional) Set as the browser tab icon
+  logo: images/CryoSiam_logo_transparent.svg  # Path to the logo
+  favicon: images/CryoSiam_logo_favicon.svg  # (Optional) Set as the browser tab icon
   features:
     - navigation.tabs
     - search.highlight
@@ -12,3 +12,7 @@ nav:
   - Installation: installation.md
   - Usage: usage.md
   - FAQ: faq.md
+  - Denoising: denoising.md
+  - Semantic segmentation: semantic.md
+  - Instance segmentation: instance.md
+  - Particle identification: particle_identification.md
