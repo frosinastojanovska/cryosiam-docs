@@ -1,45 +1,61 @@
 site_name: CryoSiam Documentation
 site_url: https://frosinastojanovska.github.io/cryosiam-docs
+repo_url: https://github.com/frosinastojanovska/cryosiam
+
 theme:
   name: material
   logo: images/CryoSiam_logo_transparent.svg  # Path to the logo
   favicon: images/CryoSiam_logo_favicon.svg  # (Optional) Set as the browser tab icon
   custom_dir: docs/overrides
 
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: light blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
   features:
-    - navigation.expand
     - navigation.sections
     - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.path
-    - content.tabs.link
-    - toc.integrate
     - navigation.top
+    - navigation.indexes
+    - content.tabs.link
     - content.code.copy
     - content.action.edit
     - content.tabs.link
     - content.code.annotate
     - search.highlight
+    - search.suggest
     - search.share
     - toc.follow
 nav:
   - Home: index.md
   - Installation: installation.md
   - Usage:
-    - Overview: usage.md
-    - Preprocessing: preprocessing.md
-    - Denoising:
-      - Prediction: denoising/prediction.md
-      - Training: denoising/training.md
-    - Semantic segmentation:
-      - Prediction: semantic/prediction.md
-      - Semi-supervised training: semantic/semi_supervised_training.md
-      - Training: semantic/training.md
-    - Instance segmentation:
-      - Prediction: instance/prediction.md
-      - Training: instance/training.md
-    - Particle identification:
-      - Embeddings: simsiam_embeds/embeddings.md
-      - Particle identification: simsiam_embeds/particle_identification.md
+    - Overview and workflows: usage.md
+    - Denoising: denoising.md
+    - Semantic segmentation: semantic.md
+    - Instance segmentation: instance.md
+    - Particle identification: particle_identification.md
+  - Tutorial: tutorial.md
+  - Visualization: visualization.md
   - FAQ: faq.md
 
 plugins:
@@ -51,9 +67,13 @@ extra:
     provider: mike
 
 markdown_extensions:
-  - admonition
   - toc:
       permalink: true
+  - admonition
   - tables
   - pymdownx.highlight
   - pymdownx.superfences
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg

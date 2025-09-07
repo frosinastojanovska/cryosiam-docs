@@ -19,7 +19,7 @@ You can also use Conda to create an isolated environment with all dependencies.
 ### Step 1: Create the Environment
 
 ```bash
-conda env create -f environment.yml
+conda env create -f https://github.com/frosinastojanovska/cryosiam/cryosiam/blob/main/environment.yml
 conda activate cryosiam
 ```
 
