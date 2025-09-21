@@ -1,0 +1,28 @@
+data_folder: '/scratch/stojanov/datatset1/predictions/denoised'
+log_dir: '/scratch/stojanov/datatset1/'
+prediction_folder: '/scratch/stojanov/datatset1/predictions/lamella'
+
+trained_model: '/scratch/stojanov/trained_models/cryosiam_lamella.ckpt'
+file_extension: '.mrc'
+
+test_files: null
+
+save_internal_files: False
+
+parameters:
+  gpu_devices: 1
+  data:
+    patch_size: [ 128, 128, 128 ]
+    min: 0
+    max: 1
+    mean: 0
+    std:  1
+  network:
+    in_channels: 1
+    spatial_dims: 3
+    threshold: 0.9
+    postprocessing: True
+    3d_postprocessing: False
+
+hyper_parameters:
+  batch_size: 2

@@ -1,6 +1,6 @@
-data_folder: '/scratch/stojanov/empiar_datasets/EMPIAR-11756/tomograms'
-log_dir: '/g/mahamid/stojanov/empiar_datasets/EMPIAR-11756/'
-prediction_folder: '/scratch/stojanov/empiar_datasets/EMPIAR-11756/predictions/denoised'
+data_folder: '/scratch/stojanov/datatset1/tomograms'
+log_dir: '/scratch/stojanov/datatset1/'
+prediction_folder: '/scratch/stojanov/datatset1/predictions/denoised'
 
 trained_model: '/scratch/stojanov/trained_models/cryosiam_denoising.ckpt'
 file_extension: '.mrc'
@@ -8,7 +8,7 @@ file_extension: '.mrc'
 test_files: null
 
 save_raw_predictions: False
-scale_prediction: False
+scale_prediction: True
 
 parameters:
   gpu_devices: 1
