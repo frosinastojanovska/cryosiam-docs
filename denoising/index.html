@@ -991,8 +991,8 @@ You're not viewing the latest version.
 
 <h1 id="denoising">Denoising<a class="headerlink" href="#denoising" title="Permanent link">¶</a></h1>
 <p>The denoising module reduces noise in tomograms while preserving structural detail. It’s typically the <strong>first step</strong>
-before semantic/instance segmentation or particle identification. For best performance, it's recommended to have a WBP
-reconstructed tomogram, since the denoising model was trained on WBP simulated tomograms.</p>
+before semantic/instance segmentation or particle identification. For best performance, it's recommended to have a <strong>WBP
+reconstructed tomogram</strong>, since the denoising model was trained on WBP simulated tomograms.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/denoising/comparison.png" data-desc-position="bottom"><img alt="Noisy vs Denoised Tomogram" src="../images/denoising/comparison.png"></a></p>
 <ul>
 <li><strong>Left:</strong> Raw WBP noisy tomogram</li>
@@ -1027,7 +1027,7 @@ here: <a href="https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main
 <span class="nt">test_files</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
 
 <span class="nt">save_raw_predictions</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
-<span class="nt">scale_prediction</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">scale_prediction</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
 
 <span class="nt">parameters</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">gpu_devices</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
@@ -1097,13 +1097,13 @@ here: <a href="https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main
 <td><code>save_raw_predictions</code></td>
 <td><code>bool</code></td>
 <td style="text-align: right;">❌</td>
-<td>If <code>true</code>, also save the raw network output before any scaling/post‑processing.</td>
+<td>If <code>true</code>, also save the raw .h5 file/s.</td>
 </tr>
 <tr>
 <td><code>scale_prediction</code></td>
 <td><code>bool</code></td>
 <td style="text-align: right;">❌</td>
-<td>If <code>true</code>, rescale/restore prediction to the target intensity range (recommended for viewing/export).</td>
+<td>If <code>true</code>, rescale/restore prediction to intensity 0 to 1.</td>
 </tr>
 </tbody>
 </table>

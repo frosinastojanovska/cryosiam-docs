@@ -8,7 +8,7 @@ file_extension: '.mrc'
 test_files: null
 
 save_raw_predictions: False
-scale_prediction: False
+scale_prediction: True
 
 parameters:
   gpu_devices: 1
