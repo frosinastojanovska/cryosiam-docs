@@ -5,13 +5,13 @@
       
       
       
-        <link rel="canonical" href="https://frosinastojanovska.github.io/cryosiam-docs/usage/">
+        <link rel="canonical" href="https://frosinastojanovska.github.io/cryosiam-docs/installation_vis/">
       
       
-        <link rel="prev" href="../installation_vis/">
+        <link rel="prev" href="../installation/">
       
       
-        <link rel="next" href="../denoising/">
+        <link rel="next" href="../usage/">
       
       
       <link rel="icon" href="../images/CryoSiam_logo_favicon.svg">
@@ -19,7 +19,7 @@
     
     
       
-        <title>Overview and workflows - CryoSiam Documentation</title>
+        <title>CryoSiam-Vis installation - CryoSiam Documentation</title>
       
     
     
@@ -81,7 +81,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#workflows" class="md-skip">
+        <a href="#cryosiam-vis-installation-guide" class="md-skip">
           Skip to content
         </a>
       
@@ -132,7 +132,7 @@ You're not viewing the latest version.
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Overview and workflows
+              CryoSiam-Vis installation
             
           </span>
         </div>
@@ -265,10 +265,12 @@ You're not viewing the latest version.
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../installation/" class="md-tabs__link">
           
   
@@ -285,13 +287,11 @@ You're not viewing the latest version.
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../usage/" class="md-tabs__link">
           
   
     
@@ -430,8 +430,10 @@ You're not viewing the latest version.
       
   
   
+    
   
   
+  
     
     
       
@@ -442,19 +444,22 @@ You're not viewing the latest version.
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -466,7 +471,7 @@ You're not viewing the latest version.
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Installation
@@ -499,95 +504,6 @@ You're not viewing the latest version.
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../installation_vis/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    CryoSiam-Vis installation
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-    
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-        
-        
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
-            
-  
-  <span class="md-ellipsis">
-    Usage
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            Usage
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
     
   
   
@@ -604,7 +520,7 @@ You're not viewing the latest version.
           
   
   <span class="md-ellipsis">
-    Overview and workflows
+    CryoSiam-Vis installation
     
   </span>
   
@@ -616,7 +532,7 @@ You're not viewing the latest version.
         
   
   <span class="md-ellipsis">
-    Overview and workflows
+    CryoSiam-Vis installation
     
   </span>
   
@@ -639,36 +555,78 @@ You're not viewing the latest version.
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#workflow-1-denoising-semantic-segmentation-particle-identification" class="md-nav__link">
+  <a href="#requirements" class="md-nav__link">
     <span class="md-ellipsis">
-      Workflow 1: Denoising → Semantic Segmentation / Particle Identification
+      Requirements
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#workflow-2-denoising-instance-segmentation" class="md-nav__link">
+  <a href="#option-1-install-via-conda-environment" class="md-nav__link">
     <span class="md-ellipsis">
-      Workflow 2: Denoising → Instance Segmentation
+      Option 1: Install via Conda Environment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Option 1: Install via Conda Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-the-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Create the Environment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-install-cryosiam_vis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Install cryosiam_vis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#option-2-install-via-pip" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option 2: Install via pip
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#workflow-3-denoising-instance-segmentation-subtomogram-embeddings" class="md-nav__link">
+  <a href="#verify-installation" class="md-nav__link">
     <span class="md-ellipsis">
-      Workflow 3: Denoising → Instance Segmentation → Subtomogram Embeddings
+      Verify Installation
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuration-files" class="md-nav__link">
+  <a href="#need-help" class="md-nav__link">
     <span class="md-ellipsis">
-      Configuration Files
+      Need Help?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dont-have-conda-installed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Don't Have Conda Installed?
     </span>
   </a>
   
@@ -678,6 +636,90 @@ You're not viewing the latest version.
   
 </nav>
       
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Usage
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Usage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview and workflows
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -890,36 +932,78 @@ You're not viewing the latest version.
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#workflow-1-denoising-semantic-segmentation-particle-identification" class="md-nav__link">
+  <a href="#requirements" class="md-nav__link">
     <span class="md-ellipsis">
-      Workflow 1: Denoising → Semantic Segmentation / Particle Identification
+      Requirements
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#workflow-2-denoising-instance-segmentation" class="md-nav__link">
+  <a href="#option-1-install-via-conda-environment" class="md-nav__link">
     <span class="md-ellipsis">
-      Workflow 2: Denoising → Instance Segmentation
+      Option 1: Install via Conda Environment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Option 1: Install via Conda Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-the-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Create the Environment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-install-cryosiam_vis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Install cryosiam_vis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#option-2-install-via-pip" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option 2: Install via pip
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#workflow-3-denoising-instance-segmentation-subtomogram-embeddings" class="md-nav__link">
+  <a href="#verify-installation" class="md-nav__link">
     <span class="md-ellipsis">
-      Workflow 3: Denoising → Instance Segmentation → Subtomogram Embeddings
+      Verify Installation
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuration-files" class="md-nav__link">
+  <a href="#need-help" class="md-nav__link">
     <span class="md-ellipsis">
-      Configuration Files
+      Need Help?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dont-have-conda-installed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Don't Have Conda Installed?
     </span>
   </a>
   
@@ -941,7 +1025,7 @@ You're not viewing the latest version.
 
 
   
-    <a href="https://github.com/frosinastojanovska/cryosiam/edit/master/docs/usage.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/frosinastojanovska/cryosiam/edit/master/docs/installation_vis.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
     </a>
@@ -949,45 +1033,51 @@ You're not viewing the latest version.
   
 
 
-<h1 id="workflows">Workflows<a class="headerlink" href="#workflows" title="Permanent link">¶</a></h1>
-<p>CryoSiam workflows are designed to process cryo-electron tomography (CryoET) data step by step. Each module focuses on a specific task, and you can combine them into analysis pipelines depending on your scientific question.</p>
+<h1 id="cryosiam-vis-installation-guide">CryoSiam-Vis Installation Guide<a class="headerlink" href="#cryosiam-vis-installation-guide" title="Permanent link">¶</a></h1>
+<p>This guide provides instructions for installing CryoSiam-Vis for easy visualization of the predictions from CryoSiam.</p>
 <hr>
-<h2 id="workflow-1-denoising-semantic-segmentation-particle-identification"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 1.75C0 .784.784 0 1.75 0h3.5C6.216 0 7 .784 7 1.75v3.5A1.75 1.75 0 0 1 5.25 7H4v4a1 1 0 0 0 1 1h4v-1.25C9 9.784 9.784 9 10.75 9h3.5c.966 0 1.75.784 1.75 1.75v3.5A1.75 1.75 0 0 1 14.25 16h-3.5A1.75 1.75 0 0 1 9 14.25v-.75H5A2.5 2.5 0 0 1 2.5 11V7h-.75A1.75 1.75 0 0 1 0 5.25Zm1.75-.25a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Zm9 9a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Z"></path></svg></span> Workflow 1: Denoising → Semantic Segmentation / Particle Identification<a class="headerlink" href="#workflow-1-denoising-semantic-segmentation-particle-identification" title="Permanent link">¶</a></h2>
-<ol>
-<li><strong>Denoising</strong><br>
-   Clean the raw tomogram to reduce noise while preserving structural details.  </li>
-<li><strong>Semantic Segmentation</strong><br>
-   Classify each voxel into biological classes such as membranes, filaments, or complexes.<br>
-<em>Alternative:</em> <strong>Particle Identification</strong> can be used to locate specific particles of interest directly after denoising.</li>
-</ol>
-<p>See details in <a href="../denoising/">Denoising</a>, <a href="../semantic/">Semantic Segmentation</a>, and <a href="../particle_identification/">Particle Identification</a>.</p>
+<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">¶</a></h2>
+<ul>
+<li>Python &gt;= 3.8</li>
+<li>Conda (optional, for environment-based setup)</li>
+</ul>
 <hr>
-<h2 id="workflow-2-denoising-instance-segmentation"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 1.75C0 .784.784 0 1.75 0h3.5C6.216 0 7 .784 7 1.75v3.5A1.75 1.75 0 0 1 5.25 7H4v4a1 1 0 0 0 1 1h4v-1.25C9 9.784 9.784 9 10.75 9h3.5c.966 0 1.75.784 1.75 1.75v3.5A1.75 1.75 0 0 1 14.25 16h-3.5A1.75 1.75 0 0 1 9 14.25v-.75H5A2.5 2.5 0 0 1 2.5 11V7h-.75A1.75 1.75 0 0 1 0 5.25Zm1.75-.25a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Zm9 9a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Z"></path></svg></span> Workflow 2: Denoising → Instance Segmentation<a class="headerlink" href="#workflow-2-denoising-instance-segmentation" title="Permanent link">¶</a></h2>
-<ol>
-<li><strong>Denoising</strong><br>
-   Prepare a cleaner tomogram for reliable downstream processing.  </li>
-<li><strong>Instance Segmentation</strong><br>
-   Separate individual structures even when they overlap or belong to the same class.</li>
-</ol>
-<p>See details in <a href="../denoising/">Denoising</a> and <a href="../instance/">Instance Segmentation</a>.</p>
-<hr>
-<h2 id="workflow-3-denoising-instance-segmentation-subtomogram-embeddings"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 1.75C0 .784.784 0 1.75 0h3.5C6.216 0 7 .784 7 1.75v3.5A1.75 1.75 0 0 1 5.25 7H4v4a1 1 0 0 0 1 1h4v-1.25C9 9.784 9.784 9 10.75 9h3.5c.966 0 1.75.784 1.75 1.75v3.5A1.75 1.75 0 0 1 14.25 16h-3.5A1.75 1.75 0 0 1 9 14.25v-.75H5A2.5 2.5 0 0 1 2.5 11V7h-.75A1.75 1.75 0 0 1 0 5.25Zm1.75-.25a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Zm9 9a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Z"></path></svg></span> Workflow 3: Denoising → Instance Segmentation → Subtomogram Embeddings<a class="headerlink" href="#workflow-3-denoising-instance-segmentation-subtomogram-embeddings" title="Permanent link">¶</a></h2>
-<ol>
-<li><strong>Denoising</strong><br>
-   Preprocess tomograms for structural clarity.  </li>
-<li><strong>Instance Segmentation</strong><br>
-   Extract and separate candidate subtomograms.  </li>
-<li><strong>Subtomogram Embeddings</strong><br>
-   Represent subtomograms as feature vectors for clustering, comparison, or downstream analysis.</li>
-</ol>
-<p>See details in <a href="../denoising/">Denoising</a>, <a href="../instance/">Instance Segmentation</a>, and (upcoming) <strong>Subtomogram Embeddings</strong>.</p>
-<hr>
-<h2 id="configuration-files">Configuration Files<a class="headerlink" href="#configuration-files" title="Permanent link">¶</a></h2>
-<p>Each module requires a YAML configuration file defining inputs, outputs, and model parameters.<br>
-You can run a module as:</p>
-<div class="highlight"><pre><span></span><code>cryosiam<span class="w"> </span>&lt;module&gt;<span class="w"> </span>--config_file<span class="o">=</span>configs/&lt;module&gt;.yaml
+<h2 id="option-1-install-via-conda-environment">Option 1: Install via Conda Environment<a class="headerlink" href="#option-1-install-via-conda-environment" title="Permanent link">¶</a></h2>
+<p>You can also use Conda to create an isolated environment with all dependencies.</p>
+<h3 id="step-1-create-the-environment">Step 1: Create the Environment<a class="headerlink" href="#step-1-create-the-environment" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>https://github.com/frosinastojanovska/cryosiam_vis/blob/main/environment.yml
+conda<span class="w"> </span>activate<span class="w"> </span>cryosiam_vis
 </code></pre></div>
-<p>Explanation of the YAML configuration files is given into the specific documentation page. </p>
+<h3 id="step-2-install-cryosiam_vis">Step 2: Install <code>cryosiam_vis</code><a class="headerlink" href="#step-2-install-cryosiam_vis" title="Permanent link">¶</a></h3>
+<p>After activating the environment:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/frosinastojanovska/cryosiam_vis.git
+<span class="nb">cd</span><span class="w"> </span>cryosiam_vis
+pip<span class="w"> </span>install<span class="w"> </span>--no-deps<span class="w"> </span>.
+</code></pre></div>
+<hr>
+<h2 id="option-2-install-via-pip">Option 2: Install via pip<a class="headerlink" href="#option-2-install-via-pip" title="Permanent link">¶</a></h2>
+<p>Clone the repository and install:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/frosinastojanovska/cryosiam_vis.git
+<span class="nb">cd</span><span class="w"> </span>cryosiam_vis
+
+<span class="c1"># Recommended: use a virtual environment</span>
+python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate<span class="w">  </span><span class="c1"># On Windows: .venv\Scripts\activate</span>
+
+<span class="c1"># Install the package and dependencies</span>
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+pip<span class="w"> </span>install<span class="w"> </span>--no-deps<span class="w"> </span>.
+</code></pre></div>
+<hr>
+<h2 id="verify-installation">Verify Installation<a class="headerlink" href="#verify-installation" title="Permanent link">¶</a></h2>
+<p>To verify the CryoSiam-Vis installation, run:</p>
+<div class="highlight"><pre><span></span><code>cryosiam_vis<span class="w"> </span>--version
+</code></pre></div>
+<h2 id="need-help">Need Help?<a class="headerlink" href="#need-help" title="Permanent link">¶</a></h2>
+<p>If you run into issues, feel free to open an issue on the <a href="https://github.com/frosinastojanovska/cryosiam_vis/issues">GitHub repository</a>.</p>
+<hr>
+<h2 id="dont-have-conda-installed">Don't Have Conda Installed?<a class="headerlink" href="#dont-have-conda-installed" title="Permanent link">¶</a></h2>
+<p>If you don't have <code>conda</code> installed yet, check the instructions <a href="../installation/#dont-have-conda-installed">here</a></p>
 
 
 
