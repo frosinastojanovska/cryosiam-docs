@@ -1,4 +1,4 @@
-# Installation Guide
+# CryoSiam Installation Guide
 
 This guide provides instructions for installing CryoSiam using either pip or conda, with full support for GPU-enabled PyTorch.
 
@@ -19,7 +19,7 @@ You can also use Conda to create an isolated environment with all dependencies.
 ### Step 1: Create the Environment
 
 ```bash
-conda env create -f https://github.com/frosinastojanovska/cryosiam/cryosiam/blob/main/environment.yml
+conda env create -f https://github.com/frosinastojanovska/cryosiam/blob/main/environment.yml
 conda activate cryosiam
 ```
 
@@ -134,4 +134,4 @@ Download from: https://www.anaconda.com/products/distribution
 
 ---
 
-After installing Miniforge or Anaconda, return to the main Conda installation steps above.
+After installing Miniforge or Anaconda, return to the [main Conda installation steps](#option-1-install-via-conda-environment) above.

@@ -47,7 +47,9 @@ theme:
     - toc.follow
 nav:
   - Home: index.md
-  - Installation: installation.md
+  - Installation:
+    - CryoSiam installation: installation.md
+    - CryoSiam-Vis installation: installation_vis.md
   - Usage:
     - Overview and workflows: usage.md
     - Denoising: denoising.md
