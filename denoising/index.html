@@ -1086,7 +1086,7 @@ here: <a href="https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main
 <hr>
 <h2 id="command"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m6.354 8.04-4.773 4.773a.75.75 0 1 0 1.061 1.06L7.945 8.57a.75.75 0 0 0 0-1.06L2.642 2.206a.75.75 0 0 0-1.06 1.061L6.353 8.04ZM8.75 11.5a.75.75 0 0 0 0 1.5h5.5a.75.75 0 0 0 0-1.5z"></path></svg></span> Command<a class="headerlink" href="#command" title="Permanent link">¶</a></h2>
 <p>Run denoising via the CLI using a YAML configuration file:</p>
-<div class="highlight"><pre><span></span><code>cryosiam<span class="w"> </span>denoise<span class="w"> </span>--config_file<span class="o">=</span>configs/config_denoising.yaml
+<div class="highlight"><pre><span></span><code>cryosiam<span class="w"> </span>denoise_predict<span class="w"> </span>--config_file<span class="o">=</span>configs/config_denoising.yaml
 </code></pre></div>
 <p><strong>What it does</strong></p>
 <ul>
@@ -1094,6 +1094,8 @@ here: <a href="https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main
 <li>Applies sliding‑window 3D inference (GPU/CPU)</li>
 <li>Writes denoised volumes to the output folder (and optional intermediates)</li>
 </ul>
+<p><strong>Visualization</strong>
+For visualization of the results, CryoSiam-Vis can be used as described <a href="../visualization/#visualize_denoising">here</a>.</p>
 <hr>
 <h2 id="example-configuration-file">Example Configuration File<a class="headerlink" href="#example-configuration-file" title="Permanent link">¶</a></h2>
 <p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z"></path><path d="M7.25 7.689V2a.75.75 0 0 1 1.5 0v5.689l1.97-1.969a.749.749 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 6.78a.749.749 0 1 1 1.06-1.06z"></path></svg></span> <a href="../configs/config_denoising.yaml">Download example config</a></p>
