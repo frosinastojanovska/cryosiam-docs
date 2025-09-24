@@ -24,7 +24,7 @@ here: [CryoSiam denoising model (v1.0)](https://huggingface.co/frosinastojanovsk
 Run denoising via the CLI using a YAML configuration file:
 
 ```bash
-cryosiam denoise --config_file=configs/config_denoising.yaml
+cryosiam denoise_predict --config_file=configs/config_denoising.yaml
 ```
 
 **What it does**
@@ -32,6 +32,9 @@ cryosiam denoise --config_file=configs/config_denoising.yaml
 - Loads the trained denoising model and your tomogram/s
 - Applies sliding‑window 3D inference (GPU/CPU)
 - Writes denoised volumes to the output folder (and optional intermediates)
+
+**Visualization**
+For visualization of the results, CryoSiam-Vis can be used as described [here](visualization.md#visualize_denoising).
 
 ---
 
