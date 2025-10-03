@@ -1588,6 +1588,7 @@ the <a href="../semantic_training/">Semantic training</a> for explanation of the
 <span class="w">  </span><span class="nt">network</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">in_channels</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
 <span class="w">    </span><span class="nt">spatial_dims</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<span class="w">    </span><span class="nt">threshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.1</span>
 <span class="w">    </span><span class="nt">postprocessing_sizes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">-1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">5000</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">-1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">-1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">-1</span><span class="w"> </span><span class="p p-Indicator">]</span>
 
 <span class="nt">hyper_parameters</span><span class="p">:</span>
@@ -1710,16 +1711,22 @@ the <a href="../semantic_training/">Semantic training</a> for explanation of the
 <td>Dimensionality of the model (use <code>3</code> for 3D tomograms).</td>
 </tr>
 <tr>
+<td><code>network.threshold</code></td>
+<td><code>float</code></td>
+<td style="text-align: right;">❌</td>
+<td>Probability cutoff to clean very small probability predictions. Default <code>0.1</code>.</td>
+</tr>
+<tr>
 <td><code>network.postprocessing_sizes</code></td>
 <td><code>list[int]</code></td>
-<td style="text-align: right;">❌</td>
+<td style="text-align: right;">✅</td>
 <td>Postprocessing thresholds for the size of connected components. Example: <code>[ -1, 5000, -1, -1, -1 ]</code> keeps only connected components &gt;5000 voxels for label 2.</td>
 </tr>
 </tbody>
 </table>
 <blockquote>
 <p><strong>Tips</strong><br>
-• Tune <code>postprocessing_sizes</code> depending on dataset type and noise in predictions. </p>
+• Tune <code>postprocessing_sizes</code> depending on dataset type and noise in predictions.</p>
 </blockquote>
 <hr>
 <h4 id="hyper_parameters_1"><code>hyper_parameters</code><a class="headerlink" href="#hyper_parameters_1" title="Permanent link">¶</a></h4>
