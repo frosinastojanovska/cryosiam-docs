@@ -194,6 +194,7 @@ parameters:
   network:
     in_channels: 1
     spatial_dims: 3
+    threshold: 0.1
     postprocessing_sizes: [ -1, 5000, -1, -1, -1 ]
 
 hyper_parameters:
@@ -228,10 +229,11 @@ hyper_parameters:
 | `data.std`                     | `float`              |                             ❌ | Std used for normalization (match training stats if model expects it).                                                                                        |
 | `network.in_channels`          | `int`                |                             ❌ | Number of input channels (typically `1` for tomograms).                                                                                                       |
 | `network.spatial_dims`         | `int`                |                             ❌ | Dimensionality of the model (use `3` for 3D tomograms).                                                                                                       |
-| `network.postprocessing_sizes` | `list[int]`          |                             ❌ | Postprocessing thresholds for the size of connected components. Example: `[ -1, 5000, -1, -1, -1 ]` keeps only connected components >5000 voxels for label 2. |
+| `network.threshold`            | `float`              |                             ❌ | Probability cutoff to clean very small probability predictions. Default `0.1`.                                                                                |
+| `network.postprocessing_sizes` | `list[int]`          |                             ✅ | Postprocessing thresholds for the size of connected components. Example: `[ -1, 5000, -1, -1, -1 ]` keeps only connected components >5000 voxels for label 2. |
 
 > **Tips**  
-> • Tune `postprocessing_sizes` depending on dataset type and noise in predictions. 
+> • Tune `postprocessing_sizes` depending on dataset type and noise in predictions.
 
 ---
 

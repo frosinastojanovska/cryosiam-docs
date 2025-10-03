@@ -22,8 +22,8 @@ Refer to the [CryoSiam-Vis installation guide](installation_vis.md).
 All visualizations are accessed through a single CLI with **subcommands**:
 
 ```bash
-cryosiam-vis --version
-cryosiam-vis <subcommand> [arguments]
+cryosiam_vis --version
+cryosiam_vis <subcommand> [arguments]
 ```
 
 Available subcommands:
@@ -43,7 +43,7 @@ Show the denoised tomogram produced by `cryosiam denoise` (and optionally compar
 ### Usage
 
 ```bash
-cryosiam-vis visualize_denoising --config_file configs/denoise.yaml --filename TS_01.mrc
+cryosiam_vis visualize_denoising --config_file configs/denoise.yaml --filename TS_01.mrc
 ```
 
 ### Arguments
@@ -68,7 +68,7 @@ Overlay semantic predictions over the denoised tomogram.
 ### Usage
 
 ```bash
-cryosiam-vis visualize_semantic --config_file configs/semantic.yaml --filename TS_01.mrc
+cryosiam_vis visualize_semantic --config_file configs/semantic.yaml --filename TS_01.mrc
 ```
 
 ### Arguments
@@ -92,7 +92,7 @@ Visualize instance segmentation volumes and labels.
 ### Usage
 
 ```bash
-cryosiam-vis visualize_instance --config_file configs/instance.yaml --filename TS_01.mrc
+cryosiam_vis visualize_instance --config_file configs/instance.yaml --filename TS_01.mrc
 ```
 
 ### Arguments
@@ -116,7 +116,7 @@ Plot particle coordinates from a **.star** file onto a tomogram.
 ### Usage
 
 ```bash
-cryosiam-vis visualize_coordinates --tomo_path /path/to/denoised --filename TS_01.mrc --star_file /path/to/coordinates.star --point_size 15
+cryosiam_vis visualize_coordinates --tomo_path /path/to/denoised --filename TS_01.mrc --star_file /path/to/coordinates.star --point_size 15
 ```
 
 ### Arguments
@@ -142,7 +142,7 @@ Open the embedding viewer (for exploratory analysis).
 ### Usage
 
 ```bash
-cryosiam-vis visualize_embeddings
+cryosiam_vis visualize_embeddings
 ```
 
 ### What it does
