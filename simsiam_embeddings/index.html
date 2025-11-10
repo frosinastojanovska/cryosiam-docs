@@ -5,13 +5,13 @@
       
       
       
-        <link rel="canonical" href="https://frosinastojanovska.github.io/cryosiam-docs/installation/">
+        <link rel="canonical" href="https://frosinastojanovska.github.io/cryosiam-docs/simsiam_embeddings/">
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../particle_identification/">
       
       
-        <link rel="next" href="../installation_vis/">
+        <link rel="next" href="../tutorial/">
       
       
       <link rel="icon" href="../images/CryoSiam_logo_favicon.svg">
@@ -19,7 +19,7 @@
     
     
       
-        <title>CryoSiam installation - CryoSiam Documentation</title>
+        <title>Subtomogram embeddings - CryoSiam Documentation</title>
       
     
     
@@ -80,11 +80,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#cryosiam-installation-guide" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -132,7 +127,7 @@ You're not viewing the latest version.
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              CryoSiam installation
+              Subtomogram embeddings
             
           </span>
         </div>
@@ -271,13 +266,11 @@ You're not viewing the latest version.
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../installation/" class="md-tabs__link">
           
   
   
@@ -295,10 +288,12 @@ You're not viewing the latest version.
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../usage/" class="md-tabs__link">
           
   
@@ -446,10 +441,8 @@ You're not viewing the latest version.
       
   
   
-    
   
   
-  
     
     
       
@@ -461,22 +454,19 @@ You're not viewing the latest version.
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
   
@@ -489,7 +479,7 @@ You're not viewing the latest version.
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Installation
@@ -500,32 +490,10 @@ You're not viewing the latest version.
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    CryoSiam installation
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
         
   
   
@@ -536,161 +504,6 @@ You're not viewing the latest version.
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Requirements
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#option-1-install-via-conda-environment" class="md-nav__link">
-    <span class="md-ellipsis">
-      Option 1: Install via Conda Environment
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Option 1: Install via Conda Environment">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#step-1-create-the-environment" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 1: Create the Environment
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-2-install-cryosiam" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 2: Install cryosiam
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#option-2-install-via-pip" class="md-nav__link">
-    <span class="md-ellipsis">
-      Option 2: Install via pip
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Option 2: Install via pip">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#step-1-install-gpu-enabled-pytorch" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 1: Install GPU-enabled PyTorch
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-2-install-the-package-and-dependencies" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 2: Install the Package and Dependencies
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#verify-installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Verify Installation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Troubleshooting
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#need-help" class="md-nav__link">
-    <span class="md-ellipsis">
-      Need Help?
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dont-have-conda-installed" class="md-nav__link">
-    <span class="md-ellipsis">
-      Don't Have Conda Installed?
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Don't Have Conda Installed?">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#option-1-install-miniforge-recommended" class="md-nav__link">
-    <span class="md-ellipsis">
-      Option 1: Install Miniforge (recommended)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#option-2-install-anaconda-full-distribution" class="md-nav__link">
-    <span class="md-ellipsis">
-      Option 2: Install Anaconda (Full Distribution)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -730,8 +543,10 @@ You're not viewing the latest version.
       
   
   
+    
   
   
+  
     
     
       
@@ -753,19 +568,22 @@ You're not viewing the latest version.
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -778,7 +596,7 @@ You're not viewing the latest version.
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Usage
@@ -927,10 +745,17 @@ You're not viewing the latest version.
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../simsiam_embeddings/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -941,6 +766,7 @@ You're not viewing the latest version.
   
 
       </a>
+      
     </li>
   
 
@@ -1036,151 +862,6 @@ You're not viewing the latest version.
   
   
   
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Requirements
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#option-1-install-via-conda-environment" class="md-nav__link">
-    <span class="md-ellipsis">
-      Option 1: Install via Conda Environment
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Option 1: Install via Conda Environment">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#step-1-create-the-environment" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 1: Create the Environment
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-2-install-cryosiam" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 2: Install cryosiam
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#option-2-install-via-pip" class="md-nav__link">
-    <span class="md-ellipsis">
-      Option 2: Install via pip
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Option 2: Install via pip">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#step-1-install-gpu-enabled-pytorch" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 1: Install GPU-enabled PyTorch
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-2-install-the-package-and-dependencies" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 2: Install the Package and Dependencies
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#verify-installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Verify Installation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Troubleshooting
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#need-help" class="md-nav__link">
-    <span class="md-ellipsis">
-      Need Help?
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dont-have-conda-installed" class="md-nav__link">
-    <span class="md-ellipsis">
-      Don't Have Conda Installed?
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Don't Have Conda Installed?">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#option-1-install-miniforge-recommended" class="md-nav__link">
-    <span class="md-ellipsis">
-      Option 1: Install Miniforge (recommended)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#option-2-install-anaconda-full-distribution" class="md-nav__link">
-    <span class="md-ellipsis">
-      Option 2: Install Anaconda (Full Distribution)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -1196,7 +877,7 @@ You're not viewing the latest version.
 
 
   
-    <a href="https://github.com/frosinastojanovska/cryosiam/edit/master/docs/installation.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/frosinastojanovska/cryosiam/edit/master/docs/simsiam_embeddings.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
     </a>
@@ -1204,94 +885,9 @@ You're not viewing the latest version.
   
 
 
-<h1 id="cryosiam-installation-guide">CryoSiam Installation Guide<a class="headerlink" href="#cryosiam-installation-guide" title="Permanent link">¶</a></h1>
-<p>This guide provides instructions for installing CryoSiam using either pip or conda, with full support for GPU-enabled PyTorch.</p>
-<hr>
-<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">¶</a></h2>
-<ul>
-<li>Python &gt;= 3.8</li>
-<li>Conda (optional, for environment-based setup)</li>
-<li>(Optional) NVIDIA GPU with CUDA 11.8+ drivers for GPU acceleration</li>
-</ul>
-<hr>
-<h2 id="option-1-install-via-conda-environment">Option 1: Install via Conda Environment<a class="headerlink" href="#option-1-install-via-conda-environment" title="Permanent link">¶</a></h2>
-<p>You can also use Conda to create an isolated environment with all dependencies.</p>
-<h3 id="step-1-create-the-environment">Step 1: Create the Environment<a class="headerlink" href="#step-1-create-the-environment" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>https://github.com/frosinastojanovska/cryosiam/blob/main/environment.yml
-conda<span class="w"> </span>activate<span class="w"> </span>cryosiam
-</code></pre></div>
-<h3 id="step-2-install-cryosiam">Step 2: Install <code>cryosiam</code><a class="headerlink" href="#step-2-install-cryosiam" title="Permanent link">¶</a></h3>
-<p>After activating the environment:</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/frosinastojanovska/cryosiam.git
-<span class="nb">cd</span><span class="w"> </span>cryosiam
-pip<span class="w"> </span>install<span class="w"> </span>--no-deps<span class="w"> </span>.
-</code></pre></div>
-<hr>
-<h2 id="option-2-install-via-pip">Option 2: Install via pip<a class="headerlink" href="#option-2-install-via-pip" title="Permanent link">¶</a></h2>
-<h3 id="step-1-install-gpu-enabled-pytorch">Step 1: Install GPU-enabled PyTorch<a class="headerlink" href="#step-1-install-gpu-enabled-pytorch" title="Permanent link">¶</a></h3>
-<p>Before installing this package, install the correct PyTorch build with GPU support:</p>
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">torch</span><span class="o">==</span><span class="m">2</span>.1.2<span class="w"> </span><span class="nv">torchvision</span><span class="o">==</span><span class="m">0</span>.16.2<span class="w"> </span>--index-url<span class="w"> </span>https://download.pytorch.org/whl/cu118
-</code></pre></div>
-<p>If you don’t need GPU support, you can install the CPU-only version instead:</p>
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">torch</span><span class="o">==</span><span class="m">2</span>.1.2<span class="w"> </span><span class="nv">torchvision</span><span class="o">==</span><span class="m">0</span>.16.2<span class="w"> </span>--index-url<span class="w"> </span>https://download.pytorch.org/whl/cpu
-</code></pre></div>
-<h3 id="step-2-install-the-package-and-dependencies">Step 2: Install the Package and Dependencies<a class="headerlink" href="#step-2-install-the-package-and-dependencies" title="Permanent link">¶</a></h3>
-<p>Clone the repository (if applicable) and install:</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/frosinastojanovska/cryosiam.git
-<span class="nb">cd</span><span class="w"> </span>cryosiam
+  <h1>Subtomogram embeddings</h1>
 
-<span class="c1"># Recommended: use a virtual environment</span>
-python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
-<span class="nb">source</span><span class="w"> </span>.venv/bin/activate<span class="w">  </span><span class="c1"># On Windows: .venv\Scripts\activate</span>
-
-<span class="c1"># Install the package and dependencies</span>
-pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
-pip<span class="w"> </span>install<span class="w"> </span>--no-deps<span class="w"> </span>.
-</code></pre></div>
-<hr>
-<h2 id="verify-installation">Verify Installation<a class="headerlink" href="#verify-installation" title="Permanent link">¶</a></h2>
-<p>To verify the CryoSiam installation, run:</p>
-<div class="highlight"><pre><span></span><code>cryosiam<span class="w"> </span>--version
-</code></pre></div>
-<p>To check that PyTorch is installed correctly and can detect your GPU:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">())</span>  <span class="c1"># Should return True if GPU is available</span>
-</code></pre></div>
-<hr>
-<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">¶</a></h2>
-<ul>
-<li><strong>CUDA errors</strong>: Make sure your system has the correct NVIDIA drivers and CUDA version.</li>
-<li><strong>Missing packages</strong>: Double-check that you followed the correct pip or conda install steps.</li>
-<li><strong>Conflicts</strong>: It's recommended to use a clean virtual environment or conda environment.</li>
-</ul>
-<hr>
-<h2 id="need-help">Need Help?<a class="headerlink" href="#need-help" title="Permanent link">¶</a></h2>
-<p>If you run into issues, feel free to open an issue on the <a href="https://github.com/frosinastojanovska/cryosiam/issues">GitHub repository</a>.</p>
-<hr>
-<h2 id="dont-have-conda-installed">Don't Have Conda Installed?<a class="headerlink" href="#dont-have-conda-installed" title="Permanent link">¶</a></h2>
-<p>If you don't have <code>conda</code> installed yet, we recommend using <strong>Miniforge</strong> (lightweight) or <strong>Anaconda</strong> (full-featured).</p>
-<h3 id="option-1-install-miniforge-recommended">Option 1: Install Miniforge (recommended)<a class="headerlink" href="#option-1-install-miniforge-recommended" title="Permanent link">¶</a></h3>
-<p>Miniforge is a minimal installer for Conda that supports <code>conda-forge</code> by default.</p>
-<p><strong>Linux / macOS:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Download and install Miniforge</span>
-wget<span class="w"> </span>https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh
-bash<span class="w"> </span>Miniforge3-Linux-x86_64.sh
-</code></pre></div>
-<p><strong>Windows:</strong></p>
-<ol>
-<li>
-<p>Download the latest installer from:<br>
-   https://github.com/conda-forge/miniforge/releases</p>
-</li>
-<li>
-<p>Run the <code>.exe</code> installer and follow the setup.</p>
-</li>
-</ol>
-<h3 id="option-2-install-anaconda-full-distribution">Option 2: Install Anaconda (Full Distribution)<a class="headerlink" href="#option-2-install-anaconda-full-distribution" title="Permanent link">¶</a></h3>
-<p>Anaconda includes Conda, Python, and hundreds of data science packages.</p>
-<p>Download from: https://www.anaconda.com/products/distribution</p>
-<hr>
-<p>After installing Miniforge or Anaconda, return to the <a href="#option-1-install-via-conda-environment">main Conda installation steps</a> above.</p>
+<p>Coming soon ...</p>
 
 
 
