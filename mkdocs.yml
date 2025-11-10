@@ -57,6 +57,7 @@ nav:
     - Semantic segmentation training: semantic_training.md
     - Instance segmentation: instance.md
     - Particle identification: particle_identification.md
+    - Subtomogram embeddings: simsiam_embeddings.md
   - Tutorial: tutorial.md
   - Visualization: visualization.md
   - FAQ: faq.md

@@ -46,8 +46,8 @@ volume).
 
 ## Trained Models
 
-You can download the trained lamella model from here: [CryoSiam lamella model (v1.0)](...), and the semantic
-segmentation model from here: [CryoSiam semantic model (v1.0)](...).
+You can download the trained lamella model from here: [CryoSiam lamella model (v1.0)](https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main/cryosiam_lamella.ckpt), and the semantic
+segmentation model from here: [CryoSiam semantic model (v1.0)](https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main/cryosiam_semantic_segmentation.ckpt).
 You can also train your own model and then perform prediction with that model. Review
 the [Semantic training](semantic_training.md) for explanation of the model training procedure.
 
@@ -170,7 +170,7 @@ hyper_parameters:
 
 ### 2. Semantic Segmentation (`configs/config_semantic.yaml`)
 
-📥 [Download semantic config](configs/config_semantic.yaml)
+:octicons-download-16: [Download semantic config](configs/config_semantic.yaml)
 
 ```yaml
 data_folder: '/scratch/stojanov/datatset1/predictions/denoised'
