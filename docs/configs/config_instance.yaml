@@ -1,7 +1,7 @@
-data_folder: '/scratch/stojanov/datatset1/predictions/denoised'
-mask_folder: '/scratch/stojanov/datatset1/predictions/lamella'
-log_dir: '/scratch/stojanov/datatset1/'
-prediction_folder: '/scratch/stojanov/datatset1/predictions/instance'
+data_folder: '/scratch/stojanov/dataset1/predictions/denoised'
+mask_folder: '/scratch/stojanov/dataset1/predictions/lamella'
+log_dir: '/scratch/stojanov/dataset1/'
+prediction_folder: '/scratch/stojanov/dataset1/predictions/instance'
 
 trained_model: '/scratch/stojanov/trained_models/cryosiam_instance.ckpt'
 file_extension: '.mrc'

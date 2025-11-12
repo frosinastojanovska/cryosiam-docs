@@ -69,6 +69,10 @@ cryosiam semantic_predict --config_file=configs/config_lamella.yaml
 
 Run semantic segmentation via the CLI using a YAML configuration file:
 
+**Visualization**
+For visualization of the results, CryoSiam-Vis can be used as described [here](visualization.md#visualize_semantic).
+
+
 ```bash
 cryosiam semantic_predict --config_file=configs/config_semantic.yaml
 ```
@@ -92,9 +96,9 @@ CryoSiam semantic segmentation is usually run in **two stages**.
 📥 [Download lamella config](configs/config_lamella.yaml)
 
 ```yaml
-data_folder: '/scratch/stojanov/datatset1/predictions/denoised'
-log_dir: '/scratch/stojanov/datatset1/'
-prediction_folder: '/scratch/stojanov/datatset1/predictions/lamella'
+data_folder: '/scratch/stojanov/dataset1/predictions/denoised'
+log_dir: '/scratch/stojanov/dataset1/'
+prediction_folder: '/scratch/stojanov/dataset1/predictions/lamella'
 
 trained_model: '/scratch/stojanov/trained_models/cryosiam_lamella.ckpt'
 file_extension: '.mrc'
@@ -173,10 +177,10 @@ hyper_parameters:
 :octicons-download-16: [Download semantic config](configs/config_semantic.yaml)
 
 ```yaml
-data_folder: '/scratch/stojanov/datatset1/predictions/denoised'
-mask_folder: '/scratch/stojanov/datatset1/predictions/lamella'
-log_dir: '/scratch/stojanov/datatset1/'
-prediction_folder: '/scratch/stojanov/datatset1/predictions/semantic'
+data_folder: '/scratch/stojanov/dataset1/predictions/denoised'
+mask_folder: '/scratch/stojanov/dataset1/predictions/lamella'
+log_dir: '/scratch/stojanov/dataset1/'
+prediction_folder: '/scratch/stojanov/dataset1/predictions/semantic'
 
 trained_model: '/scratch/stojanov/trained_models/cryosiam_semantic.ckpt'
 file_extension: '.mrc'

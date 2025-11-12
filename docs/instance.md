@@ -53,6 +53,11 @@ Optionally, process a specific tomogram file only:
 cryosiam instance_predict --config_file=configs/config_instance.yaml --filename TS_01.mrc
 ```
 
+
+**Visualization**
+For visualization of the results, CryoSiam-Vis can be used as described [here](visualization.md#visualize_instance).
+
+
 ---
 
 ## Example Configuration (`configs/config_instance.yaml`)
@@ -60,10 +65,10 @@ cryosiam instance_predict --config_file=configs/config_instance.yaml --filename 
 :octicons-download-16: [Download instance config](configs/config_instance.yaml)
 
 ```yaml
-data_folder: '/scratch/stojanov/datatset1/predictions/denoised'
-mask_folder: '/scratch/stojanov/datatset1/predictions/lamella'
-log_dir: '/scratch/stojanov/datatset1/'
-prediction_folder: '/scratch/stojanov/datatset1/predictions/instance'
+data_folder: '/scratch/stojanov/dataset1/predictions/denoised'
+mask_folder: '/scratch/stojanov/dataset1/predictions/lamella'
+log_dir: '/scratch/stojanov/dataset1/'
+prediction_folder: '/scratch/stojanov/dataset1/predictions/instance'
 
 trained_model: '/scratch/stojanov/trained_models/cryosiam_instance.ckpt'
 file_extension: '.mrc'

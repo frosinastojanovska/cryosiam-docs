@@ -43,9 +43,9 @@ For visualization of the results, CryoSiam-Vis can be used as described [here](v
 :octicons-download-16: [Download example config](configs/config_denoising.yaml)
 
 ```yaml
-data_folder: '/scratch/stojanov/datatset1/tomograms'
-log_dir: '/scratch/stojanov/datatset1/'
-prediction_folder: '/scratch/stojanov/datatset1/predictions/denoised'
+data_folder: '/scratch/stojanov/dataset1/tomograms'
+log_dir: '/scratch/stojanov/dataset1/'
+prediction_folder: '/scratch/stojanov/dataset1/predictions/denoised'
 
 trained_model: '/scratch/stojanov/trained_models/cryosiam_denoising.ckpt'
 file_extension: '.mrc'

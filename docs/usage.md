@@ -36,7 +36,7 @@ See details in [Denoising](denoising.md) and [Instance Segmentation](instance.md
 3. **Subtomogram Embeddings**  
    Represent subtomograms as feature vectors for clustering, comparison, or downstream analysis.
 
-See details in [Denoising](denoising.md), [Instance Segmentation](instance.md), and (upcoming) **Subtomogram Embeddings**.
+See details in [Denoising](denoising.md), [Instance Segmentation](instance.md), and [Subtomogram Embeddings](subtomogram_embeddings.md).
 
 ---
 
