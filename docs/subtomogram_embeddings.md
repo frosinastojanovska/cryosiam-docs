@@ -1,11 +1,30 @@
 # Subtomogram Embeddings Generation
 
 The Subtomogram Embeddings task extracts fixed-length feature representations from segmented subtomograms.  
-These embeddings capture the 3D structural and textural properties of each instance and enable unsupervised comparison,
-clustering, visualization, and clustering.
+These embeddings capture the 3D structural and textural properties of each instance and enable unsupervised comparison, visualization, and clustering.
 
 > **Workflow:** `Instance Segmentation → Subtomogram Embeddings → Visualization → (Optional Clustering)`  
 > Embeddings are generated from **instance masks** produced in the previous step.
+
+---
+
+## Example Results
+
+- **UMAP visualization:** Each point represents a subtomogram embedding.
+- **KMeans clusters:** Distinct color-coded groups of similar structural features.
+- **Spectral clusters:** Captures fine-grained structural variability.
+
+### Embedding Space Projection
+
+![2D UMAP embedding](images/embeddings/umap.png){ width="400" }
+
+### KMeans Clustering
+
+![KMeans clusters](images/embeddings/kmeans.png){ width="400" }
+
+### Spectral Clustering
+
+![Spectral clusters](images/embeddings/spectral.png){ width="400" }
 
 ---
 
@@ -192,25 +211,6 @@ hyper_parameters:
 |--------------|-------|------------------------------:|--------------------------------------------------|
 | `batch_size` | `int` |                             ❌ | Number of subtomograms per batch (default `10`). |
 
----
-
-## Example Results
-
-- **UMAP visualization:** Each point represents a subtomogram embedding.
-- **KMeans clusters:** Distinct color-coded groups of similar structural features.
-- **Spectral clusters:** Captures fine-grained structural variability.
-
-### Embedding Space Projection
-
-![2D UMAP embedding](images/embeddings/umap.png)
-
-### KMeans Clustering
-
-![KMeans clusters](images/embeddings/kmeans.png)
-
-### Spectral Clustering
-
-![Spectral clusters](images/embeddings/spectral.png)
 
 ---
 

@@ -28,11 +28,11 @@ cryosiam_vis <subcommand> [arguments]
 
 Available subcommands:
 
-- `visualize_denoising` — show **denoised** vs **raw** tomogram
-- `visualize_semantic` — overlay **semantic** masks on tomogram
-- `visualize_instance` — explore **instance** masks
-- `visualize_coordinates` — plot points from a **.star** file on a tomogram
-- `visualize_embeddings` — open an interactive embedding explorer
+- `visualize_denoising` - show **denoised** vs **raw** tomogram
+- `visualize_semantic` - overlay **semantic** masks on tomogram
+- `visualize_instance` - explore **instance** masks
+- `visualize_coordinates` - plot points from a **.star** file on a tomogram
+- `visualize_embeddings` - open an interactive embedding explorer
 
 ---
 
@@ -123,9 +123,9 @@ cryosiam_vis visualize_coordinates --tomo_path /path/to/denoised --filename TS_0
 
 | Arg            | Required | Default | Description                                        |
 |----------------|:--------:|--------:|----------------------------------------------------|
-| `--tomo_path`  |    ✅     |       — | Folder containing tomograms (ideally denoised).    |
-| `--filename`   |    ✅     |       — | Tomogram filename (with extension).                |
-| `--star_file`  |    ✅     |       — | Path to the **.star** file with point coordinates. |
+| `--tomo_path`  |    ✅     |       - | Folder containing tomograms (ideally denoised).    |
+| `--filename`   |    ✅     |       - | Tomogram filename (with extension).                |
+| `--star_file`  |    ✅     |       - | Path to the **.star** file with point coordinates. |
 | `--point_size` |    ❌     |    `15` | Point marker size in napari.                       |
 
 ### Notes

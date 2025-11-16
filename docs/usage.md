@@ -2,6 +2,8 @@
 
 CryoSiam workflows are designed to process cryo-electron tomography (CryoET) data step by step. Each module focuses on a specific task, and you can combine them into analysis pipelines depending on your scientific question.
 
+For details, please refer to the [CryoSiam preprint](https://www.biorxiv.org/content/10.1101/2025.11.11.687379).
+
 ---
 
 ## :octicons-workflow-16: Workflow 1: Denoising → Semantic Segmentation / Particle Identification
@@ -37,6 +39,12 @@ See details in [Denoising](denoising.md) and [Instance Segmentation](instance.md
    Represent subtomograms as feature vectors for clustering, comparison, or downstream analysis.
 
 See details in [Denoising](denoising.md), [Instance Segmentation](instance.md), and [Subtomogram Embeddings](subtomogram_embeddings.md).
+
+---
+
+## Trained Models
+
+The available trained models are described here: [Trained Models](trained_models.md). 
 
 ---
 

@@ -7,23 +7,19 @@ This guide provides instructions for installing CryoSiam using either pip or con
 ## Requirements
 
 - Python >= 3.8
-- Conda (optional, for environment-based setup)
+- Conda (for environment-based setup)
 - (Optional) NVIDIA GPU with CUDA 11.8+ drivers for GPU acceleration
 
 ---
 
-## Option 1: Install via Conda Environment
-
-You can also use Conda to create an isolated environment with all dependencies.
-
-### Step 1: Create the Environment
+## Step 1: Create the Environment
 
 ```bash
 conda env create -f https://github.com/frosinastojanovska/cryosiam/blob/main/environment.yml
 conda activate cryosiam
 ```
 
-### Step 2: Install `cryosiam`
+## Step 2: Install `cryosiam`
 
 After activating the environment:
 
@@ -34,42 +30,6 @@ pip install --no-deps .
 ```
 
 ---
-
-## Option 2: Install via pip
-
-### Step 1: Install GPU-enabled PyTorch
-
-Before installing this package, install the correct PyTorch build with GPU support:
-
-```bash
-pip install torch==2.1.2 torchvision==0.16.2 --index-url https://download.pytorch.org/whl/cu118
-```
-
-If you don’t need GPU support, you can install the CPU-only version instead:
-
-```bash
-pip install torch==2.1.2 torchvision==0.16.2 --index-url https://download.pytorch.org/whl/cpu
-```
-
-### Step 2: Install the Package and Dependencies
-
-Clone the repository (if applicable) and install:
-
-```bash
-git clone https://github.com/frosinastojanovska/cryosiam.git
-cd cryosiam
-
-# Recommended: use a virtual environment
-python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-
-# Install the package and dependencies
-pip install -r requirements.txt
-pip install --no-deps .
-```
-
----
-
 
 ## Verify Installation
 
@@ -91,8 +51,8 @@ print(torch.cuda.is_available())  # Should return True if GPU is available
 ## Troubleshooting
 
 - **CUDA errors**: Make sure your system has the correct NVIDIA drivers and CUDA version.
-- **Missing packages**: Double-check that you followed the correct pip or conda install steps.
-- **Conflicts**: It's recommended to use a clean virtual environment or conda environment.
+- **Missing packages**: Double-check that you followed the correct conda install steps.
+- **Conflicts**: It's recommended to use a clean conda environment.
 
 ---
 
@@ -134,4 +94,4 @@ Download from: https://www.anaconda.com/products/distribution
 
 ---
 
-After installing Miniforge or Anaconda, return to the [main Conda installation steps](#option-1-install-via-conda-environment) above.
+After installing Miniforge or Anaconda, return to the [main Conda installation steps](#step-1-create_the_environment) above.
