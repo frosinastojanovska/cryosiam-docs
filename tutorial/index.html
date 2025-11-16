@@ -8,7 +8,7 @@
         <link rel="canonical" href="https://frosinastojanovska.github.io/cryosiam-docs/tutorial/">
       
       
-        <link rel="prev" href="../simsiam_embeddings/">
+        <link rel="prev" href="../subtomogram_embeddings/">
       
       
         <link rel="next" href="../visualization/">
@@ -79,6 +79,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#tutorial-endtoend-cryosiam-on-cryoet-data-portal-ts_02-dataset-10003" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -743,7 +748,7 @@ You're not viewing the latest version.
   
   
     <li class="md-nav__item">
-      <a href="../simsiam_embeddings/" class="md-nav__link">
+      <a href="../subtomogram_embeddings/" class="md-nav__link">
         
   
   
@@ -779,6 +784,21 @@ You're not viewing the latest version.
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Tutorial
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -791,6 +811,166 @@ You're not viewing the latest version.
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#data-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data source
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trained-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trained Models
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0-download-ts_02" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 0 - Download TS_02
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 0 - Download TS_02">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-a-portal-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option A: Portal UI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-b-python-api-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option B: Python API client
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-denoising" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1 - Denoising
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-lamella-prediction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2 - Lamella Prediction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-semantic-segmentation-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3 - Semantic Segmentation (classes)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-instance-segmentation-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4 - Instance Segmentation (objects)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-filter-and-visualize-instances-within-a-mask-membrane-proteins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5 - Filter and visualize instances within a mask (membrane proteins)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-subtomogram-embeddings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6 - Subtomogram Embeddings
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-particle-identification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 7 - Particle identification
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -857,6 +1037,157 @@ You're not viewing the latest version.
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#data-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data source
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trained-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trained Models
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0-download-ts_02" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 0 - Download TS_02
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 0 - Download TS_02">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-a-portal-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option A: Portal UI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-b-python-api-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option B: Python API client
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-denoising" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1 - Denoising
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-lamella-prediction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2 - Lamella Prediction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-semantic-segmentation-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3 - Semantic Segmentation (classes)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-instance-segmentation-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4 - Instance Segmentation (objects)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-filter-and-visualize-instances-within-a-mask-membrane-proteins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5 - Filter and visualize instances within a mask (membrane proteins)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-subtomogram-embeddings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6 - Subtomogram Embeddings
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-particle-identification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 7 - Particle identification
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -880,9 +1211,449 @@ You're not viewing the latest version.
   
 
 
-  <h1>Tutorial</h1>
+<h1 id="tutorial-endtoend-cryosiam-on-cryoet-data-portal-ts_02-dataset-10003">Tutorial: End‑to‑End CryoSiam on CryoET Data Portal – <strong>TS_02</strong> (Dataset 10003)<a class="headerlink" href="#tutorial-endtoend-cryosiam-on-cryoet-data-portal-ts_02-dataset-10003" title="Permanent link">¶</a></h1>
+<p>This walkthrough shows how to run the full CryoSiam pipeline on <strong>TS_02</strong> from the CryoET Data Portal dataset **10003
+** (<em>Mycoplasma pneumoniae</em> with chloramphenicol).<br>
+We’ll go from raw tomogram to:</p>
+<ul>
+<li>denoised tomogram</li>
+<li>lamella prediction</li>
+<li>semantic segmentation</li>
+<li>instance segmentation</li>
+<li>subtomogram embeddings</li>
+<li>particle identification</li>
+</ul>
+<blockquote>
+<p><strong>Why TS_02?</strong> This tomogram was used to generate the examples in the figures from
+the <a href="https://www.biorxiv.org/content/10.1101/2025.11.11.687379">CryoSiam paper</a>.</p>
+</blockquote>
+<hr>
+<h2 id="data-source">Data source<a class="headerlink" href="#data-source" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Dataset page:</strong> CryoET Data Portal – <em>Mycoplasma pneumoniae treated with chloramphenicol</em>, <strong>Deposition 10003</strong><ul>
+<li>Runs include <strong>TS_02</strong> reconstructed tomogram.</li>
+</ul>
+</li>
+<li>You can browse and download via the <a href="https://cryoetdataportal.czscience.com/runs/362?table-tab=Tomograms">portal UI</a>,
+  the <a href="https://chanzuckerberg.github.io/cryoet-data-portal/stable/python-api.html">Python API client</a>.</li>
+</ul>
+<hr>
+<h2 id="trained-models">Trained Models<a class="headerlink" href="#trained-models" title="Permanent link">¶</a></h2>
+<p>The available trained models and where to download them are described here: <a href="../trained_models/">Trained models</a>.</p>
+<hr>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
+<p>We assume you already installed CryoSiam as shown in the <a href="../installation/">docs</a>, as well as CryoSiam-Vis shown
+in <a href="../installation_vis/">docs</a>.</p>
+<p><strong>Folder layout we’ll use (adjust the root path /scratch/ to your setup):</strong></p>
+<div class="highlight"><pre><span></span><code>/scratch/cryosiam_tutorial/
+├── data/                    # raw or denoised tomograms
+├── models/                  # pretrained models of CryoSiam
+├── preds/                   # prediction folders
+│   ├── denoised/
+│   ├── lamella/
+│   ├── semantic/
+│   └── instance/
+└── configs/                 # config files
+</code></pre></div>
+<hr>
+<h2 id="step-0-download-ts_02">Step 0 - Download <strong>TS_02</strong><a class="headerlink" href="#step-0-download-ts_02" title="Permanent link">¶</a></h2>
+<h3 id="option-a-portal-ui">Option A: Portal UI<a class="headerlink" href="#option-a-portal-ui" title="Permanent link">¶</a></h3>
+<ol>
+<li>Open the dataset page, search for <strong>TS_02</strong>, click <strong>View Tomogram</strong>, and download the tomogram volume.</li>
+<li>Save as: <code>/scratch/cryosiam_tutorial/data/TS_02.mrc</code>.</li>
+</ol>
+<h3 id="option-b-python-api-client">Option B: Python API client<a class="headerlink" href="#option-b-python-api-client" title="Permanent link">¶</a></h3>
+<p>First, install the python cryoet_data_portal package:</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>cryoet_data_portal
+</code></pre></div>
+<p>Then download tomogram TS_02:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">cryoet_data_portal</span><span class="w"> </span><span class="kn">import</span> <span class="n">Client</span><span class="p">,</span> <span class="n">Tomogram</span>
 
-<p>Coming soon ...</p>
+<span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">()</span>
+
+<span class="n">tomogram</span> <span class="o">=</span> <span class="n">Tomogram</span><span class="o">.</span><span class="n">get_by_id</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="mi">632</span><span class="p">)</span>
+<span class="n">tomogram</span><span class="o">.</span><span class="n">download_mrcfile</span><span class="p">()</span>
+</code></pre></div>
+<hr>
+<h2 id="step-1-denoising">Step 1 - Denoising<a class="headerlink" href="#step-1-denoising" title="Permanent link">¶</a></h2>
+<p>Download the model
+from <a href="https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main/cryosiam_denoising.ckpt">here</a>.</p>
+<p>Create <code>configs/config_denoising.yaml</code> (download and adapt from <a href="../configs/config_denoising.yaml">the general example</a>):</p>
+<div class="highlight"><pre><span></span><code><span class="nt">data_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/cryosiam_tutorial/data'</span>
+<span class="nt">log_dir</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/cryosiam_tutorial/'</span>
+<span class="nt">prediction_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/cryosiam_tutorial/preds/denoised'</span>
+
+<span class="nt">trained_model</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/cryosiam_tutorial/models/cryosiam_denoising.ckpt'</span>
+<span class="nt">file_extension</span><span class="p">:</span><span class="w"> </span><span class="s">'.mrc'</span>
+
+<span class="nt">test_files</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
+
+<span class="nt">save_raw_predictions</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">scale_prediction</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
+
+<span class="nt">parameters</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">gpu_devices</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">  </span><span class="nt">data</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">patch_size</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">128</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">128</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">128</span><span class="w"> </span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">min</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">    </span><span class="nt">max</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">    </span><span class="nt">mean</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">    </span><span class="nt">std</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">  </span><span class="nt">network</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">in_channels</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">    </span><span class="nt">spatial_dims</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+
+<span class="nt">hyper_parameters</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">batch_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+</code></pre></div>
+<p>Run:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/scratch/cryosiam_tutorial
+conda<span class="w"> </span>activate<span class="w"> </span>cryosiam
+cryosiam<span class="w"> </span>denoise_predict<span class="w"> </span>--config_file<span class="o">=</span>configs/config_denoising.yaml
+</code></pre></div>
+<p>Visualize with:</p>
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>activate<span class="w"> </span>cryosiam_vis
+cryosiam_vis<span class="w"> </span>visualize_denoising<span class="w"> </span>--config_file<span class="o">=</span>configs/config_denoising.yaml<span class="w">  </span>--filename<span class="w"> </span>TS_02.mrc
+</code></pre></div>
+<p>Output:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/tutorial/denoising.png" data-desc-position="bottom"><img alt="Denoised Tomogram" src="../images/tutorial/denoising.png"></a></p>
+<hr>
+<h2 id="step-2-lamella-prediction">Step 2 - Lamella Prediction<a class="headerlink" href="#step-2-lamella-prediction" title="Permanent link">¶</a></h2>
+<p>Download the model from <a href="https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main/cryosiam_lamella.ckpt">here</a>.</p>
+<p>Create <code>configs/config_lamella.yaml</code> (download and adapt from <a href="../configs/config_lamella.yaml">the general example</a>):</p>
+<div class="highlight"><pre><span></span><code><span class="nt">data_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/cryosiam_tutorial/preds/denoised'</span>
+<span class="nt">log_dir</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/TS02_tutorial/'</span>
+<span class="nt">prediction_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/TS02_tutorial/preds/lamella'</span>
+
+<span class="nt">trained_model</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/cryosiam_tutorial/models/cryosiam_lamella.ckpt'</span>
+<span class="nt">file_extension</span><span class="p">:</span><span class="w"> </span><span class="s">'.mrc'</span>
+
+<span class="nt">test_files</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
+
+<span class="nt">save_internal_files</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+
+<span class="nt">parameters</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">gpu_devices</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">  </span><span class="nt">data</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">patch_size</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">128</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">128</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">128</span><span class="w"> </span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">min</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">    </span><span class="nt">max</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">    </span><span class="nt">mean</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">    </span><span class="nt">std</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">  </span><span class="nt">network</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">in_channels</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">    </span><span class="nt">spatial_dims</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<span class="w">    </span><span class="nt">threshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.9</span>
+<span class="w">    </span><span class="nt">postprocessing</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
+<span class="w">    </span><span class="nt">3d_postprocessing</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+
+<span class="nt">hyper_parameters</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">batch_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+</code></pre></div>
+<p>Run:</p>
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>activate<span class="w"> </span>cryosiam
+cryosiam<span class="w"> </span>semantic_predict<span class="w"> </span>--config_file<span class="o">=</span>configs/config_lamella.yaml
+</code></pre></div>
+<p>Visualize with:</p>
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>activate<span class="w"> </span>cryosiam_vis
+cryosiam_vis<span class="w"> </span>visualize_semantic<span class="w"> </span>--config_file<span class="o">=</span>configs/config_lamella.yaml<span class="w">  </span>--filename<span class="w"> </span>TS_02.mrc
+</code></pre></div>
+<p>Output:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/tutorial/lamella_prediction.png" data-desc-position="bottom"><img alt="Lamella prediction" src="../images/tutorial/lamella_prediction.png"></a></p>
+<hr>
+<h2 id="step-3-semantic-segmentation-classes">Step 3 - Semantic Segmentation (classes)<a class="headerlink" href="#step-3-semantic-segmentation-classes" title="Permanent link">¶</a></h2>
+<p>Download the model
+from <a href="https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main/cryosiam_semantic_segmentation.ckpt">here</a>.</p>
+<p>Create <code>configs/config_semantic.yaml</code> download and adapt from <a href="../configs/config_semantic.yaml">the general example</a>):</p>
+<div class="highlight"><pre><span></span><code><span class="nt">data_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/cryosiam_tutorial/preds/denoised'</span>
+<span class="nt">mask_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/cryosiam_tutorial/preds/lamella'</span>
+<span class="nt">log_dir</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/cryosiam_tutorial/'</span>
+<span class="nt">prediction_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/cryosiam_tutorial/preds/semantic'</span>
+
+<span class="nt">trained_model</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/cryosiam_tutorial/models/cryosiam_semantic_segmentation.ckpt'</span>
+<span class="nt">file_extension</span><span class="p">:</span><span class="w"> </span><span class="s">'.mrc'</span>
+
+<span class="nt">test_files</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
+
+<span class="nt">parameters</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">gpu_devices</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">  </span><span class="nt">data</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">patch_size</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">128</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">128</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">128</span><span class="w"> </span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">min</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">    </span><span class="nt">max</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">    </span><span class="nt">mean</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">    </span><span class="nt">std</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">  </span><span class="nt">network</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">in_channels</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">    </span><span class="nt">spatial_dims</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<span class="w">    </span><span class="nt">threshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.1</span>
+<span class="w">    </span><span class="nt">postprocessing</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
+<span class="w">    </span><span class="nt">postprocessing_sizes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">-1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">5000</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">-1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">-1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">-1</span><span class="w"> </span><span class="p p-Indicator">]</span>
+
+<span class="nt">hyper_parameters</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">batch_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+</code></pre></div>
+<p>Run:</p>
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>activate<span class="w"> </span>cryosiam
+cryosiam<span class="w"> </span>semantic_predict<span class="w"> </span>--config_file<span class="o">=</span>configs/config_semantic.yaml
+cryosiam<span class="w"> </span>semantic_postprocessing<span class="w"> </span>--config_file<span class="o">=</span>configs/config_semantic.yaml
+</code></pre></div>
+<p>Visualize with:</p>
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>activate<span class="w"> </span>cryosiam_vis
+cryosiam_vis<span class="w"> </span>visualize_semantic<span class="w"> </span>--config_file<span class="o">=</span>configs/config_semantic.yaml<span class="w">  </span>--filename<span class="w"> </span>TS_02.mrc
+</code></pre></div>
+<p>Output:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/tutorial/semantic_prediction.png" data-desc-position="bottom"><img alt="Semantic prediction" src="../images/tutorial/semantic_prediction.png"></a></p>
+<hr>
+<h2 id="step-4-instance-segmentation-objects">Step 4 - Instance Segmentation (objects)<a class="headerlink" href="#step-4-instance-segmentation-objects" title="Permanent link">¶</a></h2>
+<p>Download the model
+from <a href="https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main/cryosiam_instance.ckpt">here</a>.</p>
+<p>Create <code>configs/config_instance.yaml</code> download and adapt from <a href="../configs/config_instance.yaml">the general example</a>):</p>
+<div class="highlight"><pre><span></span><code><span class="nt">data_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/cryosiam_tutorial/preds/denoised'</span>
+<span class="nt">mask_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/cryosiam_tutorial/preds/lamella'</span>
+<span class="nt">log_dir</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/cryosiam_tutorial/'</span>
+<span class="nt">prediction_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/cryosiam_tutorial/preds/instance'</span>
+
+<span class="nt">trained_model</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/cryosiam_tutorial/models/cryosiam_instance.ckpt'</span>
+<span class="nt">file_extension</span><span class="p">:</span><span class="w"> </span><span class="s">'.mrc'</span>
+
+<span class="nt">test_files</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
+
+<span class="nt">save_raw_predictions</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+
+<span class="nt">parameters</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">gpu_devices</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">  </span><span class="nt">data</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">patch_size</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">128</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">128</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">128</span><span class="w"> </span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">min</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">    </span><span class="nt">max</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">    </span><span class="nt">mean</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">    </span><span class="nt">std</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">  </span><span class="nt">network</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">in_channels</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">    </span><span class="nt">spatial_dims</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<span class="w">    </span><span class="nt">threshold_foreground</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.65</span>
+<span class="w">    </span><span class="nt">boundary_bias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.8</span>
+<span class="w">    </span><span class="nt">min_center_distance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">    </span><span class="nt">max_center_distance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
+<span class="w">    </span><span class="nt">distance_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w">   </span><span class="c1"># 0 for using only predicted distances, 1 for using predicted distances + cdist from foreground, 2 for using only cdist</span>
+<span class="w">    </span><span class="nt">postprocessing</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
+
+<span class="nt">hyper_parameters</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">batch_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+</code></pre></div>
+<p>Run:</p>
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>activate<span class="w"> </span>cryosiam
+cryosiam<span class="w"> </span>instance_predict<span class="w"> </span>--config_file<span class="o">=</span>configs/config_instance.yaml
+</code></pre></div>
+<p>Visualize with:</p>
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>activate<span class="w"> </span>cryosiam_vis
+cryosiam_vis<span class="w"> </span>visualize_instance<span class="w"> </span>--config_file<span class="o">=</span>configs/config_instance.yaml<span class="w">  </span>--filename<span class="w"> </span>TS_02.mrc
+</code></pre></div>
+<p>Output:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/tutorial/instance_prediction.png" data-desc-position="bottom"><img alt="Instance prediction" src="../images/tutorial/instance_prediction.png"></a></p>
+<hr>
+<h2 id="step-5-filter-and-visualize-instances-within-a-mask-membrane-proteins">Step 5 - Filter and visualize instances within a mask (membrane proteins)<a class="headerlink" href="#step-5-filter-and-visualize-instances-within-a-mask-membrane-proteins" title="Permanent link">¶</a></h2>
+<p>This step takes the predicted mask for the membrane and isolates the instances interacting with that mask</p>
+<p>Take the config file from the previous step, and add the fields <code>filtering_mask_folder</code>, <code>filtering_mask_expand_voxels</code> and <code>filtering_mask_expand_labels</code>. </p>
+<div class="highlight"><pre><span></span><code><span class="nt">data_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/cryosiam_tutorial/preds/denoised'</span>
+<span class="nt">mask_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/cryosiam_tutorial/preds/lamella'</span>
+<span class="nt">log_dir</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/cryosiam_tutorial/'</span>
+<span class="nt">prediction_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/cryosiam_tutorial/preds/instance'</span>
+
+<span class="nt">trained_model</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/cryosiam_tutorial/models/cryosiam_instance.ckpt'</span>
+<span class="nt">file_extension</span><span class="p">:</span><span class="w"> </span><span class="s">'.mrc'</span>
+
+
+<span class="nt">filtering_mask_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/cryosiam_tutorial/preds/semantic'</span>
+<span class="nt">filtering_mask_expand_voxels</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="nt">filtering_mask_labels</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">1</span><span class="p p-Indicator">]</span>
+
+<span class="nt">test_files</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
+
+<span class="nt">save_raw_predictions</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+
+<span class="nt">parameters</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">gpu_devices</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">  </span><span class="nt">data</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">patch_size</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">128</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">128</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">128</span><span class="w"> </span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">min</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">    </span><span class="nt">max</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">    </span><span class="nt">mean</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">    </span><span class="nt">std</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">  </span><span class="nt">network</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">in_channels</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">    </span><span class="nt">spatial_dims</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<span class="w">    </span><span class="nt">threshold_foreground</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.65</span>
+<span class="w">    </span><span class="nt">boundary_bias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.8</span>
+<span class="w">    </span><span class="nt">min_center_distance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">    </span><span class="nt">max_center_distance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
+<span class="w">    </span><span class="nt">distance_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w">   </span><span class="c1"># 0 for using only predicted distances, 1 for using predicted distances + cdist from foreground, 2 for using only cdist</span>
+<span class="w">    </span><span class="nt">postprocessing</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
+
+<span class="nt">hyper_parameters</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">batch_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+</code></pre></div>
+<p>Run:</p>
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>activate<span class="w"> </span>cryosiam
+cryosiam<span class="w"> </span>instance_filter<span class="w"> </span>--config_file<span class="o">=</span>configs/config_instance.yaml
+</code></pre></div>
+<p>Visualize with:</p>
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>activate<span class="w"> </span>cryosiam_vis
+cryosiam_vis<span class="w"> </span>visualize_filtered_instance<span class="w"> </span>--config_file<span class="o">=</span>configs/config_instance.yaml<span class="w">  </span>--filename<span class="w"> </span>TS_02.mrc
+</code></pre></div>
+<p>Output:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/tutorial/filtered_instance_prediction.png" data-desc-position="bottom"><img alt="Filtered instance prediction" src="../images/tutorial/filtered_instance_prediction.png"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/tutorial/filtered_instance_prediction_2.png" data-desc-position="bottom"><img alt="Filtered instance prediction 2" src="../images/tutorial/filtered_instance_prediction_2.png"></a></p>
+<hr>
+<h2 id="step-6-subtomogram-embeddings">Step 6 - Subtomogram Embeddings<a class="headerlink" href="#step-6-subtomogram-embeddings" title="Permanent link">¶</a></h2>
+<p>Download the model
+from <a href="https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main/simsiam_embeds_denoised_convex_hull.ckpt">here</a>.</p>
+<p>Create <code>configs/config_subtomo_embeddings.yaml</code> download and adapt from <a href="../configs/config_subtomo_embeddings.yaml">the general example</a>):</p>
+<div class="highlight"><pre><span></span><code><span class="nt">data_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/cryosiam_tutorial/preds/denoised'</span>
+<span class="nt">instances_mask_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/cryosiam_tutorial/preds/instance'</span>
+<span class="nt">log_dir</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/cryosiam_tutorial/'</span>
+<span class="nt">prediction_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/cryosiam_tutorial/preds/subtomo_embeds'</span>
+
+<span class="nt">trained_model</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/cryosiam_tutorial/models/simsiam_embeds_denoised_convex_hull.ckpt'</span>
+<span class="nt">contrastive</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
+<span class="nt">file_extension</span><span class="p">:</span><span class="w"> </span><span class="s">'.mrc'</span>
+
+<span class="nt">test_files</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
+<span class="nt">clustering_files</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
+<span class="nt">visualization_files</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
+
+<span class="nt">min_particle_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span><span class="w">  </span><span class="c1"># create embeddings only to instances this much min voxels in their mask</span>
+<span class="nt">max_particle_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
+<span class="nt">masking_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="nt">expand_labels</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+
+<span class="nt">clustering_kmeans</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">num_clusters</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">6</span>
+<span class="w">  </span><span class="nt">visualization</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
+
+<span class="nt">clustering_spectral</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">num_clusters</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">6</span>
+<span class="w">  </span><span class="nt">estimate_num_clusters</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="w">  </span><span class="nt">visualization</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
+
+<span class="nt">visualization</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">prediction_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/cryosiam_tutorial/preds/subtomo_embeds/vis'</span>
+<span class="w">  </span><span class="nt">distance</span><span class="p">:</span><span class="w"> </span><span class="s">'euclidean'</span>
+<span class="w">  </span><span class="nt">pca_components</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
+<span class="w">  </span><span class="nt">visualization_suffix</span><span class="p">:</span><span class="w"> </span><span class="s">'instance_regions.csv'</span>
+<span class="w">  </span><span class="nt">visualize_umap</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
+<span class="w">  </span><span class="nt">3d_umap</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+
+<span class="nt">parameters</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">gpu_devices</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">  </span><span class="nt">data</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">patch_size</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">64</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">64</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">64</span><span class="w"> </span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">patch_overlap</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
+<span class="w">    </span><span class="nt">min</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">    </span><span class="nt">max</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">    </span><span class="nt">mean</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">    </span><span class="nt">std</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">  </span><span class="nt">network</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">spatial_dims</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<span class="w">    </span><span class="nt">in_channels</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">    </span><span class="nt">dim</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1024</span>
+
+<span class="nt">hyper_parameters</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">batch_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+</code></pre></div>
+<p>Run:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Generate embeddings (TS_02 only)</span>
+cryosiam<span class="w"> </span>simsiam_embeddings_predict<span class="w"> </span>--config_file<span class="o">=</span>configs/config_subtomo_embeddings.yaml<span class="w"> </span>--filename<span class="w"> </span>TS_02.mrc
+
+<span class="c1"># Visualize (UMAP/PCA)</span>
+cryosiam<span class="w"> </span>simsiam_visualize_embeddings<span class="w"> </span>--config_file<span class="o">=</span>configs/config_subtomo_embeddings.yaml
+
+<span class="c1"># Optional clustering</span>
+cryosiam<span class="w"> </span>simsiam_embeddings_kmeans_clustering<span class="w"> </span>--config_file<span class="o">=</span>configs/config_subtomo_embeddings.yaml
+cryosiam<span class="w"> </span>simsiam_embeddings_spectral_clustering<span class="w"> </span>--config_file<span class="o">=</span>configs/config_subtomo_embeddings.yaml
+</code></pre></div>
+<p>Visualize with:</p>
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>activate<span class="w"> </span>cryosiam_vis
+cryosiam_vis<span class="w"> </span>visualize_embeddings<span class="w"> </span>--config_file<span class="o">=</span>configs/config_subtomo_embeddings.yaml
+</code></pre></div>
+<p>Output:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/tutorial/visualize_embeddings.png" data-desc-position="bottom"><img alt="Visualize embeddings" src="../images/tutorial/visualize_embeddings.png"></a></p>
+<p>Visualize clusters with:</p>
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>activate<span class="w"> </span>cryosiam_vis
+cryosiam_vis<span class="w"> </span>visualize_embeddings_clusters<span class="w"> </span>--config_file<span class="o">=</span>configs/config_subtomo_embeddings.yaml<span class="w"> </span>--clustering<span class="o">=</span>spectral
+</code></pre></div>
+<p>Output:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/tutorial/visualize_clusters.png" data-desc-position="bottom"><img alt="Visualize clusters" src="../images/tutorial/visualize_clusters.png"></a></p>
+<hr>
+<h2 id="step-7-particle-identification">Step 7 - Particle identification<a class="headerlink" href="#step-7-particle-identification" title="Permanent link">¶</a></h2>
+<p>Download the model
+from <a href="https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main/cryosiam_semantic_myco_candidates.ckpt">here</a>.</p>
+<p>Create <code>configs/config_semantic_particle.yaml</code> download and adapt from <a href="../configs/config_semantic_particle.yaml">the general example</a>):</p>
+<div class="highlight"><pre><span></span><code><span class="nt">data_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/cryosiam_tutorial/preds/denoised'</span>
+<span class="nt">mask_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/cryosiam_tutorial/preds/lamella'</span>
+<span class="nt">log_dir</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/cryosiam_tutorial/'</span>
+<span class="nt">prediction_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/cryosiam_tutorial/preds/semantic_particle'</span>
+
+<span class="nt">trained_model</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/cryosiam_tutorial/models/cryosiam_semantic_myco_candidates.ckpt'</span>
+<span class="nt">file_extension</span><span class="p">:</span><span class="w"> </span><span class="s">'.mrc'</span>
+
+<span class="nt">test_files</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
+
+<span class="nt">parameters</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">gpu_devices</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">  </span><span class="nt">data</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">patch_size</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">128</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">128</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">128</span><span class="w"> </span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">min</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">    </span><span class="nt">max</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">    </span><span class="nt">mean</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">    </span><span class="nt">std</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">  </span><span class="nt">network</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">in_channels</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">    </span><span class="nt">spatial_dims</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<span class="w">    </span><span class="nt">out_chanels</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">14</span>
+<span class="w">    </span><span class="nt">threshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.7</span>
+
+<span class="nt">hyper_parameters</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">batch_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+</code></pre></div>
+<p>Run:</p>
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>activate<span class="w"> </span>cryosiam
+cryosiam<span class="w"> </span>semantic_predict<span class="w"> </span>--config_file<span class="o">=</span>configs/config_semantic_particle.yaml
+cryosiam<span class="w"> </span>semantic_to_centers<span class="w"> </span>--config_file<span class="o">=</span>configs/config_semantic_particle.yaml
+</code></pre></div>
+<p>Visualize with:</p>
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>activate<span class="w"> </span>cryosiam_vis
+cryosiam_vis<span class="w"> </span>visualize_semantic<span class="w"> </span>--config_file<span class="o">=</span>configs/config_semantic_particle.yaml<span class="w">  </span>--filename<span class="w"> </span>TS_02.mrc
+</code></pre></div>
+<p>Output:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/tutorial/particle_prediction.png" data-desc-position="bottom"><img alt="Particle identification prediction" src="../images/tutorial/particle_prediction.png"></a></p>
+<hr>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TS_02 missing or different extension</td>
+<td>Check the downloaded filename and set <code>file_extension</code> accordingly.</td>
+</tr>
+<tr>
+<td>GPU OOM</td>
+<td>Reduce <code>batch_size</code> in the configs.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">¶</a></h2>
+<ul>
+<li>CryoSiam models are trained primarily on <strong>lamella regions</strong>; always gate with the lamella mask to avoid false
+  positives outside the lamella.</li>
+</ul>
 
 
 

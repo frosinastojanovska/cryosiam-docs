@@ -5,13 +5,13 @@
       
       
       
-        <link rel="canonical" href="https://frosinastojanovska.github.io/cryosiam-docs/particle_identification/">
+        <link rel="canonical" href="https://frosinastojanovska.github.io/cryosiam-docs/subtomogram_embeddings/">
       
       
-        <link rel="prev" href="../instance/">
+        <link rel="prev" href="../particle_identification/">
       
       
-        <link rel="next" href="../subtomogram_embeddings/">
+        <link rel="next" href="../tutorial/">
       
       
       <link rel="icon" href="../images/CryoSiam_logo_favicon.svg">
@@ -19,7 +19,7 @@
     
     
       
-        <title>Particle identification - CryoSiam Documentation</title>
+        <title>Subtomogram embeddings - CryoSiam Documentation</title>
       
     
     
@@ -81,7 +81,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#particle-identification-semantic-candidates-particle-centers" class="md-skip">
+        <a href="#subtomogram-embeddings-generation" class="md-skip">
           Skip to content
         </a>
       
@@ -132,7 +132,7 @@ You're not viewing the latest version.
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Particle identification
+              Subtomogram embeddings
             
           </span>
         </div>
@@ -727,6 +727,29 @@ You're not viewing the latest version.
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../particle_identification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Particle identification
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -744,7 +767,7 @@ You're not viewing the latest version.
   
   
   <span class="md-ellipsis">
-    Particle identification
+    Subtomogram embeddings
     
   </span>
   
@@ -757,7 +780,7 @@ You're not viewing the latest version.
   
   
   <span class="md-ellipsis">
-    Particle identification
+    Subtomogram embeddings
     
   </span>
   
@@ -786,12 +809,45 @@ You're not viewing the latest version.
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Example Results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#embedding-space-projection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Embedding Space Projection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kmeans-clustering" class="md-nav__link">
+    <span class="md-ellipsis">
+      KMeans Clustering
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spectral-clustering" class="md-nav__link">
+    <span class="md-ellipsis">
+      Spectral Clustering
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#trained-models" class="md-nav__link">
+  <a href="#trained-model" class="md-nav__link">
     <span class="md-ellipsis">
-      Trained Models
+      Trained Model
     </span>
   </a>
   
@@ -808,18 +864,27 @@ You're not viewing the latest version.
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#semantic-prediction-for-particle-candidates" class="md-nav__link">
+  <a href="#generate-embeddings" class="md-nav__link">
     <span class="md-ellipsis">
-      Semantic Prediction for Particle Candidates
+      Generate Embeddings
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#convert-semantic-predictions-to-particle-centers" class="md-nav__link">
+  <a href="#visualize-embeddings" class="md-nav__link">
     <span class="md-ellipsis">
-      Convert Semantic Predictions to Particle Centers
+      Visualize Embeddings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-cluster-embeddings" class="md-nav__link">
+    <span class="md-ellipsis">
+      (Optional) Cluster Embeddings
     </span>
   </a>
   
@@ -831,9 +896,9 @@ You're not viewing the latest version.
 </li>
       
         <li class="md-nav__item">
-  <a href="#example-configuration-configssemantic_particleyaml" class="md-nav__link">
+  <a href="#example-configuration-configsconfig_subtomo_embeddingsyaml" class="md-nav__link">
     <span class="md-ellipsis">
-      Example Configuration (configs/semantic_particle.yaml)
+      Example Configuration (configs/config_subtomo_embeddings.yaml)
     </span>
   </a>
   
@@ -850,9 +915,36 @@ You're not viewing the latest version.
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#top-level-keys" class="md-nav__link">
+  <a href="#toplevel-keys" class="md-nav__link">
     <span class="md-ellipsis">
-      Top-level keys
+      Top‑level keys
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clustering_kmeans" class="md-nav__link">
+    <span class="md-ellipsis">
+      clustering_kmeans
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clustering_spectral" class="md-nav__link">
+    <span class="md-ellipsis">
+      clustering_spectral
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      visualization
     </span>
   </a>
   
@@ -881,33 +973,28 @@ You're not viewing the latest version.
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../subtomogram_embeddings/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Subtomogram embeddings
-    
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -1019,12 +1106,45 @@ You're not viewing the latest version.
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Example Results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#embedding-space-projection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Embedding Space Projection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kmeans-clustering" class="md-nav__link">
+    <span class="md-ellipsis">
+      KMeans Clustering
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spectral-clustering" class="md-nav__link">
+    <span class="md-ellipsis">
+      Spectral Clustering
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#trained-models" class="md-nav__link">
+  <a href="#trained-model" class="md-nav__link">
     <span class="md-ellipsis">
-      Trained Models
+      Trained Model
     </span>
   </a>
   
@@ -1041,18 +1161,27 @@ You're not viewing the latest version.
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#semantic-prediction-for-particle-candidates" class="md-nav__link">
+  <a href="#generate-embeddings" class="md-nav__link">
     <span class="md-ellipsis">
-      Semantic Prediction for Particle Candidates
+      Generate Embeddings
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#convert-semantic-predictions-to-particle-centers" class="md-nav__link">
+  <a href="#visualize-embeddings" class="md-nav__link">
     <span class="md-ellipsis">
-      Convert Semantic Predictions to Particle Centers
+      Visualize Embeddings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-cluster-embeddings" class="md-nav__link">
+    <span class="md-ellipsis">
+      (Optional) Cluster Embeddings
     </span>
   </a>
   
@@ -1064,9 +1193,9 @@ You're not viewing the latest version.
 </li>
       
         <li class="md-nav__item">
-  <a href="#example-configuration-configssemantic_particleyaml" class="md-nav__link">
+  <a href="#example-configuration-configsconfig_subtomo_embeddingsyaml" class="md-nav__link">
     <span class="md-ellipsis">
-      Example Configuration (configs/semantic_particle.yaml)
+      Example Configuration (configs/config_subtomo_embeddings.yaml)
     </span>
   </a>
   
@@ -1083,9 +1212,36 @@ You're not viewing the latest version.
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#top-level-keys" class="md-nav__link">
+  <a href="#toplevel-keys" class="md-nav__link">
     <span class="md-ellipsis">
-      Top-level keys
+      Top‑level keys
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clustering_kmeans" class="md-nav__link">
+    <span class="md-ellipsis">
+      clustering_kmeans
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clustering_spectral" class="md-nav__link">
+    <span class="md-ellipsis">
+      clustering_spectral
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      visualization
     </span>
   </a>
   
@@ -1114,6 +1270,24 @@ You're not viewing the latest version.
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1130,7 +1304,7 @@ You're not viewing the latest version.
 
 
   
-    <a href="https://github.com/frosinastojanovska/cryosiam/edit/master/docs/particle_identification.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/frosinastojanovska/cryosiam/edit/master/docs/subtomogram_embeddings.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
     </a>
@@ -1138,78 +1312,114 @@ You're not viewing the latest version.
   
 
 
-<h1 id="particle-identification-semantic-candidates-particle-centers">Particle Identification (Semantic Candidates → Particle Centers)<a class="headerlink" href="#particle-identification-semantic-candidates-particle-centers" title="Permanent link">¶</a></h1>
-<p>The <strong>Particle Identification</strong> task in CryoSiam is designed to detect <strong>candidate macromolecular complexes</strong> and
-convert them into <strong>particle coordinates</strong> suitable for downstream workflows (csv and star files).</p>
-<p>It works in <strong>two steps</strong>:</p>
-<ol>
-<li><strong>Semantic prediction of candidate classes</strong> (multi-class semantic model)</li>
-<li><strong>Conversion to particle centers</strong> (extracting coordinates from high-confidence regions)</li>
-</ol>
-<p><strong>Workflow:</strong></p>
+<h1 id="subtomogram-embeddings-generation">Subtomogram Embeddings Generation<a class="headerlink" href="#subtomogram-embeddings-generation" title="Permanent link">¶</a></h1>
+<p>The Subtomogram Embeddings task extracts fixed-length feature representations from segmented subtomograms.<br>
+These embeddings capture the 3D structural and textural properties of each instance and enable unsupervised comparison, visualization, and clustering.</p>
 <blockquote>
-<p><code>Denoising → Lamella Prediction → Semantic (particle candidates) → Particle centers (.star / .csv)</code></p>
-<p><strong>Recommended:</strong> Always use a <strong>lamella mask</strong> to remove false positives outside the lamella, since models are trained
-only on lamella regions.</p>
+<p><strong>Workflow:</strong> <code>Instance Segmentation → Subtomogram Embeddings → Visualization → (Optional Clustering)</code><br>
+Embeddings are generated from <strong>instance masks</strong> produced in the previous step.</p>
 </blockquote>
 <hr>
 <h2 id="example-results">Example Results<a class="headerlink" href="#example-results" title="Permanent link">¶</a></h2>
-<p>Semantic particle prediction (centers):<br>
-<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/semantic/particle_prediction.png" data-desc-position="bottom"><img alt="Semantic particle prediction" src="../images/semantic/particle_prediction.png" width="400"></a></p>
+<ul>
+<li><strong>UMAP visualization:</strong> Each point represents a subtomogram embedding.</li>
+<li><strong>KMeans clusters:</strong> Distinct color-coded groups of similar structural features.</li>
+<li><strong>Spectral clusters:</strong> Captures fine-grained structural variability.</li>
+</ul>
+<h3 id="embedding-space-projection">Embedding Space Projection<a class="headerlink" href="#embedding-space-projection" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/embeddings/umap.png" data-desc-position="bottom"><img alt="2D UMAP embedding" src="../images/embeddings/umap.png" width="400"></a></p>
+<h3 id="kmeans-clustering">KMeans Clustering<a class="headerlink" href="#kmeans-clustering" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/embeddings/kmeans.png" data-desc-position="bottom"><img alt="KMeans clusters" src="../images/embeddings/kmeans.png" width="400"></a></p>
+<h3 id="spectral-clustering">Spectral Clustering<a class="headerlink" href="#spectral-clustering" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/embeddings/spectral.png" data-desc-position="bottom"><img alt="Spectral clusters" src="../images/embeddings/spectral.png" width="400"></a></p>
 <hr>
-<h2 id="trained-models">Trained Models<a class="headerlink" href="#trained-models" title="Permanent link">¶</a></h2>
-<p>You can download the trained lamella model from here: <a href="https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main/cryosiam_lamella.ckpt">CryoSiam lamella model (v1.0)</a>, and the semantic
-segmentation model from here: <a href="https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main/cryosiam_semantic_myco_candidates.ckpt">CryoSiam particle identification model (v1.0)</a>.
-You can also train your own model and then perform prediction with that model. Review
-the <a href="../semantic_training/">Semantic training</a> for explanation of the model training procedure.</p>
+<h2 id="trained-model">Trained Model<a class="headerlink" href="#trained-model" title="Permanent link">¶</a></h2>
+<p>You can download the trained model from
+here: <a href="https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main/simsiam_embeds_denoised_convex_hull.ckpt">CryoSiam subtomogram embedding model (v1.0)</a></p>
 <hr>
 <h2 id="commands"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m6.354 8.04-4.773 4.773a.75.75 0 1 0 1.061 1.06L7.945 8.57a.75.75 0 0 0 0-1.06L2.642 2.206a.75.75 0 0 0-1.06 1.061L6.353 8.04ZM8.75 11.5a.75.75 0 0 0 0 1.5h5.5a.75.75 0 0 0 0-1.5z"></path></svg></span> Commands<a class="headerlink" href="#commands" title="Permanent link">¶</a></h2>
-<h3 id="semantic-prediction-for-particle-candidates">Semantic Prediction for Particle Candidates<a class="headerlink" href="#semantic-prediction-for-particle-candidates" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code>cryosiam<span class="w"> </span>semantic_predict<span class="w"> </span>--config_file<span class="o">=</span>configs/semantic_particle.yaml
+<h3 id="generate-embeddings">Generate Embeddings<a class="headerlink" href="#generate-embeddings" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code>cryosiam<span class="w"> </span>simsiam_embeddings_predict<span class="w"> </span>--config_file<span class="o">=</span>configs/subtomo_embeddings.yaml
 </code></pre></div>
-<h3 id="convert-semantic-predictions-to-particle-centers">Convert Semantic Predictions to Particle Centers<a class="headerlink" href="#convert-semantic-predictions-to-particle-centers" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code>cryosiam<span class="w"> </span>semantic_to_centers<span class="w"> </span>--config_file<span class="o">=</span>configs/semantic_particle.yaml
+<p>Optionally, process a single tomogram:</p>
+<div class="highlight"><pre><span></span><code>cryosiam<span class="w"> </span>simsiam_embeddings_predict<span class="w"> </span>--config_file<span class="o">=</span>configs/subtomo_embeddings.yaml<span class="w"> </span>--filename<span class="w"> </span>TS_01.mrc
 </code></pre></div>
-<p><strong>Visualization</strong>
-For visualization of the results, CryoSiam-Vis can be used as described <a href="../visualization/#visualize_coordinates">here</a>.</p>
 <hr>
-<h2 id="example-configuration-configssemantic_particleyaml">Example Configuration (<code>configs/semantic_particle.yaml</code>)<a class="headerlink" href="#example-configuration-configssemantic_particleyaml" title="Permanent link">¶</a></h2>
-<div class="highlight"><pre><span></span><code><span class="nt">data_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/stojanov/dataset1/predictions/denoised'</span>
-<span class="nt">mask_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/stojanov/dataset1/predictions/lamella'</span>
+<h3 id="visualize-embeddings">Visualize Embeddings<a class="headerlink" href="#visualize-embeddings" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code>cryosiam<span class="w"> </span>simsiam_visualize_embeddings<span class="w"> </span>--config_file<span class="o">=</span>configs/subtomo_embeddings.yaml
+</code></pre></div>
+<p>This command generates UMAP/PCA projections and distance maps for qualitative inspection.</p>
+<hr>
+<h3 id="optional-cluster-embeddings">(Optional) Cluster Embeddings<a class="headerlink" href="#optional-cluster-embeddings" title="Permanent link">¶</a></h3>
+<p><strong>KMeans clustering:</strong></p>
+<div class="highlight"><pre><span></span><code>cryosiam<span class="w"> </span>simsiam_embeddings_kmeans_clustering<span class="w"> </span>--config_file<span class="o">=</span>configs/subtomo_embeddings.yaml
+</code></pre></div>
+<p><strong>Spectral clustering:</strong></p>
+<div class="highlight"><pre><span></span><code>cryosiam<span class="w"> </span>simsiam_embeddings_spectral_clustering<span class="w"> </span>--config_file<span class="o">=</span>configs/subtomo_embeddings.yaml
+</code></pre></div>
+<hr>
+<h2 id="example-configuration-configsconfig_subtomo_embeddingsyaml">Example Configuration (<code>configs/config_subtomo_embeddings.yaml</code>)<a class="headerlink" href="#example-configuration-configsconfig_subtomo_embeddingsyaml" title="Permanent link">¶</a></h2>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z"></path><path d="M7.25 7.689V2a.75.75 0 0 1 1.5 0v5.689l1.97-1.969a.749.749 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 6.78a.749.749 0 1 1 1.06-1.06z"></path></svg></span> <a href="../configs/config_subtomo_embeddings.yaml">Download example config</a></p>
+<div class="highlight"><pre><span></span><code><span class="nt">data_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/stojanov/dataset1/tomograms'</span>
+<span class="nt">instances_mask_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/stojanov/dataset1/predictions/instances'</span>
 <span class="nt">log_dir</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/stojanov/dataset1/'</span>
-<span class="nt">prediction_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/stojanov/dataset1/predictions/semantic_particle'</span>
-
-<span class="nt">trained_model</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/stojanov/trained_models/cryosiam_semantic_myco_candidates.ckpt'</span>
+<span class="nt">prediction_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/stojanov/dataset1/predictions/subtomo_embeds'</span>
+<span class="nt">trained_model</span><span class="p">:</span><span class="w"> </span><span class="s">'/g/zaugg/stojanov/simulated_datasets/final_models/simsiam_contrastive/version_1/model/last.ckpt'</span>
+<span class="nt">contrastive</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
 <span class="nt">file_extension</span><span class="p">:</span><span class="w"> </span><span class="s">'.mrc'</span>
 
 <span class="nt">test_files</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
+<span class="nt">clustering_files</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
+<span class="nt">visualization_files</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
+
+<span class="nt">min_particle_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="nt">max_particle_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
+<span class="nt">masking_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="nt">expand_labels</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+
+<span class="nt">clustering_kmeans</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">num_clusters</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">6</span>
+<span class="w">  </span><span class="nt">visualization</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
+
+<span class="nt">clustering_spectral</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">num_clusters</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">6</span>
+<span class="w">  </span><span class="nt">estimate_num_clusters</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="w">  </span><span class="nt">visualization</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
+
+<span class="nt">visualization</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">prediction_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/stojanov/dataset1/predictions/subtomo_embeds/vis'</span>
+<span class="w">  </span><span class="nt">distance</span><span class="p">:</span><span class="w"> </span><span class="s">'euclidean'</span>
+<span class="w">  </span><span class="nt">pca_components</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
+<span class="w">  </span><span class="nt">visualization_suffix</span><span class="p">:</span><span class="w"> </span><span class="s">'instance_regions.csv'</span>
+<span class="w">  </span><span class="nt">visualize_umap</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
+<span class="w">  </span><span class="nt">3d_umap</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
 
 <span class="nt">parameters</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">gpu_devices</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">  </span><span class="nt">gpu_devices</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
 <span class="w">  </span><span class="nt">data</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">patch_size</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">128</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">128</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">128</span><span class="w"> </span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">patch_size</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">64</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">64</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">64</span><span class="w"> </span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">patch_overlap</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
 <span class="w">    </span><span class="nt">min</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
 <span class="w">    </span><span class="nt">max</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
 <span class="w">    </span><span class="nt">mean</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
 <span class="w">    </span><span class="nt">std</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
 <span class="w">  </span><span class="nt">network</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">in_channels</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
 <span class="w">    </span><span class="nt">spatial_dims</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
-<span class="w">    </span><span class="nt">out_channels</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">14</span>
-<span class="w">    </span><span class="nt">threshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.7</span>
+<span class="w">    </span><span class="nt">in_channels</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">    </span><span class="nt">dim</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1024</span>
 
 <span class="nt">hyper_parameters</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">batch_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">  </span><span class="nt">batch_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
 </code></pre></div>
 <hr>
 <h2 id="config-reference">Config Reference<a class="headerlink" href="#config-reference" title="Permanent link">¶</a></h2>
-<h3 id="top-level-keys">Top-level keys<a class="headerlink" href="#top-level-keys" title="Permanent link">¶</a></h3>
+<h3 id="toplevel-keys">Top‑level keys<a class="headerlink" href="#toplevel-keys" title="Permanent link">¶</a></h3>
 <table>
 <thead>
 <tr>
 <th>Key</th>
 <th>Type</th>
-<th style="text-align: right;">Must change</th>
+<th style="text-align: right;">Must change the default value</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -1218,43 +1428,181 @@ For visualization of the results, CryoSiam-Vis can be used as described <a href=
 <td><code>data_folder</code></td>
 <td><code>str</code></td>
 <td style="text-align: right;">✅</td>
-<td>Folder with denoised tomograms.</td>
+<td>Path to tomograms (raw or denoised).</td>
 </tr>
 <tr>
-<td><code>mask_folder</code></td>
+<td><code>instances_mask_folder</code></td>
 <td><code>str</code></td>
 <td style="text-align: right;">✅</td>
-<td>Folder with lamella masks to restrict predictions.</td>
+<td>Path to <strong>instance segmentation masks</strong> (input regions).</td>
 </tr>
 <tr>
 <td><code>log_dir</code></td>
 <td><code>str</code></td>
 <td style="text-align: right;">❌</td>
-<td>Where logs and debug files are written.</td>
+<td>Directory for runtime logs.</td>
 </tr>
 <tr>
 <td><code>prediction_folder</code></td>
 <td><code>str</code></td>
 <td style="text-align: right;">✅</td>
-<td>Output folder for semantic predictions + particle centers.</td>
+<td>Output directory for generated embeddings.</td>
 </tr>
 <tr>
 <td><code>trained_model</code></td>
 <td><code>str</code></td>
 <td style="text-align: right;">✅</td>
-<td>Path to <code>.ckpt</code> particle‑candidate model.</td>
+<td>Path to pretrained SimSiam model checkpoint (<code>.ckpt</code>).</td>
+</tr>
+<tr>
+<td><code>contrastive</code></td>
+<td><code>bool</code></td>
+<td style="text-align: right;">❌</td>
+<td>Indicates whether model uses contrastive training (SimSiam).</td>
 </tr>
 <tr>
 <td><code>file_extension</code></td>
 <td><code>str</code></td>
 <td style="text-align: right;">❌</td>
-<td><code>.mrc</code> or <code>.rec</code>.</td>
+<td>File type of tomograms (e.g., <code>.mrc</code>).</td>
 </tr>
 <tr>
 <td><code>test_files</code></td>
 <td><code>list[str]</code> or <code>null</code></td>
 <td style="text-align: right;">❌</td>
-<td>Which tomograms to run.</td>
+<td>Specific files to process; <code>null</code> = all.</td>
+</tr>
+<tr>
+<td><code>min_particle_size</code></td>
+<td><code>int</code></td>
+<td style="text-align: right;">✅</td>
+<td>Minimum voxel size for valid particle region.</td>
+</tr>
+<tr>
+<td><code>max_particle_size</code></td>
+<td><code>int</code> or <code>null</code></td>
+<td style="text-align: right;">❌</td>
+<td>Maximum voxel size; <code>null</code> = no limit.</td>
+</tr>
+<tr>
+<td><code>masking_type</code></td>
+<td><code>int</code></td>
+<td style="text-align: right;">❌</td>
+<td>Mask generation method (0 = no masking, 1 = convex hull masking, 2 - strict masking).</td>
+</tr>
+<tr>
+<td><code>expand_labels</code></td>
+<td><code>int</code></td>
+<td style="text-align: right;">❌</td>
+<td>Number of voxels to expand around mask boundaries for convex hull or strict masking.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="clustering_kmeans"><code>clustering_kmeans</code><a class="headerlink" href="#clustering_kmeans" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th style="text-align: right;">Must change the default value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>num_clusters</code></td>
+<td><code>int</code></td>
+<td style="text-align: right;">✅</td>
+<td>Number of clusters for KMeans algorithm.</td>
+</tr>
+<tr>
+<td><code>visualization</code></td>
+<td><code>bool</code></td>
+<td style="text-align: right;">❌</td>
+<td>If <code>true</code>, generate scatter/UMAP plots of the embeddings.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="clustering_spectral"><code>clustering_spectral</code><a class="headerlink" href="#clustering_spectral" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th style="text-align: right;">Must change the default value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>num_clusters</code></td>
+<td><code>int</code></td>
+<td style="text-align: right;">✅</td>
+<td>Expected number of spectral clusters.</td>
+</tr>
+<tr>
+<td><code>estimate_num_clusters</code></td>
+<td><code>bool</code></td>
+<td style="text-align: right;">❌</td>
+<td>If <code>true</code>, automatically estimate cluster number.</td>
+</tr>
+<tr>
+<td><code>visualization</code></td>
+<td><code>bool</code></td>
+<td style="text-align: right;">❌</td>
+<td>Enable cluster visualizations.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="visualization"><code>visualization</code><a class="headerlink" href="#visualization" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th style="text-align: right;">Must change the default value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>prediction_folder</code></td>
+<td><code>str</code></td>
+<td style="text-align: right;">✅</td>
+<td>Directory for saving visualizations and projections.</td>
+</tr>
+<tr>
+<td><code>distance</code></td>
+<td><code>str</code></td>
+<td style="text-align: right;">❌</td>
+<td>Metric for pairwise similarity (<code>euclidean</code>, <code>cosine</code>, etc.).</td>
+</tr>
+<tr>
+<td><code>pca_components</code></td>
+<td><code>int</code> or <code>null</code></td>
+<td style="text-align: right;">❌</td>
+<td>Number of PCA components before projection.</td>
+</tr>
+<tr>
+<td><code>visualization_suffix</code></td>
+<td><code>str</code></td>
+<td style="text-align: right;">❌</td>
+<td>CSV file containing mapping between IDs and embedding vectors.</td>
+</tr>
+<tr>
+<td><code>visualize_umap</code></td>
+<td><code>bool</code></td>
+<td style="text-align: right;">❌</td>
+<td>Run 2D UMAP projection for visualization.</td>
+</tr>
+<tr>
+<td><code>3d_umap</code></td>
+<td><code>bool</code></td>
+<td style="text-align: right;">❌</td>
+<td>Run 3D UMAP visualization (interactive).</td>
 </tr>
 </tbody>
 </table>
@@ -1265,58 +1613,64 @@ For visualization of the results, CryoSiam-Vis can be used as described <a href=
 <tr>
 <th>Key</th>
 <th>Type</th>
-<th style="text-align: right;">Must change</th>
+<th style="text-align: right;">Must change the default value</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>gpu_devices</code></td>
-<td><code>int/list[int]</code></td>
+<td><code>int</code> or <code>list[int]</code></td>
 <td style="text-align: right;">❌</td>
-<td>GPU to use.</td>
+<td>GPU(s) to use.</td>
 </tr>
 <tr>
 <td><code>data.patch_size</code></td>
 <td><code>list[int]</code></td>
 <td style="text-align: right;">❌</td>
-<td>Patch size for inference.</td>
+<td>3D patch size around each instance region.</td>
 </tr>
 <tr>
-<td><code>data.min</code> / <code>data.max</code></td>
+<td><code>data.min</code></td>
 <td><code>float</code></td>
 <td style="text-align: right;">❌</td>
-<td>Intensity clipping.</td>
+<td>Intensity floor for normalization.</td>
 </tr>
 <tr>
-<td><code>data.mean</code> / <code>data.std</code></td>
+<td><code>data.max</code></td>
 <td><code>float</code></td>
 <td style="text-align: right;">❌</td>
-<td>Normalization stats.</td>
+<td>Intensity ceiling for normalization.</td>
 </tr>
 <tr>
-<td><code>network.in_channels</code></td>
-<td><code>int</code></td>
+<td><code>data.mean</code></td>
+<td><code>float</code></td>
 <td style="text-align: right;">❌</td>
-<td>Number of input channels (always 1).</td>
+<td>Mean used for normalization.</td>
+</tr>
+<tr>
+<td><code>data.std</code></td>
+<td><code>float</code></td>
+<td style="text-align: right;">❌</td>
+<td>Std used for normalization.</td>
 </tr>
 <tr>
 <td><code>network.spatial_dims</code></td>
 <td><code>int</code></td>
 <td style="text-align: right;">❌</td>
-<td>3 for 3D tomograms.</td>
+<td>Dimensionality (3 for subtomograms).</td>
 </tr>
 <tr>
-<td><code>network.out_channels</code></td>
+<td><code>network.in_channels</code></td>
 <td><code>int</code></td>
-<td style="text-align: right;">✅</td>
-<td>Number of semantic classes (14).</td>
+<td style="text-align: right;">❌</td>
+<td>Number of channels (usually 1).</td>
 </tr>
 <tr>
-<td><code>network.threshold</code></td>
-<td><code>float</code></td>
+<td><code>network.dim</code></td>
+<td><code>int</code></td>
 <td style="text-align: right;">❌</td>
-<td>Probability threshold for detection.</td>
+<td>Dimension of embedding space (e.g., <code>1024</code>).</td>
 </tr>
 </tbody>
 </table>
@@ -1327,7 +1681,7 @@ For visualization of the results, CryoSiam-Vis can be used as described <a href=
 <tr>
 <th>Key</th>
 <th>Type</th>
-<th style="text-align: right;">Must change</th>
+<th style="text-align: right;">Must change the default value</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -1336,10 +1690,45 @@ For visualization of the results, CryoSiam-Vis can be used as described <a href=
 <td><code>batch_size</code></td>
 <td><code>int</code></td>
 <td style="text-align: right;">❌</td>
-<td>Number of patches processed per batch.</td>
+<td>Number of subtomograms per batch (default <code>10</code>).</td>
 </tr>
 </tbody>
 </table>
+<hr>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Suggested Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Empty embedding CSV</td>
+<td>Check instance masks and <code>instances_mask_folder</code>.</td>
+</tr>
+<tr>
+<td>Few or zero embeddings</td>
+<td>Adjust <code>min_particle_size</code>.</td>
+</tr>
+<tr>
+<td>GPU memory error</td>
+<td>Reduce <code>batch_size</code> or use smaller <code>patch_size</code>.</td>
+</tr>
+<tr>
+<td>Clusters overlap visually</td>
+<td>Increase <code>num_clusters</code> or try spectral clustering.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="../instance/">Instance segmentation</a> → required input for embeddings</li>
+<li><a href="../visualization/">Visualization</a> → explore embedding clusters in napari</li>
+<li><a href="../usage/">Usage overview</a></li>
+</ul>
 
 
 

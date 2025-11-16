@@ -562,16 +562,6 @@ You're not viewing the latest version.
 </li>
       
         <li class="md-nav__item">
-  <a href="#option-1-install-via-conda-environment" class="md-nav__link">
-    <span class="md-ellipsis">
-      Option 1: Install via Conda Environment
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Option 1: Install via Conda Environment">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#step-1-create-the-environment" class="md-nav__link">
     <span class="md-ellipsis">
       Step 1: Create the Environment
@@ -579,51 +569,13 @@ You're not viewing the latest version.
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#step-2-install-cryosiam" class="md-nav__link">
     <span class="md-ellipsis">
       Step 2: Install cryosiam
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#option-2-install-via-pip" class="md-nav__link">
-    <span class="md-ellipsis">
-      Option 2: Install via pip
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Option 2: Install via pip">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#step-1-install-gpu-enabled-pytorch" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 1: Install GPU-enabled PyTorch
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-2-install-the-package-and-dependencies" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 2: Install the Package and Dependencies
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -930,7 +882,7 @@ You're not viewing the latest version.
   
   
     <li class="md-nav__item">
-      <a href="../simsiam_embeddings/" class="md-nav__link">
+      <a href="../subtomogram_embeddings/" class="md-nav__link">
         
   
   
@@ -1055,16 +1007,6 @@ You're not viewing the latest version.
 </li>
       
         <li class="md-nav__item">
-  <a href="#option-1-install-via-conda-environment" class="md-nav__link">
-    <span class="md-ellipsis">
-      Option 1: Install via Conda Environment
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Option 1: Install via Conda Environment">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#step-1-create-the-environment" class="md-nav__link">
     <span class="md-ellipsis">
       Step 1: Create the Environment
@@ -1072,51 +1014,13 @@ You're not viewing the latest version.
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#step-2-install-cryosiam" class="md-nav__link">
     <span class="md-ellipsis">
       Step 2: Install cryosiam
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#option-2-install-via-pip" class="md-nav__link">
-    <span class="md-ellipsis">
-      Option 2: Install via pip
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Option 2: Install via pip">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#step-1-install-gpu-enabled-pytorch" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 1: Install GPU-enabled PyTorch
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-2-install-the-package-and-dependencies" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 2: Install the Package and Dependencies
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1210,42 +1114,18 @@ You're not viewing the latest version.
 <h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">¶</a></h2>
 <ul>
 <li>Python &gt;= 3.8</li>
-<li>Conda (optional, for environment-based setup)</li>
+<li>Conda (for environment-based setup)</li>
 <li>(Optional) NVIDIA GPU with CUDA 11.8+ drivers for GPU acceleration</li>
 </ul>
 <hr>
-<h2 id="option-1-install-via-conda-environment">Option 1: Install via Conda Environment<a class="headerlink" href="#option-1-install-via-conda-environment" title="Permanent link">¶</a></h2>
-<p>You can also use Conda to create an isolated environment with all dependencies.</p>
-<h3 id="step-1-create-the-environment">Step 1: Create the Environment<a class="headerlink" href="#step-1-create-the-environment" title="Permanent link">¶</a></h3>
+<h2 id="step-1-create-the-environment">Step 1: Create the Environment<a class="headerlink" href="#step-1-create-the-environment" title="Permanent link">¶</a></h2>
 <div class="highlight"><pre><span></span><code>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>https://github.com/frosinastojanovska/cryosiam/blob/main/environment.yml
 conda<span class="w"> </span>activate<span class="w"> </span>cryosiam
 </code></pre></div>
-<h3 id="step-2-install-cryosiam">Step 2: Install <code>cryosiam</code><a class="headerlink" href="#step-2-install-cryosiam" title="Permanent link">¶</a></h3>
+<h2 id="step-2-install-cryosiam">Step 2: Install <code>cryosiam</code><a class="headerlink" href="#step-2-install-cryosiam" title="Permanent link">¶</a></h2>
 <p>After activating the environment:</p>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/frosinastojanovska/cryosiam.git
 <span class="nb">cd</span><span class="w"> </span>cryosiam
-pip<span class="w"> </span>install<span class="w"> </span>--no-deps<span class="w"> </span>.
-</code></pre></div>
-<hr>
-<h2 id="option-2-install-via-pip">Option 2: Install via pip<a class="headerlink" href="#option-2-install-via-pip" title="Permanent link">¶</a></h2>
-<h3 id="step-1-install-gpu-enabled-pytorch">Step 1: Install GPU-enabled PyTorch<a class="headerlink" href="#step-1-install-gpu-enabled-pytorch" title="Permanent link">¶</a></h3>
-<p>Before installing this package, install the correct PyTorch build with GPU support:</p>
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">torch</span><span class="o">==</span><span class="m">2</span>.1.2<span class="w"> </span><span class="nv">torchvision</span><span class="o">==</span><span class="m">0</span>.16.2<span class="w"> </span>--index-url<span class="w"> </span>https://download.pytorch.org/whl/cu118
-</code></pre></div>
-<p>If you don’t need GPU support, you can install the CPU-only version instead:</p>
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">torch</span><span class="o">==</span><span class="m">2</span>.1.2<span class="w"> </span><span class="nv">torchvision</span><span class="o">==</span><span class="m">0</span>.16.2<span class="w"> </span>--index-url<span class="w"> </span>https://download.pytorch.org/whl/cpu
-</code></pre></div>
-<h3 id="step-2-install-the-package-and-dependencies">Step 2: Install the Package and Dependencies<a class="headerlink" href="#step-2-install-the-package-and-dependencies" title="Permanent link">¶</a></h3>
-<p>Clone the repository (if applicable) and install:</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/frosinastojanovska/cryosiam.git
-<span class="nb">cd</span><span class="w"> </span>cryosiam
-
-<span class="c1"># Recommended: use a virtual environment</span>
-python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
-<span class="nb">source</span><span class="w"> </span>.venv/bin/activate<span class="w">  </span><span class="c1"># On Windows: .venv\Scripts\activate</span>
-
-<span class="c1"># Install the package and dependencies</span>
-pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
 pip<span class="w"> </span>install<span class="w"> </span>--no-deps<span class="w"> </span>.
 </code></pre></div>
 <hr>
@@ -1261,8 +1141,8 @@ pip<span class="w"> </span>install<span class="w"> </span>--no-deps<span class="
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">¶</a></h2>
 <ul>
 <li><strong>CUDA errors</strong>: Make sure your system has the correct NVIDIA drivers and CUDA version.</li>
-<li><strong>Missing packages</strong>: Double-check that you followed the correct pip or conda install steps.</li>
-<li><strong>Conflicts</strong>: It's recommended to use a clean virtual environment or conda environment.</li>
+<li><strong>Missing packages</strong>: Double-check that you followed the correct conda install steps.</li>
+<li><strong>Conflicts</strong>: It's recommended to use a clean conda environment.</li>
 </ul>
 <hr>
 <h2 id="need-help">Need Help?<a class="headerlink" href="#need-help" title="Permanent link">¶</a></h2>
@@ -1291,7 +1171,7 @@ bash<span class="w"> </span>Miniforge3-Linux-x86_64.sh
 <p>Anaconda includes Conda, Python, and hundreds of data science packages.</p>
 <p>Download from: https://www.anaconda.com/products/distribution</p>
 <hr>
-<p>After installing Miniforge or Anaconda, return to the <a href="#option-1-install-via-conda-environment">main Conda installation steps</a> above.</p>
+<p>After installing Miniforge or Anaconda, return to the <a href="#step-1-create_the_environment">main Conda installation steps</a> above.</p>
 
 
 

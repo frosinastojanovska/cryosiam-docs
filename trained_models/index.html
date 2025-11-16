@@ -5,13 +5,9 @@
       
       
       
-        <link rel="canonical" href="https://frosinastojanovska.github.io/cryosiam-docs/simsiam_embeddings/">
+        <link rel="canonical" href="https://frosinastojanovska.github.io/cryosiam-docs/trained_models/">
       
       
-        <link rel="prev" href="../particle_identification/">
-      
-      
-        <link rel="next" href="../tutorial/">
       
       
       <link rel="icon" href="../images/CryoSiam_logo_favicon.svg">
@@ -19,7 +15,7 @@
     
     
       
-        <title>Subtomogram embeddings - CryoSiam Documentation</title>
+        <title>Pretrained CryoSiam Models - CryoSiam Documentation</title>
       
     
     
@@ -80,6 +76,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#pretrained-cryosiam-models" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -127,7 +128,7 @@ You're not viewing the latest version.
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Subtomogram embeddings
+              Pretrained CryoSiam Models
             
           </span>
         </div>
@@ -288,12 +289,10 @@ You're not viewing the latest version.
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
+      <li class="md-tabs__item">
         <a href="../usage/" class="md-tabs__link">
           
   
@@ -543,10 +542,8 @@ You're not viewing the latest version.
       
   
   
-    
   
   
-  
     
     
       
@@ -568,22 +565,19 @@ You're not viewing the latest version.
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
@@ -596,7 +590,7 @@ You're not viewing the latest version.
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Usage
@@ -745,17 +739,10 @@ You're not viewing the latest version.
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../subtomogram_embeddings/" class="md-nav__link">
         
   
   
@@ -766,7 +753,6 @@ You're not viewing the latest version.
   
 
       </a>
-      
     </li>
   
 
@@ -862,6 +848,25 @@ You're not viewing the latest version.
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#available-pretrained-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Available Pretrained Models
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -877,7 +882,7 @@ You're not viewing the latest version.
 
 
   
-    <a href="https://github.com/frosinastojanovska/cryosiam/edit/master/docs/simsiam_embeddings.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/frosinastojanovska/cryosiam/edit/master/docs/trained_models.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
     </a>
@@ -885,9 +890,54 @@ You're not viewing the latest version.
   
 
 
-  <h1>Subtomogram embeddings</h1>
-
-<p>Coming soon ...</p>
+<h1 id="pretrained-cryosiam-models">Pretrained CryoSiam Models<a class="headerlink" href="#pretrained-cryosiam-models" title="Permanent link">¶</a></h1>
+<p>CryoSiam provides several pretrained models hosted on Hugging Face.<br>
+Each model corresponds to one stage of the CryoSiam processing pipeline and can be used directly in the configuration
+files.</p>
+<p>Below is a list of all available pretrained models and what tasks they perform.</p>
+<hr>
+<h2 id="available-pretrained-models">Available Pretrained Models<a class="headerlink" href="#available-pretrained-models" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Model Name</th>
+<th>Task</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main/cryosiam_denoising.ckpt"><strong><code>cryosiam-denoising</code></strong></a></td>
+<td><strong>Denoising</strong></td>
+<td>Trained to remove noise on simulated data and can be directly applied to real cryo-ET data.</td>
+</tr>
+<tr>
+<td><strong><code>cryosiam-lamella</code></strong></td>
+<td><strong>Lamella Mask Prediction</strong></td>
+<td>Predicts lamella vs. non-lamella regions. Highly recommended before semantic/instance segmentation to remove false positives outside the lamella.</td>
+</tr>
+<tr>
+<td><strong><code>cryosiam-semantic</code></strong></td>
+<td><strong>Semantic Segmentation (General Classes)</strong></td>
+<td>Predicts voxel-level classes: <strong>membrane, particles, microtubules, actin, filaments (DNA/RNA)</strong>.</td>
+</tr>
+<tr>
+<td><strong><code>cryosiam-semantic-targeted</code></strong></td>
+<td><strong>Semantic Segmentation (Target Complex)</strong></td>
+<td>Specialized model trained to detect a <em>specific macromolecular complex</em> described in the paper.</td>
+</tr>
+<tr>
+<td><strong><code>cryosiam-instance</code></strong></td>
+<td><strong>Instance Segmentation</strong></td>
+<td>Predicts individual object instances using center-distance and boundary maps. Produces separated masks for each particle.</td>
+</tr>
+<tr>
+<td><strong><code>cryosiam-simsiam-embeddings</code></strong></td>
+<td><strong>Subtomogram Embeddings / Representation Learning</strong></td>
+<td>Generates 1024-dim embeddings for each instance using a self-supervised SimSiam model. Enables clustering and structural discovery.</td>
+</tr>
+</tbody>
+</table>
 
 
 

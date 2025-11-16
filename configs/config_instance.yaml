@@ -1,7 +1,7 @@
-data_folder: '/scratch/stojanov/datatset1/predictions/denoised'
-mask_folder: '/scratch/stojanov/datatset1/predictions/lamella'
-log_dir: '/scratch/stojanov/datatset1/'
-prediction_folder: '/scratch/stojanov/datatset1/predictions/instance'
+data_folder: '/scratch/stojanov/dataset1/predictions/denoised'
+mask_folder: '/scratch/stojanov/dataset1/predictions/lamella'
+log_dir: '/scratch/stojanov/dataset1/'
+prediction_folder: '/scratch/stojanov/dataset1/predictions/instance'
 
 trained_model: '/scratch/stojanov/trained_models/cryosiam_instance.ckpt'
 file_extension: '.mrc'
@@ -21,12 +21,12 @@ parameters:
   network:
     in_channels: 1
     spatial_dims: 3
-    threshold_foreground: 0.4
-    boundary_bias: 0.5
-    min_center_distance: 0
-    max_center_distance: 5
+    threshold_foreground: 0.65
+    boundary_bias: 0.8
+    min_center_distance: 1
+    max_center_distance: 4
     distance_type: 1   # 0 for using only predicted distances, 1 for using predicted distances + cdist from foreground, 2 for using only cdist
     postprocessing: False
 
 hyper_parameters:
-  batch_size: 10
+  batch_size: 3

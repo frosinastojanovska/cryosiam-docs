@@ -1008,7 +1008,7 @@ You're not viewing the latest version.
   
   
     <li class="md-nav__item">
-      <a href="../simsiam_embeddings/" class="md-nav__link">
+      <a href="../subtomogram_embeddings/" class="md-nav__link">
         
   
   
@@ -1417,6 +1417,8 @@ the <a href="../semantic_training/">Semantic training</a> for explanation of the
 <li>Writes semantic segmentation predictions to the output folder (and optional intermediates)</li>
 </ul>
 <p>Run semantic segmentation via the CLI using a YAML configuration file:</p>
+<p><strong>Visualization</strong>
+For visualization of the results, CryoSiam-Vis can be used as described <a href="../visualization/#visualize_semantic">here</a>.</p>
 <div class="highlight"><pre><span></span><code>cryosiam<span class="w"> </span>semantic_predict<span class="w"> </span>--config_file<span class="o">=</span>configs/config_semantic.yaml
 </code></pre></div>
 <p><strong>What it does</strong></p>
@@ -1431,9 +1433,9 @@ the <a href="../semantic_training/">Semantic training</a> for explanation of the
 <hr>
 <h3 id="1-lamella-prediction-configsconfig_lamellayaml">1. Lamella Prediction (<code>configs/config_lamella.yaml</code>)<a class="headerlink" href="#1-lamella-prediction-configsconfig_lamellayaml" title="Permanent link">¶</a></h3>
 <p>📥 <a href="../configs/config_lamella.yaml">Download lamella config</a></p>
-<div class="highlight"><pre><span></span><code><span class="nt">data_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/stojanov/datatset1/predictions/denoised'</span>
-<span class="nt">log_dir</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/stojanov/datatset1/'</span>
-<span class="nt">prediction_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/stojanov/datatset1/predictions/lamella'</span>
+<div class="highlight"><pre><span></span><code><span class="nt">data_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/stojanov/dataset1/predictions/denoised'</span>
+<span class="nt">log_dir</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/stojanov/dataset1/'</span>
+<span class="nt">prediction_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/stojanov/dataset1/predictions/lamella'</span>
 
 <span class="nt">trained_model</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/stojanov/trained_models/cryosiam_lamella.ckpt'</span>
 <span class="nt">file_extension</span><span class="p">:</span><span class="w"> </span><span class="s">'.mrc'</span>
@@ -1624,10 +1626,10 @@ the <a href="../semantic_training/">Semantic training</a> for explanation of the
 <hr>
 <h3 id="2-semantic-segmentation-configsconfig_semanticyaml">2. Semantic Segmentation (<code>configs/config_semantic.yaml</code>)<a class="headerlink" href="#2-semantic-segmentation-configsconfig_semanticyaml" title="Permanent link">¶</a></h3>
 <p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z"></path><path d="M7.25 7.689V2a.75.75 0 0 1 1.5 0v5.689l1.97-1.969a.749.749 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 6.78a.749.749 0 1 1 1.06-1.06z"></path></svg></span> <a href="../configs/config_semantic.yaml">Download semantic config</a></p>
-<div class="highlight"><pre><span></span><code><span class="nt">data_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/stojanov/datatset1/predictions/denoised'</span>
-<span class="nt">mask_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/stojanov/datatset1/predictions/lamella'</span>
-<span class="nt">log_dir</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/stojanov/datatset1/'</span>
-<span class="nt">prediction_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/stojanov/datatset1/predictions/semantic'</span>
+<div class="highlight"><pre><span></span><code><span class="nt">data_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/stojanov/dataset1/predictions/denoised'</span>
+<span class="nt">mask_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/stojanov/dataset1/predictions/lamella'</span>
+<span class="nt">log_dir</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/stojanov/dataset1/'</span>
+<span class="nt">prediction_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/stojanov/dataset1/predictions/semantic'</span>
 
 <span class="nt">trained_model</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/stojanov/trained_models/cryosiam_semantic.ckpt'</span>
 <span class="nt">file_extension</span><span class="p">:</span><span class="w"> </span><span class="s">'.mrc'</span>

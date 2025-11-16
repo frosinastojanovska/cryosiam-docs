@@ -1,13 +1,12 @@
 data_folder: '/scratch/stojanov/dataset1/predictions/denoised'
+mask_folder: '/scratch/stojanov/dataset1/predictions/lamella'
 log_dir: '/scratch/stojanov/dataset1/'
-prediction_folder: '/scratch/stojanov/dataset1/predictions/lamella'
+prediction_folder: '/scratch/stojanov/dataset1/predictions/semantic_particle'
 
-trained_model: '/scratch/stojanov/trained_models/cryosiam_lamella.ckpt'
+trained_model: '/scratch/stojanov/trained_models/cryosiam_semantic_myco_candidates.ckpt'
 file_extension: '.mrc'
 
 test_files: null
-
-save_internal_files: False
 
 parameters:
   gpu_devices: 1
@@ -20,9 +19,8 @@ parameters:
   network:
     in_channels: 1
     spatial_dims: 3
-    threshold: 0.9
-    postprocessing: True
-    3d_postprocessing: False
+    out_channels: 14
+    threshold: 0.7
 
 hyper_parameters:
   batch_size: 2

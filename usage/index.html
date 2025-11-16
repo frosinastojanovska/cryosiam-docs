@@ -692,6 +692,15 @@ You're not viewing the latest version.
 </li>
       
         <li class="md-nav__item">
+  <a href="#trained-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trained Models
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#configuration-files" class="md-nav__link">
     <span class="md-ellipsis">
       Configuration Files
@@ -831,7 +840,7 @@ You're not viewing the latest version.
   
   
     <li class="md-nav__item">
-      <a href="../simsiam_embeddings/" class="md-nav__link">
+      <a href="../subtomogram_embeddings/" class="md-nav__link">
         
   
   
@@ -974,6 +983,15 @@ You're not viewing the latest version.
 </li>
       
         <li class="md-nav__item">
+  <a href="#trained-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trained Models
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#configuration-files" class="md-nav__link">
     <span class="md-ellipsis">
       Configuration Files
@@ -1008,6 +1026,7 @@ You're not viewing the latest version.
 
 <h1 id="workflows">Workflows<a class="headerlink" href="#workflows" title="Permanent link">¶</a></h1>
 <p>CryoSiam workflows are designed to process cryo-electron tomography (CryoET) data step by step. Each module focuses on a specific task, and you can combine them into analysis pipelines depending on your scientific question.</p>
+<p>For details, please refer to the <a href="https://www.biorxiv.org/content/10.1101/2025.11.11.687379">CryoSiam preprint</a>.</p>
 <hr>
 <h2 id="workflow-1-denoising-semantic-segmentation-particle-identification"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 1.75C0 .784.784 0 1.75 0h3.5C6.216 0 7 .784 7 1.75v3.5A1.75 1.75 0 0 1 5.25 7H4v4a1 1 0 0 0 1 1h4v-1.25C9 9.784 9.784 9 10.75 9h3.5c.966 0 1.75.784 1.75 1.75v3.5A1.75 1.75 0 0 1 14.25 16h-3.5A1.75 1.75 0 0 1 9 14.25v-.75H5A2.5 2.5 0 0 1 2.5 11V7h-.75A1.75 1.75 0 0 1 0 5.25Zm1.75-.25a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Zm9 9a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Z"></path></svg></span> Workflow 1: Denoising → Semantic Segmentation / Particle Identification<a class="headerlink" href="#workflow-1-denoising-semantic-segmentation-particle-identification" title="Permanent link">¶</a></h2>
 <ol>
@@ -1037,7 +1056,10 @@ You're not viewing the latest version.
 <li><strong>Subtomogram Embeddings</strong><br>
    Represent subtomograms as feature vectors for clustering, comparison, or downstream analysis.</li>
 </ol>
-<p>See details in <a href="../denoising/">Denoising</a>, <a href="../instance/">Instance Segmentation</a>, and (upcoming) <strong>Subtomogram Embeddings</strong>.</p>
+<p>See details in <a href="../denoising/">Denoising</a>, <a href="../instance/">Instance Segmentation</a>, and <a href="../subtomogram_embeddings/">Subtomogram Embeddings</a>.</p>
+<hr>
+<h2 id="trained-models">Trained Models<a class="headerlink" href="#trained-models" title="Permanent link">¶</a></h2>
+<p>The available trained models are described here: <a href="../trained_models/">Trained Models</a>. </p>
 <hr>
 <h2 id="configuration-files">Configuration Files<a class="headerlink" href="#configuration-files" title="Permanent link">¶</a></h2>
 <p>Each module requires a YAML configuration file defining inputs, outputs, and model parameters.<br>
