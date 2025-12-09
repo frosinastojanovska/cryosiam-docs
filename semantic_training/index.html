@@ -80,6 +80,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#semantic-segmentation-training" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -685,6 +690,8 @@ You're not viewing the latest version.
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -862,6 +869,8 @@ You're not viewing the latest version.
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -885,9 +894,163 @@ You're not viewing the latest version.
   
 
 
-  <h1>Semantic segmentation training</h1>
-
-<p>Coming soon ...</p>
+<h1 id="semantic-segmentation-training">Semantic Segmentation Training<a class="headerlink" href="#semantic-segmentation-training" title="Permanent link">¶</a></h1>
+<p>This page explains how to train <strong>CryoSiam's semantic segmentation model</strong> from scratch using your own annotated tomograms.<br>
+It follows the four-step CLI workflow:</p>
+<ol>
+<li><strong>Ground-truth filtering</strong></li>
+<li><strong>Training data preprocessing</strong></li>
+<li><strong>Patch creation</strong></li>
+<li><strong>Model training</strong></li>
+</ol>
+<p>CryoSiam supports large-scale, multi-GPU semantic segmentation training with flexible augmentation, patch sampling, and dense output prediction.</p>
+<hr>
+<h1 id="1-training-workflow-overview">1. Training Workflow Overview<a class="headerlink" href="#1-training-workflow-overview" title="Permanent link">¶</a></h1>
+<h2 id="step-1-filter-ground-truth-labels">Step 1. Filter Ground-Truth Labels<a class="headerlink" href="#step-1-filter-ground-truth-labels" title="Permanent link">¶</a></h2>
+<p>Ensures the labels are:
+- cleaned,
+- within valid ranges,
+- aligned with tomograms,
+- converted to the expected class indices.</p>
+<p>Command:
+</p><div class="highlight"><pre><span></span><code>cryosiam<span class="w"> </span>semantic_filter_ground_truth<span class="w"> </span>--config_file<span class="o">=</span>configs/semantic_training.yaml
+</code></pre></div><p></p>
+<h2 id="step-2-training-workflow-overview">Step 2. Training Workflow Overview<a class="headerlink" href="#step-2-training-workflow-overview" title="Permanent link">¶</a></h2>
+<p>Normalizes tomograms, aligns labels, optionally applies lamella masks, and prepares the dataset.</p>
+<p>Command:
+</p><div class="highlight"><pre><span></span><code>cryosiam<span class="w"> </span>semantic_train_preprocess<span class="w"> </span>--config_file<span class="o">=</span>configs/semantic_training.yaml
+</code></pre></div><p></p>
+<h2 id="step-3-create-training-patches">Step 3 — Create Training Patches<a class="headerlink" href="#step-3-create-training-patches" title="Permanent link">¶</a></h2>
+<p>CryoSiam splits full tomograms into overlapping 3D patches for efficient GPU training.</p>
+<p>Command:
+</p><div class="highlight"><pre><span></span><code>cryosiam<span class="w"> </span>semantic_train_create_patches<span class="w"> </span>--config_file<span class="o">=</span>configs/semantic_training.yaml
+</code></pre></div><p></p>
+<h2 id="step-4-train-the-model">Step 4 — Train the Model<a class="headerlink" href="#step-4-train-the-model" title="Permanent link">¶</a></h2>
+<p>Runs the full training pipeline using PyTorch Lightning.</p>
+<p>Command:
+</p><div class="highlight"><pre><span></span><code>cryosiam<span class="w"> </span>semantic_train<span class="w"> </span>--config_file<span class="o">=</span>configs/semantic_training.yaml
+</code></pre></div><p></p>
+<p>Produces:</p>
+<ul>
+<li>trained model .ckpt</li>
+<li>training logs</li>
+<li>validation reports</li>
+<li>tensorboard files</li>
+</ul>
+<h1 id="2-expected-folder-structure">2. Expected Folder Structure<a class="headerlink" href="#2-expected-folder-structure" title="Permanent link">¶</a></h1>
+<div class="highlight"><pre><span></span><code>dataset/
+├── raw/                 # original tomograms
+├── labels/              # ground-truth semantic segmentations
+├── processed/           # preprocessed tomograms &amp; labels
+├── patches/             # training patches created here
+└── logs/                # training logs &amp; checkpoints
+</code></pre></div>
+<h1 id="3-example-configuration-semantic_trainingyaml">3. Example Configuration (semantic_training.yaml)<a class="headerlink" href="#3-example-configuration-semantic_trainingyaml" title="Permanent link">¶</a></h1>
+<p>data_folder: '/g/zaugg/stojanov/simulated_datasets/final_models/dense_simsiam_regression/predictions/'
+labels_folder: '/g/mahamid/stojanov/simulated_datasets/simulated_data/tomograms/semantic_gt_for_training'
+patches_folder: '/scratch/stojanov/simulated_datasets/final_models/dense_simsiam_semantic_complexes/patches_denoised_128'
+temp_dir: '/scratch/stojanov/simulated_datasets/final_models/dense_simsiam_semantic_complexes'
+log_dir: '/g/zaugg/stojanov/simulated_datasets/final_models/dense_simsiam_semantic_complexes'
+prediction_folder: '/g/zaugg/stojanov/simulated_datasets/final_models/dense_simsiam_semantic_complexes/predictions'
+pretrained_model: '/g/zaugg/stojanov/simulated_datasets/experiments/dense_simsiam/version_1/model/last.ckpt'
+file_extension: '.mrc'</p>
+<p>train_files: ['sample_1.mrc', 'sample_2.mrc', 'sample_3.mrc', 'sample_4.mrc', 'sample_5.mrc',
+              'sample_6.mrc', 'sample_7.mrc', 'sample_8.mrc', 'sample_9.mrc', 'sample_10.mrc',
+              'sample_11.mrc', 'sample_12.mrc', 'sample_13.mrc', 'sample_14.mrc', 'sample_15.mrc',
+              'sample_16.mrc', 'sample_17.mrc', 'sample_18.mrc', 'sample_19.mrc', 'sample_20.mrc',
+              'sample_21.mrc', 'sample_22.mrc', 'sample_23.mrc', 'sample_24.mrc', 'sample_25.mrc',
+              'sample_26.mrc', 'sample_27.mrc', 'sample_28.mrc', 'sample_29.mrc', 'sample_30.mrc']</p>
+<p>test_files: null
+val_files: null
+validation_ratio: 0.1</p>
+<p>continue_training: False</p>
+<p>parameters:
+  nodes: 1
+  gpu_devices: 8
+  data:
+    patch_size: [ 128, 128, 128 ]
+    patch_overlap: 0.5
+    min: 0
+    max: 1
+    mean: 0
+    std:  1
+  transforms:
+    low_pass_sigma_range: [ 0.5, 2 ]
+    high_pass_sigma_range: [ 0.1, 0.5 ]
+    high_pass_sigma2_range: [ 4, 5 ]
+    noise_sigma_range: [ 0.1, 0.5 ]
+    combine_transforms: True
+    use_noisy_input: False
+    scale_intensity_factors: null
+  network:
+    in_channels: 1
+    spatial_dims: 3
+    out_channels: 89
+    dense_dim: 64
+    filters: [ 32, 64 ]
+    kernel_size: 3
+    padding: 1
+    threshold: 0.5
+    distance_prediction: True
+    use_dice_loss: True
+    unfreeze_decoder: True
+    unfreeze_backbone: True</p>
+<p>hyper_parameters:
+  cache_rate: 0
+  val_interval: 1
+  batch_size: 3
+  optimizer: 'adamw'
+  lr: 0.001
+  momentum: 0.9
+  weight_decay: 0.00001
+  max_epochs: 200</p>
+<p>⚙️ 4. Config Reference
+🔹 Top-level Keys
+Key Type    Must change?    Description
+data_folder str ✓   Tomograms or precomputed predictions used as input.
+labels_folder   str ✓   Ground-truth semantic labels.
+patches_folder  str ✓   Where training patches will be saved.
+temp_dir    str ✗   Temporary folder for intermediate files.
+log_dir str ✗   Logs, checkpoints, TensorBoard.
+prediction_folder   str ✗   Output folder for prediction checks.
+pretrained_model    str ✗   Optional starting point for training.
+file_extension  str ✗   .mrc or .rec file format.
+train_files list[str]   ✓/✗ Explicit list of training tomograms.
+validation_ratio    float   ✗   Auto-split for validation.
+continue_training   bool    ✗   Resume previous training run.
+🔹 parameters
+Hardware
+Key Type    Description
+nodes   int Number of compute nodes.
+gpu_devices int/list[int]   GPUs per node.
+Data
+Key Type    Description
+patch_size  list[int]   3D patch size
+patch_overlap   float   Fraction of overlap
+min/max float   Intensity clipping
+mean/std    float   Normalization
+Augmentations
+Transform   Purpose
+low_pass_sigma_range    Gaussian blur
+high_pass_sigma_range   High-pass filtering
+noise_sigma_range   Add Gaussian noise
+combine_transforms  Mix augmentations
+use_noisy_input Train with noisy tomogram
+Network
+Key Type    Purpose
+in_channels int Usually 1
+spatial_dims    int Always 3
+out_channels    int Number of semantic labels
+filters list    UNet filter sizes
+dense_dim   int Bottleneck
+distance_prediction bool    Multi-head distance + label
+use_dice_loss   bool    Balanced segmentation loss
+🎯 Best Practices</p>
+<p>Use ≥4 GPUs for 128³ patches</p>
+<p>Increase patch_overlap for smoother boundaries</p>
+<p>Use augmentation to reduce overfitting</p>
+<p>Always validate on unseen tomograms</p>
+<p>Start with a pretrained model when possible</p>
 
 
 

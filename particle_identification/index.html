@@ -1158,8 +1158,11 @@ only on lamella regions.</p>
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/semantic/particle_prediction.png" data-desc-position="bottom"><img alt="Semantic particle prediction" src="../images/semantic/particle_prediction.png" width="400"></a></p>
 <hr>
 <h2 id="trained-models">Trained Models<a class="headerlink" href="#trained-models" title="Permanent link">¶</a></h2>
-<p>You can download the trained lamella model from here: <a href="https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main/cryosiam_lamella.ckpt">CryoSiam lamella model (v1.0)</a>, and the semantic
-segmentation model from here: <a href="https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main/cryosiam_semantic_myco_candidates.ckpt">CryoSiam particle identification model (v1.0)</a>.
+<p>You can download the trained lamella model from
+here: <a href="https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main/cryosiam_lamella.ckpt">CryoSiam lamella model (v1.0)</a>,
+and the semantic
+segmentation model from
+here: <a href="https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main/cryosiam_semantic_myco_candidates.ckpt">CryoSiam particle identification model (v1.0)</a>.
 You can also train your own model and then perform prediction with that model. Review
 the <a href="../semantic_training/">Semantic training</a> for explanation of the model training procedure.</p>
 <hr>
@@ -1197,6 +1200,7 @@ For visualization of the results, CryoSiam-Vis can be used as described <a href=
 <span class="w">    </span><span class="nt">spatial_dims</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
 <span class="w">    </span><span class="nt">out_channels</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">14</span>
 <span class="w">    </span><span class="nt">threshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.7</span>
+<span class="w">    </span><span class="nt">min_voxels</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
 
 <span class="nt">hyper_parameters</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">batch_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
@@ -1317,6 +1321,12 @@ For visualization of the results, CryoSiam-Vis can be used as described <a href=
 <td><code>float</code></td>
 <td style="text-align: right;">❌</td>
 <td>Probability threshold for detection.</td>
+</tr>
+<tr>
+<td><code>network.min_voxels</code></td>
+<td><code>int</code></td>
+<td style="text-align: right;">❌</td>
+<td>Minimum number of voxels to consider as valid prediction. Default is 100</td>
 </tr>
 </tbody>
 </table>
