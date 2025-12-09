@@ -25,8 +25,11 @@ Semantic particle prediction (centers):
 
 ## Trained Models
 
-You can download the trained lamella model from here: [CryoSiam lamella model (v1.0)](https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main/cryosiam_lamella.ckpt), and the semantic
-segmentation model from here: [CryoSiam particle identification model (v1.0)](https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main/cryosiam_semantic_myco_candidates.ckpt).
+You can download the trained lamella model from
+here: [CryoSiam lamella model (v1.0)](https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main/cryosiam_lamella.ckpt),
+and the semantic
+segmentation model from
+here: [CryoSiam particle identification model (v1.0)](https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main/cryosiam_semantic_myco_candidates.ckpt).
 You can also train your own model and then perform prediction with that model. Review
 the [Semantic training](semantic_training.md) for explanation of the model training procedure.
 
@@ -77,6 +80,7 @@ parameters:
     spatial_dims: 3
     out_channels: 14
     threshold: 0.7
+    min_voxels: 10
 
 hyper_parameters:
   batch_size: 2
@@ -102,16 +106,17 @@ hyper_parameters:
 
 ### `parameters`
 
-| Key                      | Type            | Must change | Description                          |
-|--------------------------|-----------------|------------:|--------------------------------------|
-| `gpu_devices`            | `int/list[int]` |           ❌ | GPU to use.                          |
-| `data.patch_size`        | `list[int]`     |           ❌ | Patch size for inference.            |
-| `data.min` / `data.max`  | `float`         |           ❌ | Intensity clipping.                  |
-| `data.mean` / `data.std` | `float`         |           ❌ | Normalization stats.                 |
-| `network.in_channels`    | `int`           |           ❌ | Number of input channels (always 1). |
-| `network.spatial_dims`   | `int`           |           ❌ | 3 for 3D tomograms.                  |
-| `network.out_channels`   | `int`           |           ✅ | Number of semantic classes (14).     |
-| `network.threshold`      | `float`         |           ❌ | Probability threshold for detection. |
+| Key                      | Type            | Must change | Description                                                              |
+|--------------------------|-----------------|------------:|--------------------------------------------------------------------------|
+| `gpu_devices`            | `int/list[int]` |           ❌ | GPU to use.                                                              |
+| `data.patch_size`        | `list[int]`     |           ❌ | Patch size for inference.                                                |
+| `data.min` / `data.max`  | `float`         |           ❌ | Intensity clipping.                                                      |
+| `data.mean` / `data.std` | `float`         |           ❌ | Normalization stats.                                                     |
+| `network.in_channels`    | `int`           |           ❌ | Number of input channels (always 1).                                     |
+| `network.spatial_dims`   | `int`           |           ❌ | 3 for 3D tomograms.                                                      |
+| `network.out_channels`   | `int`           |           ✅ | Number of semantic classes (14).                                         |
+| `network.threshold`      | `float`         |           ❌ | Probability threshold for detection.                                     |
+| `network.min_voxels`     | `int`           |           ❌ | Minimum number of voxels to consider as valid prediction. Default is 100 |
 
 ---
 

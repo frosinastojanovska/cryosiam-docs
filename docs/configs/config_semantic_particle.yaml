@@ -21,6 +21,7 @@ parameters:
     spatial_dims: 3
     out_channels: 14
     threshold: 0.7
+    min_voxels: 10
 
 hyper_parameters:
   batch_size: 2

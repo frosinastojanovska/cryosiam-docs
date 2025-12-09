@@ -225,7 +225,6 @@ parameters:
     in_channels: 1
     spatial_dims: 3
     threshold: 0.1
-    postprocessing: True
     postprocessing_sizes: [ -1, 5000, -1, -1, -1 ]
 
 hyper_parameters:
