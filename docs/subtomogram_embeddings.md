@@ -82,7 +82,7 @@ cryosiam simsiam_embeddings_spectral_clustering --config_file=configs/subtomo_em
 :octicons-download-16: [Download example config](configs/config_subtomo_embeddings.yaml)
 
 ```yaml
-data_folder: '/scratch/stojanov/dataset1/tomograms'
+data_folder: '/scratch/stojanov/dataset1/predictions/denoised'
 instances_mask_folder: '/scratch/stojanov/dataset1/predictions/instances'
 log_dir: '/scratch/stojanov/dataset1/'
 prediction_folder: '/scratch/stojanov/dataset1/predictions/subtomo_embeds'
