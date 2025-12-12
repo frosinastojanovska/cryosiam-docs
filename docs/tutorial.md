@@ -318,7 +318,8 @@ Output:
 
 This step takes the predicted mask for the membrane and isolates the instances interacting with that mask
 
-Take the config file from the previous step, and add the fields ```filtering_mask_folder```, ```filtering_mask_expand_voxels``` and ```filtering_mask_expand_labels```. 
+Take the config file from the previous step, and add the fields ```filtering_mask_folder```, ```filtering_mask_expand_voxels``` and ```filtering_mask_expand_labels```.
+There is also support to use a mask provided as a mrc format file, and the field ```filtering_mask_folder: '.mrc'``` can be added to the config file to use that type of a mask. 
 
 ```yaml
 data_folder: '/scratch/cryosiam_tutorial/preds/denoised'
@@ -333,6 +334,7 @@ file_extension: '.mrc'
 filtering_mask_folder: '/scratch/cryosiam_tutorial/preds/semantic'
 filtering_mask_expand_voxels: 2
 filtering_mask_labels: [1]
+filtering_mask_extension: '.h5' # it can be .h5 for a mask coming from CryoSiam prediction or .mrc/.rec for any mask in mrc format
 
 test_files: null
 
