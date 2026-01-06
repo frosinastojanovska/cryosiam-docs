@@ -54,9 +54,9 @@ nav:
     - Overview and workflows: usage.md
     - Denoising: denoising.md
     - Semantic segmentation: semantic.md
+    - Particle identification: particle_identification.md
     - Semantic segmentation training: semantic_training.md
     - Instance segmentation: instance.md
-    - Particle identification: particle_identification.md
     - Subtomogram embeddings: subtomogram_embeddings.md
   - Tutorial: tutorial.md
   - Visualization: visualization.md

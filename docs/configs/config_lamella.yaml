@@ -1,5 +1,4 @@
 data_folder: '/scratch/stojanov/dataset1/predictions/denoised'
-log_dir: '/scratch/stojanov/dataset1/'
 prediction_folder: '/scratch/stojanov/dataset1/predictions/lamella'
 
 trained_model: '/scratch/stojanov/trained_models/cryosiam_lamella.ckpt'
@@ -10,7 +9,6 @@ test_files: null
 save_internal_files: False
 
 parameters:
-  gpu_devices: 1
   data:
     patch_size: [ 128, 128, 128 ]
     min: 0
