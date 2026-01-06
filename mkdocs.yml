@@ -60,6 +60,7 @@ nav:
     - Subtomogram embeddings: subtomogram_embeddings.md
   - Tutorial: tutorial.md
   - Visualization: visualization.md
+  - Trained models: trained_models.md
 
 plugins:
   - search
