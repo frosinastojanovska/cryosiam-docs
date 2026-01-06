@@ -60,7 +60,6 @@ nav:
     - Subtomogram embeddings: subtomogram_embeddings.md
   - Tutorial: tutorial.md
   - Visualization: visualization.md
-  - FAQ: faq.md
 
 plugins:
   - search
