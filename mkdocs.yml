@@ -59,6 +59,7 @@ nav:
     - Instance segmentation: instance.md
     - Subtomogram embeddings: subtomogram_embeddings.md
     - Processing functions: processing_functions.md
+    - Scaling to large datasets on HPC: slurm_parallel.md
   - Trained models: trained_models.md
   - Tutorial: tutorial.md
   - Visualization: visualization.md

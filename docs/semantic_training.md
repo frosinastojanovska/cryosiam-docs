@@ -13,7 +13,8 @@ Semantic segmentation training in CryoSiam follows a **five-step** CLI workflow:
 4. **Patch creation**
 5. **Model training**
 
-Each step is executed explicitly to give full control and reproducibility. Example configuration file is given [below](#example-configuration-semantic_trainyaml). 
+Each step is executed explicitly to give full control and reproducibility. Example configuration file is
+given [below](#example-configuration-semantic_trainyaml).
 
 ---
 
@@ -22,7 +23,6 @@ Each step is executed explicitly to give full control and reproducibility. Examp
 To fine-tune instead of training from scratch, download the pretrained checkpoint:
 
 - [CryoSiam DenseSimSiam pretrained checkpoint (v1.0)](https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main/dense_simsiam_pretrained.ckpt)
-
 
 Set it in your config under `pretrained_model`.
 
@@ -47,7 +47,7 @@ Given a folder of existing semantic label volumes, CryoSiam can:
 - Select **one label value** or **multiple label values**
 - Create new masks containing **only the selected class(es)**
 
-If a single label value is selected, the output is a **binary foreground mask**.  
+If a single label value is selected, the output is a **binary foreground mask**.
 If multiple label values are selected, the output contains **only those classes**.
 
 This step **does not modify the original labels**. Filtered masks are written to a new output folder.
@@ -60,7 +60,7 @@ This step **does not modify the original labels**. Filtered masks are written to
 ### Command
 
 ```bash
-cryosiam  semantic_filter_ground_truth  --config_file=configs/semantic_training.yaml
+cryosiam semantic_filter_ground_truth --config_file=configs/semantic_training.yaml
 ```
 
 Produces
@@ -77,7 +77,7 @@ These processing functions allow you to:
 - Create **spherical masks** from particle center coordinates
 - Generate masks directly from **density maps or probability maps**
 
-> **Note:**  
+> **Note:**
 > Mask generation is handled by dedicated preprocessing tools and is **not part of the semantic training pipeline itself
 **.
 
@@ -115,11 +115,11 @@ When required, this step:
 
 ```bash
 cryosiam processing_invert_scale \
-  --input_path=folder \
-  --output_path=out_folder \
-  --invert \
-  --lower_end_percentage 0.1 \
-  --upper_end_percentage 99.9
+ --input_path=folder \
+ --output_path=out_folder \
+ --invert \
+ --lower_end_percentage 0.1 \
+ --upper_end_percentage 99.9
 ```
 
 For a detailed explanation of this function and its parameters, refer to
@@ -141,7 +141,7 @@ derived from the existing masks.
 ### Command
 
 ```bash
-cryosiam  semantic_train_preprocess  --config_file=configs/semantic_training.yaml
+cryosiam semantic_train_preprocess --config_file=configs/semantic_training.yaml
 ```
 
 Outputs
@@ -185,7 +185,7 @@ No data augmentation is applied at this stage.
 ### Command:
 
 ```bash
-cryosiam  semantic_train_create_patches  --config_file=configs/semantic_training.yaml
+cryosiam semantic_train_create_patches --config_file=configs/semantic_training.yaml
 ```
 
 **Outputs**
@@ -196,7 +196,7 @@ cryosiam  semantic_train_create_patches  --config_file=configs/semantic_training
 
 ---
 
-## Step  5. Train  the  semantic segmentation model
+## Step 5. Train the semantic segmentation model
 
 This step runs the full semantic segmentation training pipeline using **PyTorch Lightning**.
 Training is performed on the patches generated in Step 4 and optionally initialized from pretrained weights.
@@ -217,7 +217,7 @@ Training supports **single-GPU, multi-GPU, and multi-node** execution.
 ### Command
 
 ```bash
-cryosiam  semantic_train  --config_file=configs/semantic_training.yaml
+cryosiam semantic_train --config_file=configs/semantic_training.yaml
 ```
 
 ### Training on Slurm clusters
@@ -225,7 +225,7 @@ cryosiam  semantic_train  --config_file=configs/semantic_training.yaml
 When running on a Slurm-managed system, use:
 
 ```bash
-srun cryosiam  semantic_train  --config_file=configs/semantic_training.yaml
+srun cryosiam semantic_train --config_file=configs/semantic_training.yaml
 ```
 
 Ensure that Slurm resource requests (GPUs, nodes, CPUs) match the configuration parameters.
@@ -255,7 +255,7 @@ continue_training: False
 
 ---
 
-## Example  Configuration  (semantic_train.yaml)
+## Example Configuration (semantic_train.yaml)
 
 :octicons-download-16: [Download example config](configs/config_semantic_train.yaml)
 
@@ -334,27 +334,27 @@ hyper_parameters:
 
 ---
 
-## Config  Reference
+## Config Reference
 
-### Top‑level  keys
+### Top‑level keys
 
-| Key                           | Type                         | Must  change  the  default  value | Description                                                                                                       |
-|-------------------------------|------------------------------|----------------------------------:|-------------------------------------------------------------------------------------------------------------------|
-| `data_folder`                 | `str`                        |                                 ✅ | Tomograms  or  precomputed  predictions  used  as  input                                                          |
-| `labels_folder`               | `str`                        |                                 ✅ | Ground-truth  semantic  labels                                                                                    |
-| `labels_folder_for_filtering` | `str` or `null`              |                                 ❌ | Optional: folder of label masks to filter/remap in Step 1                                                         |
-| `selected_labels`             | `int` / `list[int]` / `null` |                                 ❌ | Optional: label(s) to keep in Step 1 (single value → binary mask; list → keep subset)                             |
-| `noisy_data_folder`           | `str` or `null`              |                                 ❌ | Optional additional input folder (used only if your transforms/pipeline uses noisy input)                         |
-| `patches_folder`              | `str`                        |                                 ✅ | Output folder where training patches will be written (Step 4)                                                     |
-| `temp_dir`                    | `str`                        |                                 ❌ | Temporary folder for intermediate files                                                                           |
-| `log_dir`                     | `str`                        |                                 ❌ | Training logs, checkpoints, TensorBoard output                                                                    |
-| `prediction_folder`           | `str`                        |                                 ❌ | Optional folder for prediction sanity checks (if your pipeline writes them)                                       |
-| `pretrained_model`            | `str`                        |                                 ❌ | Checkpoint to initialize weights (fine-tuning) (`.ckpt`)                                                          |
-| `file_extension`              | `str`                        |                                 ❌ | Input tomogram extension (`.mrc` or `.rec`)                                                                       |
-| `train_files`                 | `list[str]` or `null`        |                               ✅/❌ | Explicit training file list; null uses all files in data_folder (except those assigned to val/test if applicable) |
-| `val_files`                   | `list[str]` or `null`        |                                 ❌ | Optional explicit validation list                                                                                 |
-| `validation_ratio`            | `float`                      |                                 ❌ | Used only if `val_files: null` (fraction of training set used for validation)                                     |
-| `continue_training`           | `bool`                       |                                 ❌ | If true, `resume` training from latest checkpoint under `log_dir`                                                 |
+| Key                           | Type                         | Must change the default value | Description                                                                                                       |
+|-------------------------------|------------------------------|------------------------------:|-------------------------------------------------------------------------------------------------------------------|
+| `data_folder`                 | `str`                        |                             ✅ | Tomograms or precomputed predictions used as input                                                                |
+| `labels_folder`               | `str`                        |                             ✅ | Ground-truth semantic labels                                                                                      |
+| `labels_folder_for_filtering` | `str` or `null`              |                             ❌ | Optional: folder of label masks to filter/remap in Step 1                                                         |
+| `selected_labels`             | `int` / `list[int]` / `null` |                             ❌ | Optional: label(s) to keep in Step 1 (single value → binary mask; list → keep subset)                             |
+| `noisy_data_folder`           | `str` or `null`              |                             ❌ | Optional additional input folder (used only if your transforms/pipeline uses noisy input)                         |
+| `patches_folder`              | `str`                        |                             ✅ | Output folder where training patches will be written (Step 4)                                                     |
+| `temp_dir`                    | `str`                        |                             ❌ | Temporary folder for intermediate files                                                                           |
+| `log_dir`                     | `str`                        |                             ❌ | Training logs, checkpoints, TensorBoard output                                                                    |
+| `prediction_folder`           | `str`                        |                             ❌ | Optional folder for prediction sanity checks (if your pipeline writes them)                                       |
+| `pretrained_model`            | `str`                        |                             ❌ | Checkpoint to initialize weights (fine-tuning) (`.ckpt`)                                                          |
+| `file_extension`              | `str`                        |                             ❌ | Input tomogram extension (`.mrc` or `.rec`)                                                                       |
+| `train_files`                 | `list[str]` or `null`        |                           ✅/❌ | Explicit training file list; null uses all files in data_folder (except those assigned to val/test if applicable) |
+| `val_files`                   | `list[str]` or `null`        |                             ❌ | Optional explicit validation list                                                                                 |
+| `validation_ratio`            | `float`                      |                             ❌ | Used only if `val_files: null` (fraction of training set used for validation)                                     |
+| `continue_training`           | `bool`                       |                             ❌ | If true, `resume` training from latest checkpoint under `log_dir`                                                 |
 
 ---
 

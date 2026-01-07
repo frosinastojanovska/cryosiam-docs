@@ -136,3 +136,21 @@ cryosiam <module name> --config_file configs/<module>.yaml
 
 Detailed explanations of configuration options are provided on the documentation page of each module.
 
+---
+
+## Running CryoSiam at Scale (Slurm / HPC)
+
+CryoSiam prediction commands run on **one GPU per process**.
+To efficiently process large datasets on HPC systems, predictions should be
+**parallelized across tomograms using Slurm job submission**.
+
+Instead of processing all tomograms in a single command, CryoSiam allows
+processing **one tomogram per job** via the `--filename` argument.
+
+This enables:
+
+- Full utilization of multi-GPU clusters
+- Independent job retries
+- Clean scaling to hundreds of tomograms
+
+For more details see: [Scaling to large datasets on HPC](slurm_parallel.md)
