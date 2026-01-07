@@ -8,14 +8,14 @@
         <link rel="canonical" href="https://frosinastojanovska.github.io/cryosiam-docs/subtomogram_embeddings/">
       
       
-        <link rel="prev" href="../particle_identification/">
+        <link rel="prev" href="../instance/">
       
       
-        <link rel="next" href="../tutorial/">
+        <link rel="next" href="../processing_functions/">
       
       
       <link rel="icon" href="../images/CryoSiam_logo_favicon.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.84d31ad4.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -180,13 +180,11 @@ You're not viewing the latest version.
     
     
     
-      
-      
-        <label class="md-header__button md-icon" for="__search">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
-        </label>
-        <div class="md-search" data-md-component="search" role="dialog">
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
@@ -225,14 +223,13 @@ You're not viewing the latest version.
     </div>
   </div>
 </div>
-      
     
     
       <div class="md-header__source">
         <a href="https://github.com/frosinastojanovska/cryosiam" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
   </div>
   <div class="md-source__repository">
     GitHub
@@ -252,11 +249,9 @@ You're not viewing the latest version.
   
   
   
-  
     <li class="md-tabs__item">
       <a href=".." class="md-tabs__link">
         
-  
   
     
   
@@ -271,13 +266,11 @@ You're not viewing the latest version.
   
   
   
-  
     
     
       <li class="md-tabs__item">
         <a href="../installation/" class="md-tabs__link">
           
-  
   
     
   
@@ -292,7 +285,6 @@ You're not viewing the latest version.
         
   
   
-  
     
   
   
@@ -301,7 +293,6 @@ You're not viewing the latest version.
       <li class="md-tabs__item md-tabs__item--active">
         <a href="../usage/" class="md-tabs__link">
           
-  
   
     
   
@@ -317,11 +308,26 @@ You're not viewing the latest version.
   
   
   
+    <li class="md-tabs__item">
+      <a href="../trained_models/" class="md-tabs__link">
+        
+  
+    
+  
+  Trained models
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
   
     <li class="md-tabs__item">
       <a href="../tutorial/" class="md-tabs__link">
         
-  
   
     
   
@@ -336,34 +342,13 @@ You're not viewing the latest version.
   
   
   
-  
     <li class="md-tabs__item">
       <a href="../visualization/" class="md-tabs__link">
         
   
-  
     
   
   Visualization
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../faq/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  FAQ
 
       </a>
     </li>
@@ -410,7 +395,7 @@ You're not viewing the latest version.
       <a href="https://github.com/frosinastojanovska/cryosiam" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
   </div>
   <div class="md-source__repository">
     GitHub
@@ -429,7 +414,6 @@ You're not viewing the latest version.
     <li class="md-nav__item">
       <a href=".." class="md-nav__link">
         
-  
   
   <span class="md-ellipsis">
     Home
@@ -457,7 +441,6 @@ You're not viewing the latest version.
       
     
     
-    
       
       
         
@@ -473,7 +456,6 @@ You're not viewing the latest version.
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
-  
   
   <span class="md-ellipsis">
     Installation
@@ -501,7 +483,6 @@ You're not viewing the latest version.
       <a href="../installation/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     CryoSiam installation
     
@@ -523,7 +504,6 @@ You're not viewing the latest version.
     <li class="md-nav__item">
       <a href="../installation_vis/" class="md-nav__link">
         
-  
   
   <span class="md-ellipsis">
     CryoSiam-Vis installation
@@ -569,7 +549,8 @@ You're not viewing the latest version.
       
         
       
-    
+        
+      
     
     
       
@@ -590,7 +571,6 @@ You're not viewing the latest version.
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
-  
   
   <span class="md-ellipsis">
     Usage
@@ -618,7 +598,6 @@ You're not viewing the latest version.
       <a href="../usage/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Overview and workflows
     
@@ -640,7 +619,6 @@ You're not viewing the latest version.
     <li class="md-nav__item">
       <a href="../denoising/" class="md-nav__link">
         
-  
   
   <span class="md-ellipsis">
     Denoising
@@ -664,7 +642,6 @@ You're not viewing the latest version.
       <a href="../semantic/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Semantic segmentation
     
@@ -684,9 +661,30 @@ You're not viewing the latest version.
   
   
     <li class="md-nav__item">
-      <a href="../semantic_training/" class="md-nav__link">
+      <a href="../particle_identification/" class="md-nav__link">
         
   
+  <span class="md-ellipsis">
+    Particle identification
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../semantic_training/" class="md-nav__link">
+        
   
   <span class="md-ellipsis">
     Semantic segmentation training
@@ -710,32 +708,8 @@ You're not viewing the latest version.
       <a href="../instance/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Instance segmentation
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../particle_identification/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Particle identification
     
   </span>
   
@@ -765,7 +739,6 @@ You're not viewing the latest version.
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
-  
   <span class="md-ellipsis">
     Subtomogram embeddings
     
@@ -777,7 +750,6 @@ You're not viewing the latest version.
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
-  
   
   <span class="md-ellipsis">
     Subtomogram embeddings
@@ -803,6 +775,63 @@ You're not viewing the latest version.
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#input-modes-for-subtomogram-extraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Input modes for subtomogram extraction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Input modes for subtomogram extraction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-instance-based-embeddings" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Instance-based embeddings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-center-based-embeddings" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Center-based embeddings
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#embedding-models-and-masking-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Embedding models and masking strategies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#example-results" class="md-nav__link">
     <span class="md-ellipsis">
       Example Results
@@ -813,9 +842,9 @@ You're not viewing the latest version.
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#embedding-space-projection" class="md-nav__link">
+  <a href="#embedding-space-projection-umap" class="md-nav__link">
     <span class="md-ellipsis">
-      Embedding Space Projection
+      Embedding space projection (UMAP)
     </span>
   </a>
   
@@ -824,7 +853,7 @@ You're not viewing the latest version.
           <li class="md-nav__item">
   <a href="#kmeans-clustering" class="md-nav__link">
     <span class="md-ellipsis">
-      KMeans Clustering
+      KMeans clustering
     </span>
   </a>
   
@@ -833,7 +862,7 @@ You're not viewing the latest version.
           <li class="md-nav__item">
   <a href="#spectral-clustering" class="md-nav__link">
     <span class="md-ellipsis">
-      Spectral Clustering
+      Spectral clustering
     </span>
   </a>
   
@@ -854,19 +883,37 @@ You're not viewing the latest version.
 </li>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
+  <a href="#running-subtomogram-embeddings" class="md-nav__link">
     <span class="md-ellipsis">
-      Commands
+      Running subtomogram embeddings
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Commands">
+    <nav class="md-nav" aria-label="Running subtomogram embeddings">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#generate-embeddings" class="md-nav__link">
+  <a href="#generate-embeddings-from-instance-masks" class="md-nav__link">
     <span class="md-ellipsis">
-      Generate Embeddings
+      Generate embeddings from instance masks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-embeddings-from-particle-centers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generate embeddings from particle centers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#particle-centers-file-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      Particle centers file format
     </span>
   </a>
   
@@ -884,7 +931,7 @@ You're not viewing the latest version.
           <li class="md-nav__item">
   <a href="#optional-cluster-embeddings" class="md-nav__link">
     <span class="md-ellipsis">
-      (Optional) Cluster Embeddings
+      (Optional) Cluster embeddings
     </span>
   </a>
   
@@ -1000,6 +1047,28 @@ You're not viewing the latest version.
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../processing_functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Processing functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1014,9 +1083,29 @@ You're not viewing the latest version.
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/" class="md-nav__link">
+      <a href="../trained_models/" class="md-nav__link">
         
   
+  <span class="md-ellipsis">
+    Trained models
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial/" class="md-nav__link">
+        
   
   <span class="md-ellipsis">
     Tutorial
@@ -1039,31 +1128,8 @@ You're not viewing the latest version.
       <a href="../visualization/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Visualization
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../faq/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    FAQ
     
   </span>
   
@@ -1100,6 +1166,63 @@ You're not viewing the latest version.
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#input-modes-for-subtomogram-extraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Input modes for subtomogram extraction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Input modes for subtomogram extraction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-instance-based-embeddings" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Instance-based embeddings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-center-based-embeddings" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Center-based embeddings
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#embedding-models-and-masking-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Embedding models and masking strategies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#example-results" class="md-nav__link">
     <span class="md-ellipsis">
       Example Results
@@ -1110,9 +1233,9 @@ You're not viewing the latest version.
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#embedding-space-projection" class="md-nav__link">
+  <a href="#embedding-space-projection-umap" class="md-nav__link">
     <span class="md-ellipsis">
-      Embedding Space Projection
+      Embedding space projection (UMAP)
     </span>
   </a>
   
@@ -1121,7 +1244,7 @@ You're not viewing the latest version.
           <li class="md-nav__item">
   <a href="#kmeans-clustering" class="md-nav__link">
     <span class="md-ellipsis">
-      KMeans Clustering
+      KMeans clustering
     </span>
   </a>
   
@@ -1130,7 +1253,7 @@ You're not viewing the latest version.
           <li class="md-nav__item">
   <a href="#spectral-clustering" class="md-nav__link">
     <span class="md-ellipsis">
-      Spectral Clustering
+      Spectral clustering
     </span>
   </a>
   
@@ -1151,19 +1274,37 @@ You're not viewing the latest version.
 </li>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
+  <a href="#running-subtomogram-embeddings" class="md-nav__link">
     <span class="md-ellipsis">
-      Commands
+      Running subtomogram embeddings
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Commands">
+    <nav class="md-nav" aria-label="Running subtomogram embeddings">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#generate-embeddings" class="md-nav__link">
+  <a href="#generate-embeddings-from-instance-masks" class="md-nav__link">
     <span class="md-ellipsis">
-      Generate Embeddings
+      Generate embeddings from instance masks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-embeddings-from-particle-centers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generate embeddings from particle centers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#particle-centers-file-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      Particle centers file format
     </span>
   </a>
   
@@ -1181,7 +1322,7 @@ You're not viewing the latest version.
           <li class="md-nav__item">
   <a href="#optional-cluster-embeddings" class="md-nav__link">
     <span class="md-ellipsis">
-      (Optional) Cluster Embeddings
+      (Optional) Cluster embeddings
     </span>
   </a>
   
@@ -1304,7 +1445,7 @@ You're not viewing the latest version.
 
 
   
-    <a href="https://github.com/frosinastojanovska/cryosiam/edit/master/docs/subtomogram_embeddings.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/frosinastojanovska/cryosiam/edit/master/docs/subtomogram_embeddings.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
     </a>
@@ -1313,44 +1454,200 @@ You're not viewing the latest version.
 
 
 <h1 id="subtomogram-embeddings-generation">Subtomogram Embeddings Generation<a class="headerlink" href="#subtomogram-embeddings-generation" title="Permanent link">¶</a></h1>
-<p>The Subtomogram Embeddings task extracts fixed-length feature representations from segmented subtomograms.<br>
-These embeddings capture the 3D structural and textural properties of each instance and enable unsupervised comparison, visualization, and clustering.</p>
+<p>The <strong>subtomogram embeddings</strong> module extracts fixed-length feature representations from segmented subtomograms.
+These embeddings capture the <strong>3D structural and textural properties</strong> of individual macromolecular complexes and enable
+unsupervised comparison, visualization, and clustering.</p>
+<p>Embeddings are computed using a self-supervised SimSiam model fine-tuned with contrastive learning and can be generated
+from either:</p>
+<ul>
+<li>Instance segmentation masks, or</li>
+<li>Particle center coordinates (e.g. from particle identification or external pickers)</li>
+</ul>
+<hr>
 <blockquote>
-<p><strong>Workflow:</strong> <code>Instance Segmentation → Subtomogram Embeddings → Visualization → (Optional Clustering)</code><br>
-Embeddings are generated from <strong>instance masks</strong> produced in the previous step.</p>
+<p><strong>Supported pipelines:</strong>
+- <code>Instance Segmentation → Subtomogram Embeddings → Visualization → (Optional Clustering)</code>
+- <code>Provided center coordinates (example Particle Identification) → Subtomogram Embeddings → Visualization → (Optional Clustering)</code></p>
+</blockquote>
+<hr>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">¶</a></h2>
+<p>For each detected instance, CryoSiam extracts a local 3D subtomogram and maps it into a high-dimensional embedding
+space.</p>
+<blockquote>
+<p><strong>Quick guide</strong></p>
+<ul>
+<li>You have instance masks → use <strong>instance-based embeddings</strong></li>
+<li>You only have particle coordinates → use <strong>center-based embeddings</strong></li>
+</ul>
+</blockquote>
+<hr>
+<h3 id="input-modes-for-subtomogram-extraction">Input modes for subtomogram extraction<a class="headerlink" href="#input-modes-for-subtomogram-extraction" title="Permanent link">¶</a></h3>
+<p>CryoSiam supports two alternative input modes.</p>
+<h4 id="1-instance-based-embeddings">1. Instance-based embeddings<a class="headerlink" href="#1-instance-based-embeddings" title="Permanent link">¶</a></h4>
+<p>Subtomograms are extracted from instance segmentation masks.</p>
+<p><strong>Required input</strong></p>
+<ul>
+<li>instances_mask_folder</li>
+</ul>
+<p><strong>Characteristics</strong></p>
+<ul>
+<li>Object shapes define subtomogram regions</li>
+<li>Supports masking strategies (masking_type)</li>
+<li>Recommended when instance segmentation is available</li>
+</ul>
+<h4 id="2-center-based-embeddings">2. Center-based embeddings<a class="headerlink" href="#2-center-based-embeddings" title="Permanent link">¶</a></h4>
+<p>Subtomograms are extracted as fixed-size cubes centered on particle coordinates.</p>
+<p>This mode is intended for:</p>
+<ul>
+<li>Particle Identification outputs</li>
+<li>External particle pickers</li>
+<li>Manually curated coordinates</li>
+</ul>
+<p><strong>Required input</strong></p>
+<ul>
+<li>centers_file</li>
+<li>centers_patch_size</li>
+</ul>
+<p>Instance segmentation is not required in this mode.</p>
+<blockquote>
+<p><strong>Important constraint</strong></p>
+<p>When using center-based embeddings:
+- <code>centers_patch_size</code> should be <strong>close to the expected physical size of the particle</strong>.
+    &gt; Overly large patches include excessive background signal and significantly degrade embedding quality.</p>
+</blockquote>
+<hr>
+<h3 id="embedding-models-and-masking-strategies">Embedding models and masking strategies<a class="headerlink" href="#embedding-models-and-masking-strategies" title="Permanent link">¶</a></h3>
+<p>CryoSiam provides <strong>three embedding variants</strong>, controlled by the <code>masking_type</code> parameter (when working with masks
+provided from instance segmentation).
+Each variant corresponds to a different strategy for masking background signal when extracting subtomograms:</p>
+<table>
+<thead>
+<tr>
+<th>Masking type</th>
+<th>Description</th>
+<th>When to use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0</code></td>
+<td><strong>No masking</strong> – the raw subtomogram is extracted without applying an instance mask</td>
+<td>Use when instance masks are unreliable or when full surrounding context is desired</td>
+</tr>
+<tr>
+<td><code>1</code></td>
+<td><strong>Convex hull masking</strong> – the instance mask is expanded to its convex hull</td>
+<td>Recommended default; balances object focus with local context</td>
+</tr>
+<tr>
+<td><code>2</code></td>
+<td><strong>Strict masking</strong> – only voxels inside the instance mask are retained</td>
+<td>Use when isolating object shape and internal structure is critical</td>
+</tr>
+</tbody>
+</table>
+<p>Each masking strategy corresponds to a <strong>separately trained embedding model</strong>.
+Make sure that the selected <code>masking_type</code> matches the trained model specified by <code>trained_model</code>.</p>
+<blockquote>
+<p><strong>Note:</strong><br>
+For <strong>center-based embeddings</strong>, only <strong><code>masking_type: 0</code> (no masking)</strong> is supported.
+Masking types <code>1</code> and <code>2</code> require instance masks and are incompatible with center-based extraction.</p>
+<p><strong>Recommendation:</strong><br>
+Use <strong><code>masking_type: 1</code> (convex hull masking)</strong> for most datasets, as it avoids errors with strict instance masking
+while suppressing
+background noise.</p>
 </blockquote>
 <hr>
 <h2 id="example-results">Example Results<a class="headerlink" href="#example-results" title="Permanent link">¶</a></h2>
 <ul>
-<li><strong>UMAP visualization:</strong> Each point represents a subtomogram embedding.</li>
-<li><strong>KMeans clusters:</strong> Distinct color-coded groups of similar structural features.</li>
-<li><strong>Spectral clusters:</strong> Captures fine-grained structural variability.</li>
+<li><strong>UMAP visualization:</strong> each point represents a subtomogram embedding</li>
+<li><strong>KMeans clustering:</strong> coarse grouping of similar structures</li>
+<li><strong>Spectral clustering:</strong> captures fine-grained structural variability</li>
 </ul>
-<h3 id="embedding-space-projection">Embedding Space Projection<a class="headerlink" href="#embedding-space-projection" title="Permanent link">¶</a></h3>
+<h3 id="embedding-space-projection-umap">Embedding space projection (UMAP)<a class="headerlink" href="#embedding-space-projection-umap" title="Permanent link">¶</a></h3>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/embeddings/umap.png" data-desc-position="bottom"><img alt="2D UMAP embedding" src="../images/embeddings/umap.png" width="400"></a></p>
-<h3 id="kmeans-clustering">KMeans Clustering<a class="headerlink" href="#kmeans-clustering" title="Permanent link">¶</a></h3>
+<h3 id="kmeans-clustering">KMeans clustering<a class="headerlink" href="#kmeans-clustering" title="Permanent link">¶</a></h3>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/embeddings/kmeans.png" data-desc-position="bottom"><img alt="KMeans clusters" src="../images/embeddings/kmeans.png" width="400"></a></p>
-<h3 id="spectral-clustering">Spectral Clustering<a class="headerlink" href="#spectral-clustering" title="Permanent link">¶</a></h3>
+<h3 id="spectral-clustering">Spectral clustering<a class="headerlink" href="#spectral-clustering" title="Permanent link">¶</a></h3>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/embeddings/spectral.png" data-desc-position="bottom"><img alt="Spectral clusters" src="../images/embeddings/spectral.png" width="400"></a></p>
 <hr>
 <h2 id="trained-model">Trained Model<a class="headerlink" href="#trained-model" title="Permanent link">¶</a></h2>
-<p>You can download the trained model from
-here: <a href="https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main/simsiam_embeds_denoised_convex_hull.ckpt">CryoSiam subtomogram embedding model (v1.0)</a></p>
+<p>Pre-trained embedding models are available for the different masking strategies.</p>
+<p>Example model (convex hull masking):
+<a href="https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main/simsiam_embeds_denoised_convex_hull.ckpt">CryoSiam subtomogram embedding convex-hull model (v1.0)</a></p>
+<p>Example model for centers (no masking):
+<a href="https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main/simsiam_embeds_denoised_no_masking.ckpt">CryoSiam subtomogram embedding no masking model (v1.0)</a></p>
+<p>A list of all the provided models is available here:
+<a href="../trained_models/">Trained models</a></p>
 <hr>
-<h2 id="commands"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m6.354 8.04-4.773 4.773a.75.75 0 1 0 1.061 1.06L7.945 8.57a.75.75 0 0 0 0-1.06L2.642 2.206a.75.75 0 0 0-1.06 1.061L6.353 8.04ZM8.75 11.5a.75.75 0 0 0 0 1.5h5.5a.75.75 0 0 0 0-1.5z"></path></svg></span> Commands<a class="headerlink" href="#commands" title="Permanent link">¶</a></h2>
-<h3 id="generate-embeddings">Generate Embeddings<a class="headerlink" href="#generate-embeddings" title="Permanent link">¶</a></h3>
+<h2 id="running-subtomogram-embeddings"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m6.354 8.04-4.773 4.773a.75.75 0 1 0 1.061 1.06L7.945 8.57a.75.75 0 0 0 0-1.06L2.642 2.206a.75.75 0 0 0-1.06 1.061L6.353 8.04ZM8.75 11.5a.75.75 0 0 0 0 1.5h5.5a.75.75 0 0 0 0-1.5z"></path></svg></span> Running subtomogram embeddings<a class="headerlink" href="#running-subtomogram-embeddings" title="Permanent link">¶</a></h2>
+<h3 id="generate-embeddings-from-instance-masks">Generate embeddings from instance masks<a class="headerlink" href="#generate-embeddings-from-instance-masks" title="Permanent link">¶</a></h3>
 <div class="highlight"><pre><span></span><code>cryosiam<span class="w"> </span>simsiam_embeddings_predict<span class="w"> </span>--config_file<span class="o">=</span>configs/subtomo_embeddings.yaml
 </code></pre></div>
-<p>Optionally, process a single tomogram:</p>
+<p>To process a single tomogram only:</p>
 <div class="highlight"><pre><span></span><code>cryosiam<span class="w"> </span>simsiam_embeddings_predict<span class="w"> </span>--config_file<span class="o">=</span>configs/subtomo_embeddings.yaml<span class="w"> </span>--filename<span class="w"> </span>TS_01.mrc
 </code></pre></div>
+<hr>
+<h3 id="generate-embeddings-from-particle-centers">Generate embeddings from particle centers<a class="headerlink" href="#generate-embeddings-from-particle-centers" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code>cryosiam<span class="w"> </span>simsiam_embeddings_from_centers_predict<span class="w"> </span>--config_file<span class="w"> </span>configs/subtomo_embeddings.yaml
+</code></pre></div>
+<p>To process a single tomogram only:</p>
+<div class="highlight"><pre><span></span><code>cryosiam<span class="w"> </span>simsiam_embeddings_from_centers_predict<span class="w"> </span>--config_file<span class="o">=</span>configs/subtomo_embeddings.yaml<span class="w"> </span>--filename<span class="w"> </span>TS_01.mrc
+</code></pre></div>
+<p>This command:</p>
+<ul>
+<li>Reads particle centers from a .star or .csv file</li>
+<li>Extracts fixed-size subtomograms around each center</li>
+<li>Computes embeddings using the selected SimSiam model</li>
+</ul>
+<hr>
+<h3 id="particle-centers-file-format">Particle centers file format<a class="headerlink" href="#particle-centers-file-format" title="Permanent link">¶</a></h3>
+<p>When using center-based embeddings, particle coordinates must be provided in a .star or .csv file.</p>
+<p><strong>Mandatory fields</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field name</th>
+<th>STAR equivalent</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tomo</td>
+<td>rlnMicrographName</td>
+<td>Tomogram name or path</td>
+</tr>
+<tr>
+<td>centroid-0</td>
+<td>rlnCoordinateZ</td>
+<td>Z coordinate (voxel)</td>
+</tr>
+<tr>
+<td>centroid-1</td>
+<td>rlnCoordinateY</td>
+<td>Y coordinate (voxel)</td>
+</tr>
+<tr>
+<td>centroid-2</td>
+<td>rlnCoordinateX</td>
+<td>X coordinate (voxel)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>One row per particle</li>
+<li>Coordinates must be in voxel space</li>
+<li>All tomograms to be processed must be listed in the same file</li>
+<li>Additional columns are allowed and ignored</li>
+</ul>
 <hr>
 <h3 id="visualize-embeddings">Visualize Embeddings<a class="headerlink" href="#visualize-embeddings" title="Permanent link">¶</a></h3>
 <div class="highlight"><pre><span></span><code>cryosiam<span class="w"> </span>simsiam_visualize_embeddings<span class="w"> </span>--config_file<span class="o">=</span>configs/subtomo_embeddings.yaml
 </code></pre></div>
-<p>This command generates UMAP/PCA projections and distance maps for qualitative inspection.</p>
+<p>This command generates PCA/UMAP projections and distance maps for qualitative inspection.</p>
 <hr>
-<h3 id="optional-cluster-embeddings">(Optional) Cluster Embeddings<a class="headerlink" href="#optional-cluster-embeddings" title="Permanent link">¶</a></h3>
+<h3 id="optional-cluster-embeddings">(Optional) Cluster embeddings<a class="headerlink" href="#optional-cluster-embeddings" title="Permanent link">¶</a></h3>
 <p><strong>KMeans clustering:</strong></p>
 <div class="highlight"><pre><span></span><code>cryosiam<span class="w"> </span>simsiam_embeddings_kmeans_clustering<span class="w"> </span>--config_file<span class="o">=</span>configs/subtomo_embeddings.yaml
 </code></pre></div>
@@ -1362,7 +1659,8 @@ here: <a href="https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main
 <p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z"></path><path d="M7.25 7.689V2a.75.75 0 0 1 1.5 0v5.689l1.97-1.969a.749.749 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 6.78a.749.749 0 1 1 1.06-1.06z"></path></svg></span> <a href="../configs/config_subtomo_embeddings.yaml">Download example config</a></p>
 <div class="highlight"><pre><span></span><code><span class="nt">data_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/stojanov/dataset1/predictions/denoised'</span>
 <span class="nt">instances_mask_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/stojanov/dataset1/predictions/instances'</span>
-<span class="nt">log_dir</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/stojanov/dataset1/'</span>
+<span class="nt">centers_file</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/stojanov/dataset1/ribosome_centers.star'</span>
+<span class="nt">centers_patch_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">32</span>
 <span class="nt">prediction_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/stojanov/dataset1/predictions/subtomo_embeds'</span>
 <span class="nt">trained_model</span><span class="p">:</span><span class="w"> </span><span class="s">'/g/zaugg/stojanov/simulated_datasets/final_models/simsiam_contrastive/version_1/model/last.ckpt'</span>
 <span class="nt">contrastive</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
@@ -1395,7 +1693,6 @@ here: <a href="https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main
 <span class="w">  </span><span class="nt">3d_umap</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
 
 <span class="nt">parameters</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">gpu_devices</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
 <span class="w">  </span><span class="nt">data</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">patch_size</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">64</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">64</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">64</span><span class="w"> </span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">patch_overlap</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
@@ -1428,73 +1725,79 @@ here: <a href="https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main
 <td><code>data_folder</code></td>
 <td><code>str</code></td>
 <td style="text-align: right;">✅</td>
-<td>Path to tomograms (raw or denoised).</td>
+<td>Path to denoised tomograms</td>
 </tr>
 <tr>
 <td><code>instances_mask_folder</code></td>
 <td><code>str</code></td>
 <td style="text-align: right;">✅</td>
-<td>Path to <strong>instance segmentation masks</strong> (input regions).</td>
+<td>Path to <strong>instance segmentation masks</strong>; <code>null</code> when working with centers</td>
 </tr>
 <tr>
-<td><code>log_dir</code></td>
+<td><code>centers_file</code></td>
 <td><code>str</code></td>
-<td style="text-align: right;">❌</td>
-<td>Directory for runtime logs.</td>
+<td style="text-align: right;">✅</td>
+<td>Path to particle centers file; <code>null</code> when working with instance masks</td>
+</tr>
+<tr>
+<td><code>centers_patch_size</code></td>
+<td><code>int</code></td>
+<td style="text-align: right;">✅</td>
+<td>Patch size around particle centers; <code>null</code> when working with instance masks</td>
 </tr>
 <tr>
 <td><code>prediction_folder</code></td>
 <td><code>str</code></td>
 <td style="text-align: right;">✅</td>
-<td>Output directory for generated embeddings.</td>
+<td>Output directory for embeddings</td>
 </tr>
 <tr>
 <td><code>trained_model</code></td>
 <td><code>str</code></td>
 <td style="text-align: right;">✅</td>
-<td>Path to pretrained SimSiam model checkpoint (<code>.ckpt</code>).</td>
+<td>SimSiam embedding model checkpoint (<code>.ckpt</code>)</td>
 </tr>
 <tr>
 <td><code>contrastive</code></td>
 <td><code>bool</code></td>
 <td style="text-align: right;">❌</td>
-<td>Indicates whether model uses contrastive training (SimSiam).</td>
+<td>Indicates contrastive (SimSiam) training</td>
 </tr>
 <tr>
 <td><code>file_extension</code></td>
 <td><code>str</code></td>
 <td style="text-align: right;">❌</td>
-<td>File type of tomograms (e.g., <code>.mrc</code>).</td>
+<td>Input file extension (<code>.mrc</code> or <code>.rec</code>, default: <code>.mrc</code>)</td>
 </tr>
 <tr>
 <td><code>test_files</code></td>
 <td><code>list[str]</code> or <code>null</code></td>
 <td style="text-align: right;">❌</td>
-<td>Specific files to process; <code>null</code> = all.</td>
+<td>Specific tomograms to process; <code>null</code> processes all files</td>
 </tr>
 <tr>
 <td><code>min_particle_size</code></td>
 <td><code>int</code></td>
 <td style="text-align: right;">✅</td>
-<td>Minimum voxel size for valid particle region.</td>
+<td>Minimum voxel size of valid instances</td>
 </tr>
 <tr>
 <td><code>max_particle_size</code></td>
 <td><code>int</code> or <code>null</code></td>
 <td style="text-align: right;">❌</td>
-<td>Maximum voxel size; <code>null</code> = no limit.</td>
+<td>Maximum voxel size (optional); <code>null</code> = no limit.</td>
 </tr>
 <tr>
 <td><code>masking_type</code></td>
 <td><code>int</code></td>
 <td style="text-align: right;">❌</td>
-<td>Mask generation method (0 = no masking, 1 = convex hull masking, 2 - strict masking).</td>
+<td>Mask generation method (0 = no masking, 1 = convex hull masking, 2 - strict masking)</td>
 </tr>
 <tr>
 <td><code>expand_labels</code></td>
 <td><code>int</code></td>
 <td style="text-align: right;">❌</td>
-<td>Number of voxels to expand around mask boundaries for convex hull or strict masking.</td>
+<td>Number of voxels to expand around mask boundaries for convex hull or strict masking</td>
 </tr>
 </tbody>
 </table>
@@ -1514,13 +1817,13 @@ here: <a href="https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main
 <td><code>num_clusters</code></td>
 <td><code>int</code></td>
 <td style="text-align: right;">✅</td>
-<td>Number of clusters for KMeans algorithm.</td>
+<td>Number of clusters for KMeans algorithm</td>
 </tr>
 <tr>
 <td><code>visualization</code></td>
 <td><code>bool</code></td>
 <td style="text-align: right;">❌</td>
-<td>If <code>true</code>, generate scatter/UMAP plots of the embeddings.</td>
+<td>If <code>true</code>, generate scatter/UMAP plots of the embeddings</td>
 </tr>
 </tbody>
 </table>
@@ -1540,19 +1843,19 @@ here: <a href="https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main
 <td><code>num_clusters</code></td>
 <td><code>int</code></td>
 <td style="text-align: right;">✅</td>
-<td>Expected number of spectral clusters.</td>
+<td>Expected number of spectral clusters</td>
 </tr>
 <tr>
 <td><code>estimate_num_clusters</code></td>
 <td><code>bool</code></td>
 <td style="text-align: right;">❌</td>
-<td>If <code>true</code>, automatically estimate cluster number.</td>
+<td>If <code>true</code>, automatically estimate cluster number</td>
 </tr>
 <tr>
 <td><code>visualization</code></td>
 <td><code>bool</code></td>
 <td style="text-align: right;">❌</td>
-<td>Enable cluster visualizations.</td>
+<td>Enable cluster visualizations</td>
 </tr>
 </tbody>
 </table>
@@ -1619,52 +1922,46 @@ here: <a href="https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main
 </thead>
 <tbody>
 <tr>
-<td><code>gpu_devices</code></td>
-<td><code>int</code> or <code>list[int]</code></td>
-<td style="text-align: right;">❌</td>
-<td>GPU(s) to use.</td>
-</tr>
-<tr>
 <td><code>data.patch_size</code></td>
 <td><code>list[int]</code></td>
 <td style="text-align: right;">❌</td>
-<td>3D patch size around each instance region.</td>
+<td>Sliding-window patch size for 3D inference</td>
 </tr>
 <tr>
 <td><code>data.min</code></td>
 <td><code>float</code></td>
 <td style="text-align: right;">❌</td>
-<td>Intensity floor for normalization.</td>
+<td>Intensity minimum value for data scaling</td>
 </tr>
 <tr>
 <td><code>data.max</code></td>
 <td><code>float</code></td>
 <td style="text-align: right;">❌</td>
-<td>Intensity ceiling for normalization.</td>
+<td>Intensity maximum value for data scaling</td>
 </tr>
 <tr>
 <td><code>data.mean</code></td>
 <td><code>float</code></td>
 <td style="text-align: right;">❌</td>
-<td>Mean used for normalization.</td>
+<td>Mean used for normalization</td>
 </tr>
 <tr>
 <td><code>data.std</code></td>
 <td><code>float</code></td>
 <td style="text-align: right;">❌</td>
-<td>Std used for normalization.</td>
-</tr>
-<tr>
-<td><code>network.spatial_dims</code></td>
-<td><code>int</code></td>
-<td style="text-align: right;">❌</td>
-<td>Dimensionality (3 for subtomograms).</td>
+<td>Std used for normalization</td>
 </tr>
 <tr>
 <td><code>network.in_channels</code></td>
 <td><code>int</code></td>
 <td style="text-align: right;">❌</td>
-<td>Number of channels (usually 1).</td>
+<td>Number of input channels (usually <code>1</code>)</td>
+</tr>
+<tr>
+<td><code>network.spatial_dims</code></td>
+<td><code>int</code></td>
+<td style="text-align: right;">❌</td>
+<td>Dimensionality of the model (<code>3</code> for tomograms)</td>
 </tr>
 <tr>
 <td><code>network.dim</code></td>
@@ -1690,7 +1987,7 @@ here: <a href="https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main
 <td><code>batch_size</code></td>
 <td><code>int</code></td>
 <td style="text-align: right;">❌</td>
-<td>Number of subtomograms per batch (default <code>10</code>).</td>
+<td>Number of subtomograms per batch (default <code>10</code>)</td>
 </tr>
 </tbody>
 </table>
@@ -1706,27 +2003,31 @@ here: <a href="https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main
 <tbody>
 <tr>
 <td>Empty embedding CSV</td>
-<td>Check instance masks and <code>instances_mask_folder</code>.</td>
+<td>Check instance masks and <code>instances_mask_folder</code></td>
 </tr>
 <tr>
-<td>Few or zero embeddings</td>
-<td>Adjust <code>min_particle_size</code>.</td>
+<td>Few embeddings</td>
+<td>Lower <code>min_particle_size</code></td>
 </tr>
 <tr>
 <td>GPU memory error</td>
-<td>Reduce <code>batch_size</code> or use smaller <code>patch_size</code>.</td>
+<td>Reduce <code>batch_size</code></td>
 </tr>
 <tr>
 <td>Clusters overlap visually</td>
-<td>Increase <code>num_clusters</code> or try spectral clustering.</td>
+<td>Increase <code>num_clusters</code> or use spectral clustering</td>
+</tr>
+<tr>
+<td>Embeddings dominated by background</td>
+<td>Reduce <code>centers_patch_size</code></td>
 </tr>
 </tbody>
 </table>
 <hr>
 <h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">¶</a></h2>
 <ul>
-<li><a href="../instance/">Instance segmentation</a> → required input for embeddings</li>
-<li><a href="../visualization/">Visualization</a> → explore embedding clusters in napari</li>
+<li><a href="../instance/">Instance segmentation</a></li>
+<li><a href="../visualization/">Visualization</a></li>
 <li><a href="../usage/">Usage overview</a></li>
 </ul>
 
@@ -1783,12 +2084,10 @@ here: <a href="https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main
     </div>
     
     
-    
-      
-      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.top", "navigation.indexes", "content.tabs.link", "content.code.copy", "content.action.edit", "content.tabs.link", "content.code.annotate", "search.highlight", "search.suggest", "search.share", "toc.follow"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.top", "navigation.indexes", "content.tabs.link", "content.code.copy", "content.action.edit", "content.tabs.link", "content.code.annotate", "search.highlight", "search.suggest", "search.share", "toc.follow"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
       
     
   

@@ -1,6 +1,5 @@
 data_folder: '/scratch/stojanov/dataset1/predictions/denoised'
 mask_folder: '/scratch/stojanov/dataset1/predictions/lamella'
-log_dir: '/scratch/stojanov/dataset1/'
 prediction_folder: '/scratch/stojanov/dataset1/predictions/semantic'
 
 trained_model: '/scratch/stojanov/trained_models/cryosiam_semantic.ckpt'
@@ -9,7 +8,6 @@ file_extension: '.mrc'
 test_files: null
 
 parameters:
-  gpu_devices: 1
   data:
     patch_size: [ 128, 128, 128 ]
     min: 0

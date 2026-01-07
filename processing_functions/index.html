@@ -5,13 +5,13 @@
       
       
       
-        <link rel="canonical" href="https://frosinastojanovska.github.io/cryosiam-docs/instance/">
+        <link rel="canonical" href="https://frosinastojanovska.github.io/cryosiam-docs/processing_functions/">
       
       
-        <link rel="prev" href="../semantic_training/">
+        <link rel="prev" href="../subtomogram_embeddings/">
       
       
-        <link rel="next" href="../subtomogram_embeddings/">
+        <link rel="next" href="../trained_models/">
       
       
       <link rel="icon" href="../images/CryoSiam_logo_favicon.svg">
@@ -19,7 +19,7 @@
     
     
       
-        <title>Instance segmentation - CryoSiam Documentation</title>
+        <title>Processing functions - CryoSiam Documentation</title>
       
     
     
@@ -81,7 +81,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#instance-segmentation" class="md-skip">
+        <a href="#processing-functions" class="md-skip">
           Skip to content
         </a>
       
@@ -132,7 +132,7 @@ You're not viewing the latest version.
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Instance segmentation
+              Processing functions
             
           </span>
         </div>
@@ -702,31 +702,10 @@ You're not viewing the latest version.
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Instance segmentation
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../instance/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -736,185 +715,6 @@ You're not viewing the latest version.
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      Overview
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#example-results" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example results
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Example results">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#input-denoised-tomogram" class="md-nav__link">
-    <span class="md-ellipsis">
-      Input (denoised tomogram)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lamella-mask-recommended" class="md-nav__link">
-    <span class="md-ellipsis">
-      Lamella mask (recommended)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#instance-segmentation-output" class="md-nav__link">
-    <span class="md-ellipsis">
-      Instance segmentation output
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#trained-model" class="md-nav__link">
-    <span class="md-ellipsis">
-      Trained Model
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#running-instance-segmentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Running instance segmentation
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Running instance segmentation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#visualization" class="md-nav__link">
-    <span class="md-ellipsis">
-      Visualization
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#example-configuration-configsconfig_instanceyaml" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example Configuration (configs/config_instance.yaml)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#config-reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      Config Reference
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Config Reference">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toplevel-keys" class="md-nav__link">
-    <span class="md-ellipsis">
-      Top‑level keys
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      parameters
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="parameters">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#hyper_parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      hyper_parameters
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Troubleshooting
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      Next Steps
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -946,10 +746,31 @@ You're not viewing the latest version.
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../processing_functions/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Processing functions
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -959,6 +780,299 @@ You're not viewing the latest version.
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#processing_invert_scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      processing_invert_scale
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="processing_invert_scale">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to use
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#processing_create_sphere_mask" class="md-nav__link">
+    <span class="md-ellipsis">
+      processing_create_sphere_mask
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="processing_create_sphere_mask">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to use
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command-all-tomograms-referenced-by-the-coordinates-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command (all tomograms referenced by the coordinates file)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command-process-only-one-tomogram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command (process only one tomogram)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coordinate-file-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      Coordinate file formats
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#processing_create_sphere_mask_multiclass" class="md-nav__link">
+    <span class="md-ellipsis">
+      processing_create_sphere_mask_multiclass
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="processing_create_sphere_mask_multiclass">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to use
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#required-columns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Required columns
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#processing_create_binary_map_after_sta" class="md-nav__link">
+    <span class="md-ellipsis">
+      processing_create_binary_map_after_sta
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="processing_create_binary_map_after_sta">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to use
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#processing_create_multiclass_from_binary_masks" class="md-nav__link">
+    <span class="md-ellipsis">
+      processing_create_multiclass_from_binary_masks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="processing_create_multiclass_from_binary_masks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#expected-folder-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Expected folder structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes-and-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes and best practices
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next steps
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1070,103 +1184,28 @@ You're not viewing the latest version.
 </li>
       
         <li class="md-nav__item">
-  <a href="#example-results" class="md-nav__link">
+  <a href="#processing_invert_scale" class="md-nav__link">
     <span class="md-ellipsis">
-      Example results
+      processing_invert_scale
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Example results">
+    <nav class="md-nav" aria-label="processing_invert_scale">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#input-denoised-tomogram" class="md-nav__link">
+  <a href="#when-to-use" class="md-nav__link">
     <span class="md-ellipsis">
-      Input (denoised tomogram)
+      When to use
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#lamella-mask-recommended" class="md-nav__link">
+  <a href="#command" class="md-nav__link">
     <span class="md-ellipsis">
-      Lamella mask (recommended)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#instance-segmentation-output" class="md-nav__link">
-    <span class="md-ellipsis">
-      Instance segmentation output
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#trained-model" class="md-nav__link">
-    <span class="md-ellipsis">
-      Trained Model
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#running-instance-segmentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Running instance segmentation
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Running instance segmentation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#visualization" class="md-nav__link">
-    <span class="md-ellipsis">
-      Visualization
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#example-configuration-configsconfig_instanceyaml" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example Configuration (configs/config_instance.yaml)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#config-reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      Config Reference
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Config Reference">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toplevel-keys" class="md-nav__link">
-    <span class="md-ellipsis">
-      Top‑level keys
+      Command
     </span>
   </a>
   
@@ -1175,24 +1214,18 @@ You're not viewing the latest version.
           <li class="md-nav__item">
   <a href="#parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      parameters
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="parameters">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#hyper_parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      hyper_parameters
+      Parameters
     </span>
   </a>
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes
+    </span>
+  </a>
   
 </li>
         
@@ -1202,9 +1235,204 @@ You're not viewing the latest version.
 </li>
       
         <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
+  <a href="#processing_create_sphere_mask" class="md-nav__link">
     <span class="md-ellipsis">
-      Troubleshooting
+      processing_create_sphere_mask
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="processing_create_sphere_mask">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to use
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command-all-tomograms-referenced-by-the-coordinates-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command (all tomograms referenced by the coordinates file)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command-process-only-one-tomogram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command (process only one tomogram)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coordinate-file-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      Coordinate file formats
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#processing_create_sphere_mask_multiclass" class="md-nav__link">
+    <span class="md-ellipsis">
+      processing_create_sphere_mask_multiclass
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="processing_create_sphere_mask_multiclass">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to use
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#required-columns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Required columns
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#processing_create_binary_map_after_sta" class="md-nav__link">
+    <span class="md-ellipsis">
+      processing_create_binary_map_after_sta
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="processing_create_binary_map_after_sta">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to use
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#processing_create_multiclass_from_binary_masks" class="md-nav__link">
+    <span class="md-ellipsis">
+      processing_create_multiclass_from_binary_masks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="processing_create_multiclass_from_binary_masks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#expected-folder-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Expected folder structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes-and-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes and best practices
     </span>
   </a>
   
@@ -1213,7 +1441,7 @@ You're not viewing the latest version.
         <li class="md-nav__item">
   <a href="#next-steps" class="md-nav__link">
     <span class="md-ellipsis">
-      Next Steps
+      Next steps
     </span>
   </a>
   
@@ -1235,7 +1463,7 @@ You're not viewing the latest version.
 
 
   
-    <a href="https://github.com/frosinastojanovska/cryosiam/edit/master/docs/instance.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/frosinastojanovska/cryosiam/edit/master/docs/processing_functions.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
     </a>
@@ -1243,288 +1471,382 @@ You're not viewing the latest version.
   
 
 
-<h1 id="instance-segmentation">Instance Segmentation<a class="headerlink" href="#instance-segmentation" title="Permanent link">¶</a></h1>
-<p>The <strong>instance segmentation module</strong> in CryoSiam identifies <strong>individual macromolecular complexes</strong> as distinct,
-volumetric objects within a tomogram.</p>
-<p>Unlike semantic segmentation, which labels voxels by class, instance segmentation separates <strong>individual particles</strong>,
-even when they belong to the same class or touch each other.</p>
-<p>Instance segmentation is typically run <strong>after lamella prediction</strong> to restrict analysis to the sample region and avoid
-false positives outside the lamella.</p>
-<blockquote>
-<p><strong>Recommended pipeline:</strong><br>
-<code>Denoising → Lamella Prediction → Instance Segmentation</code></p>
-</blockquote>
+<h1 id="processing-functions">Processing Functions<a class="headerlink" href="#processing-functions" title="Permanent link">¶</a></h1>
+<p>CryoSiam provides <strong>standalone preprocessing utilities</strong> to prepare tomograms and label masks for training and
+downstream workflows. These commands are independent of the main CryoSiam prediction/training modules and are useful
+when you need to:</p>
+<ul>
+<li>Enforce CryoSiam’s expected intensity convention (<strong>scaled to [0,1]</strong>, typically <strong>white-on-black</strong>)</li>
+<li>Generate <strong>binary</strong> or <strong>multi-class</strong> training masks from particle coordinates</li>
+<li>Create masks from <strong>STA</strong> average maps + orientations</li>
+<li>Combine per-class binary masks into a single multi-class label volume</li>
+</ul>
 <hr>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">¶</a></h2>
-<p>Instance segmentation produces:</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>What it does</th>
+<th>Typical use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>processing_invert_scale</code></td>
+<td>Invert and/or scale tomogram intensities (optionally percentile clip)</td>
+<td>Prepare external tomograms for training / pretrained weights</td>
+</tr>
+<tr>
+<td><code>processing_create_sphere_mask</code></td>
+<td>Create <strong>binary</strong> sphere masks from particle centers</td>
+<td>Weak labels / simulated labels</td>
+</tr>
+<tr>
+<td><code>processing_create_sphere_mask_multiclass</code></td>
+<td>Create <strong>multi-class</strong> sphere masks from class-labeled centers</td>
+<td>Multi-class weak labels</td>
+</tr>
+<tr>
+<td><code>processing_create_binary_map_after_sta</code></td>
+<td>Place a thresholded STA map into tomograms using orientations</td>
+<td>Shape-aware labels from STA</td>
+</tr>
+<tr>
+<td><code>processing_create_multiclass_from_binary_masks</code></td>
+<td>Merge multiple binary masks into one multi-class mask</td>
+<td>Combine separate labels into one semantic mask</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="processing_invert_scale"><code>processing_invert_scale</code><a class="headerlink" href="#processing_invert_scale" title="Permanent link">¶</a></h2>
+<p>Invert and/or scale tomogram intensities.</p>
+<h3 id="when-to-use">When to use<a class="headerlink" href="#when-to-use" title="Permanent link">¶</a></h3>
 <ul>
-<li><strong>Instance masks</strong> – each detected object is labeled with a unique ID</li>
-<li><strong>Probability maps</strong> – voxel-wise confidence of object presence and boundaries</li>
-<li><strong>Optional lamella masking</strong> – restricts predictions to valid sample regions</li>
+<li>Your tomograms come from a different pipeline and are <strong>not</strong> in the expected <strong>[0,1]</strong> range.</li>
+<li>You need to enforce <strong>white-on-black</strong> contrast (high density → high intensity).</li>
+<li>You want to clip outliers using percentiles before scaling.</li>
 </ul>
-<p>Lamella masking is strongly recommended, as the instance model was trained only on lamella regions.</p>
-<hr>
-<h2 id="example-results">Example results<a class="headerlink" href="#example-results" title="Permanent link">¶</a></h2>
-<h3 id="input-denoised-tomogram">Input (denoised tomogram)<a class="headerlink" href="#input-denoised-tomogram" title="Permanent link">¶</a></h3>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/instance/denoised_tomogram.png" data-desc-position="bottom"><img alt="Denoised tomogram" src="../images/instance/denoised_tomogram.png" width="300"></a></p>
-<h3 id="lamella-mask-recommended">Lamella mask (recommended)<a class="headerlink" href="#lamella-mask-recommended" title="Permanent link">¶</a></h3>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/instance/lamella_mask.png" data-desc-position="bottom"><img alt="Lamella mask" src="../images/instance/lamella_mask.png" width="400"></a></p>
-<h3 id="instance-segmentation-output">Instance segmentation output<a class="headerlink" href="#instance-segmentation-output" title="Permanent link">¶</a></h3>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/instance/instance_results.png" data-desc-position="bottom"><img alt="Instance segmentation output" src="../images/instance/instance_results.png"></a></p>
-<hr>
-<h2 id="trained-model">Trained Model<a class="headerlink" href="#trained-model" title="Permanent link">¶</a></h2>
-<p>A pre-trained instance segmentation model is available:
-<a href="https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main/cryosiam_instance.ckpt">CryoSiam instance segmentation model (v1.0)</a></p>
-<hr>
-<h2 id="running-instance-segmentation"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m6.354 8.04-4.773 4.773a.75.75 0 1 0 1.061 1.06L7.945 8.57a.75.75 0 0 0 0-1.06L2.642 2.206a.75.75 0 0 0-1.06 1.061L6.353 8.04ZM8.75 11.5a.75.75 0 0 0 0 1.5h5.5a.75.75 0 0 0 0-1.5z"></path></svg></span> Running instance segmentation<a class="headerlink" href="#running-instance-segmentation" title="Permanent link">¶</a></h2>
-<p>Run instance segmentation using a YAML configuration file:</p>
-<div class="highlight"><pre><span></span><code>cryosiam<span class="w"> </span>instance_predict<span class="w"> </span>--config_file<span class="o">=</span>configs/config_instance.yaml
+<h3 id="command">Command<a class="headerlink" href="#command" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code>cryosiam<span class="w"> </span>processing_invert_scale<span class="w"> </span>--input_path<span class="w"> </span>/path/to/tomograms_or_one_tomogram.mrc<span class="w"> </span>--output_path<span class="w"> </span>/path/to/output_folder_or_output_file.mrc<span class="w"> </span>--invert<span class="w"> </span>--lower_end_percentage<span class="w"> </span><span class="m">0</span>.1<span class="w"> </span>--upper_end_percentage<span class="w"> </span><span class="m">99</span>.9
 </code></pre></div>
-<p>To process a <strong>single tomogram only</strong>, use:</p>
-<div class="highlight"><pre><span></span><code>cryosiam<span class="w"> </span>instance_predict<span class="w"> </span>--config_file<span class="o">=</span>configs/config_instance.yaml<span class="w"> </span>--filename<span class="w"> </span>TS_01.mrc
-</code></pre></div>
-<h3 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">¶</a></h3>
-<p>Instance masks and probability maps can be visualized using CryoSiam-Vis.
-See visualization instructions <a href="../visualization/#visualize_instance">here</a>.</p>
-<hr>
-<h2 id="example-configuration-configsconfig_instanceyaml">Example Configuration (<code>configs/config_instance.yaml</code>)<a class="headerlink" href="#example-configuration-configsconfig_instanceyaml" title="Permanent link">¶</a></h2>
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z"></path><path d="M7.25 7.689V2a.75.75 0 0 1 1.5 0v5.689l1.97-1.969a.749.749 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 6.78a.749.749 0 1 1 1.06-1.06z"></path></svg></span> <a href="../configs/config_instance.yaml">Download instance config</a></p>
-<div class="highlight"><pre><span></span><code><span class="nt">data_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/stojanov/dataset1/predictions/denoised'</span>
-<span class="nt">mask_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/stojanov/dataset1/predictions/lamella'</span>
-<span class="nt">prediction_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/stojanov/dataset1/predictions/instance'</span>
-
-<span class="nt">trained_model</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/stojanov/trained_models/cryosiam_instance.ckpt'</span>
-<span class="nt">file_extension</span><span class="p">:</span><span class="w"> </span><span class="s">'.mrc'</span>
-
-<span class="nt">test_files</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
-
-<span class="nt">save_raw_predictions</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
-
-<span class="nt">parameters</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">data</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">patch_size</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">128</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">128</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">128</span><span class="w"> </span><span class="p p-Indicator">]</span>
-<span class="w">    </span><span class="nt">min</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
-<span class="w">    </span><span class="nt">max</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
-<span class="w">    </span><span class="nt">mean</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
-<span class="w">    </span><span class="nt">std</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
-<span class="w">  </span><span class="nt">network</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">in_channels</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
-<span class="w">    </span><span class="nt">spatial_dims</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
-<span class="w">    </span><span class="nt">threshold_foreground</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.65</span>
-<span class="w">    </span><span class="nt">boundary_bias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.8</span>
-<span class="w">    </span><span class="nt">min_center_distance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
-<span class="w">    </span><span class="nt">max_center_distance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
-<span class="w">    </span><span class="nt">distance_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w">   </span><span class="c1"># 0 for using only predicted distances, 1 for using predicted distances + cdist from foreground, 2 for using only cdist</span>
-<span class="w">    </span><span class="nt">postprocessing</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
-
-<span class="nt">hyper_parameters</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">batch_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
-</code></pre></div>
-<hr>
-<h2 id="config-reference">Config Reference<a class="headerlink" href="#config-reference" title="Permanent link">¶</a></h2>
-<h3 id="toplevel-keys">Top‑level keys<a class="headerlink" href="#toplevel-keys" title="Permanent link">¶</a></h3>
+<h3 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">¶</a></h3>
 <table>
 <thead>
 <tr>
-<th>Key</th>
-<th>Type</th>
-<th style="text-align: right;">Must change the default value</th>
+<th>Argument</th>
+<th style="text-align: right;">Type</th>
+<th style="text-align: center;">Required</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>data_folder</code></td>
-<td><code>str</code></td>
-<td style="text-align: right;">✅</td>
-<td>Directory containing denoised tomograms</td>
+<td><code>--input_path</code></td>
+<td style="text-align: right;"><code>str</code></td>
+<td style="text-align: center;">✅</td>
+<td>Path to an input tomogram <strong>file</strong> or a <strong>folder</strong> containing tomograms</td>
 </tr>
 <tr>
-<td><code>mask_folder</code></td>
-<td><code>str</code></td>
-<td style="text-align: right;">✅</td>
-<td>Directory containing lamella masks (recommended</td>
+<td><code>--output_path</code></td>
+<td style="text-align: right;"><code>str</code></td>
+<td style="text-align: center;">✅</td>
+<td>Output file path (if input is file) or output folder (if input is folder)</td>
 </tr>
 <tr>
-<td><code>prediction_folder</code></td>
-<td><code>str</code></td>
-<td style="text-align: right;">✅</td>
-<td>Output directory for instance segmentation results</td>
+<td><code>--invert</code></td>
+<td style="text-align: right;"><code>flag</code></td>
+<td style="text-align: center;">❌</td>
+<td>If set, invert intensities (contrast inversion)</td>
 </tr>
 <tr>
-<td><code>trained_model</code></td>
-<td><code>str</code></td>
-<td style="text-align: right;">✅</td>
-<td>Path to the instance segmentation model checkpoint (<code>.ckpt</code>)</td>
+<td><code>--lower_end_percentage</code></td>
+<td style="text-align: right;"><code>float</code></td>
+<td style="text-align: center;">✅</td>
+<td>Percentile cutoff for lower-end clipping (e.g. <code>0.1</code>)</td>
 </tr>
 <tr>
-<td><code>file_extension</code></td>
-<td><code>str</code></td>
-<td style="text-align: right;">❌</td>
-<td>Input file extension (<code>.mrc</code> or <code>.rec</code>, default: <code>.mrc</code>)</td>
-</tr>
-<tr>
-<td><code>test_files</code></td>
-<td><code>list[str]</code> or <code>null</code></td>
-<td style="text-align: right;">❌</td>
-<td>Specific tomograms to process; <code>null</code> processes all files</td>
-</tr>
-<tr>
-<td><code>save_internal_files</code></td>
-<td><code>bool</code></td>
-<td style="text-align: right;">❌</td>
-<td>Save intermediate outputs (probability maps)</td>
+<td><code>--upper_end_percentage</code></td>
+<td style="text-align: right;"><code>float</code></td>
+<td style="text-align: center;">✅</td>
+<td>Percentile cutoff for upper-end clipping (e.g. <code>99.9</code>)</td>
 </tr>
 </tbody>
 </table>
+<h3 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">¶</a></h3>
+<ul>
+<li>If your data is already white-on-black, omit <code>--invert</code> and use only scaling/clipping.</li>
+<li>Percentile clipping is recommended for tomograms.</li>
+</ul>
 <hr>
-<h3 id="parameters"><code>parameters</code><a class="headerlink" href="#parameters" title="Permanent link">¶</a></h3>
+<h2 id="processing_create_sphere_mask"><code>processing_create_sphere_mask</code><a class="headerlink" href="#processing_create_sphere_mask" title="Permanent link">¶</a></h2>
+<p>Create a <strong>binary</strong> tomogram mask by placing spheres at particle center coordinates.</p>
+<h3 id="when-to-use_1">When to use<a class="headerlink" href="#when-to-use_1" title="Permanent link">¶</a></h3>
+<ul>
+<li>You want <strong>weak labels</strong> from coordinate picks (manual / particle identification / external picker).</li>
+<li>You want to generate <strong>synthetic semantic masks</strong> (single class) for training.</li>
+</ul>
+<h3 id="command-all-tomograms-referenced-by-the-coordinates-file">Command (all tomograms referenced by the coordinates file)<a class="headerlink" href="#command-all-tomograms-referenced-by-the-coordinates-file" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code>cryosiam<span class="w"> </span>processing_create_sphere_mask<span class="w"> </span>--coordinates_file<span class="w"> </span>/path/to/particles.star<span class="w"> </span>--sphere_radius<span class="w"> </span><span class="m">6</span><span class="w"> </span>--output_dir<span class="w"> </span>/path/to/output_masks<span class="w"> </span>--tomogram_path<span class="w"> </span>/path/to/tomograms
+</code></pre></div>
+<h3 id="command-process-only-one-tomogram">Command (process only one tomogram)<a class="headerlink" href="#command-process-only-one-tomogram" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code>cryosiam<span class="w"> </span>processing_create_sphere_mask<span class="w"> </span>--coordinates_file<span class="w"> </span>/path/to/particles.csv<span class="w"> </span>--sphere_radius<span class="w"> </span><span class="m">6</span><span class="w"> </span>--output_dir<span class="w"> </span>/path/to/output_masks<span class="w"> </span>--tomogram_path<span class="w"> </span>/path/to/tomograms<span class="w"> </span>--tomo_name<span class="w"> </span>TS_01.mrc
+</code></pre></div>
+<h3 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">¶</a></h3>
 <table>
 <thead>
 <tr>
-<th>Key</th>
-<th>Type</th>
-<th style="text-align: right;">Must change the default value</th>
+<th>Argument</th>
+<th style="text-align: right;">Type</th>
+<th style="text-align: center;">Required</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>data.patch_size</code></td>
-<td><code>list[int]</code></td>
-<td style="text-align: right;">❌</td>
-<td>Sliding-window patch size for 3D inference</td>
+<td><code>--coordinates_file</code></td>
+<td style="text-align: right;"><code>str</code></td>
+<td style="text-align: center;">✅</td>
+<td>STAR or CSV file containing particle centers</td>
 </tr>
 <tr>
-<td><code>data.min</code></td>
-<td><code>float</code></td>
-<td style="text-align: right;">❌</td>
-<td>Intensity minimum value for data scaling</td>
+<td><code>--sphere_radius</code></td>
+<td style="text-align: right;"><code>int</code></td>
+<td style="text-align: center;">✅</td>
+<td>Sphere radius in <strong>voxels</strong></td>
 </tr>
 <tr>
-<td><code>data.max</code></td>
-<td><code>float</code></td>
-<td style="text-align: right;">❌</td>
-<td>Intensity maximum value for data scaling</td>
+<td><code>--output_dir</code></td>
+<td style="text-align: right;"><code>str</code></td>
+<td style="text-align: center;">✅</td>
+<td>Output directory for generated masks</td>
 </tr>
 <tr>
-<td><code>data.mean</code></td>
-<td><code>float</code></td>
-<td style="text-align: right;">❌</td>
-<td>Mean used for normalization</td>
+<td><code>--tomogram_path</code></td>
+<td style="text-align: right;"><code>str</code></td>
+<td style="text-align: center;">✅</td>
+<td>Path to a tomogram <strong>folder</strong> (preferred) or a single tomogram file used to determine output volume size</td>
 </tr>
 <tr>
-<td><code>data.std</code></td>
-<td><code>float</code></td>
-<td style="text-align: right;">❌</td>
-<td>Std used for normalization</td>
-</tr>
-<tr>
-<td><code>network.in_channels</code></td>
-<td><code>int</code></td>
-<td style="text-align: right;">❌</td>
-<td>Number of input channels (usually <code>1</code>)</td>
-</tr>
-<tr>
-<td><code>network.spatial_dims</code></td>
-<td><code>int</code></td>
-<td style="text-align: right;">❌</td>
-<td>Dimensionality of the model (<code>3</code> for tomograms)</td>
-</tr>
-<tr>
-<td><code>network.threshold_foreground</code></td>
-<td><code>float</code></td>
-<td style="text-align: right;">✅</td>
-<td>Foreground probability cutoff for seed generation (default <code>0.4</code>). Lower = more sensitive</td>
-</tr>
-<tr>
-<td><code>network.boundary_bias</code></td>
-<td><code>float</code></td>
-<td style="text-align: right;">❌</td>
-<td>Bias controlling separation of touching objects; higher values enforce stronger borders</td>
-</tr>
-<tr>
-<td><code>network.min_center_distance</code></td>
-<td><code>int</code></td>
-<td style="text-align: right;">❌</td>
-<td>Minimum allowed distance (voxels) between centers (controls splitting)</td>
-</tr>
-<tr>
-<td><code>network.max_center_distance</code></td>
-<td><code>int</code></td>
-<td style="text-align: right;">❌</td>
-<td>Maximum allowed distance (voxels) for merging/association</td>
-</tr>
-<tr>
-<td><code>network.distance_type</code></td>
-<td><code>int</code></td>
-<td style="text-align: right;">❌</td>
-<td>Distance strategy: <code>0</code> predicted, <code>1</code> predicted+cdist (default), <code>2</code> cdist only</td>
-</tr>
-<tr>
-<td><code>network.postprocessing</code></td>
-<td><code>bool</code></td>
-<td style="text-align: right;">❌</td>
-<td>Apply additional connected-component cleanup</td>
+<td><code>--tomo_name</code></td>
+<td style="text-align: right;"><code>str</code></td>
+<td style="text-align: center;">❌</td>
+<td>Process only one tomogram (must match <code>rlnMicrographName</code> in STAR or <code>tomo</code> in CSV)</td>
 </tr>
 </tbody>
 </table>
-<hr>
-<h4 id="hyper_parameters"><code>hyper_parameters</code><a class="headerlink" href="#hyper_parameters" title="Permanent link">¶</a></h4>
-<table>
-<thead>
-<tr>
-<th>Key</th>
-<th>Type</th>
-<th style="text-align: right;">Must change the default value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>batch_size</code></td>
-<td><code>int</code></td>
-<td style="text-align: right;">❌</td>
-<td>Number of 3D patches processed per forward pass.</td>
-</tr>
-</tbody>
-</table>
+<h3 id="coordinate-file-formats">Coordinate file formats<a class="headerlink" href="#coordinate-file-formats" title="Permanent link">¶</a></h3>
+<p><strong>STAR file</strong></p>
+<ul>
+<li>Must contain headers: <code>rlnCoordinateX</code>, <code>rlnCoordinateY</code>, <code>rlnCoordinateZ</code></li>
+<li>Tomogram association is typically via <code>rlnMicrographName</code></li>
+</ul>
+<p><strong>CSV file</strong></p>
+<ul>
+<li>Must contain headers (z, y, x order): <code>centroid-0</code>, <code>centroid-1</code>, <code>centroid-2</code></li>
+<li>Tomogram association via column <code>tomo</code> (recommended)</li>
+</ul>
 <blockquote>
-<p><strong>Tips</strong><br>
-Lower <code>threshold_foreground</code> to detect weaker objects; raise it to reduce false positives.<br>
-Tune <code>boundary_bias</code> and center-distance parameters to better separate touching particles.<br>
-Balance <code>batch_size</code> and <code>patch_size</code> to fit GPU memory.</p>
+<p>Coordinates are expected in <strong>voxel space</strong>.</p>
 </blockquote>
 <hr>
-<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">¶</a></h2>
+<h2 id="processing_create_sphere_mask_multiclass"><code>processing_create_sphere_mask_multiclass</code><a class="headerlink" href="#processing_create_sphere_mask_multiclass" title="Permanent link">¶</a></h2>
+<p>Create a <strong>multi-class</strong> mask by placing spheres at centers, using class labels and class-specific radii.</p>
+<h3 id="when-to-use_2">When to use<a class="headerlink" href="#when-to-use_2" title="Permanent link">¶</a></h3>
+<ul>
+<li>You have multiple particle types and want a <strong>multi-class</strong> semantic training mask.</li>
+<li>You want different radii per class (to reflect expected particle sizes).</li>
+</ul>
+<h3 id="command_1">Command<a class="headerlink" href="#command_1" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code>cryosiam<span class="w"> </span>processing_create_sphere_mask_multiclass<span class="w"> </span>--coordinates_file<span class="w"> </span>/path/to/particles_with_classes.star<span class="w"> </span>--sphere_radius<span class="w"> </span><span class="m">5</span>,7,9<span class="w"> </span>--output_dir<span class="w"> </span>/path/to/output_masks<span class="w"> </span>--tomogram_path<span class="w"> </span>/path/to/tomograms
+</code></pre></div>
+<h3 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">¶</a></h3>
 <table>
 <thead>
 <tr>
-<th>Symptom</th>
-<th>Suggested Fix</th>
+<th>Argument</th>
+<th style="text-align: right;">Type</th>
+<th style="text-align: center;">Required</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>CUDA out of memory</td>
-<td>Reduce <code>batch_size</code> or <code>patch_size</code></td>
+<td><code>--coordinates_file</code></td>
+<td style="text-align: right;"><code>str</code></td>
+<td style="text-align: center;">✅</td>
+<td>STAR or CSV file containing centers <strong>and</strong> class labels</td>
 </tr>
 <tr>
-<td>Objects outside lamella</td>
-<td>Ensure lamella prediction was run and <code>mask_folder</code> is set correctly</td>
+<td><code>--sphere_radius</code></td>
+<td style="text-align: right;"><code>str</code></td>
+<td style="text-align: center;">✅</td>
+<td>Comma-separated radii (N integers) where N = number of classes (e.g. <code>5,7,9</code>)</td>
 </tr>
 <tr>
-<td>Over-segmentation</td>
-<td>Increase <code>threshold_foreground</code> or adjust center-distance parameters</td>
+<td><code>--output_dir</code></td>
+<td style="text-align: right;"><code>str</code></td>
+<td style="text-align: center;">✅</td>
+<td>Output directory for generated masks</td>
+</tr>
+<tr>
+<td><code>--tomogram_path</code></td>
+<td style="text-align: right;"><code>str</code></td>
+<td style="text-align: center;">✅</td>
+<td>Tomogram folder (preferred) or single tomogram to determine output volume size</td>
+</tr>
+<tr>
+<td><code>--tomo_name</code></td>
+<td style="text-align: right;"><code>str</code></td>
+<td style="text-align: center;">❌</td>
+<td>Process only one tomogram</td>
+</tr>
+</tbody>
+</table>
+<h3 id="required-columns">Required columns<a class="headerlink" href="#required-columns" title="Permanent link">¶</a></h3>
+<p><strong>STAR file</strong></p>
+<ul>
+<li>Coordinates: <code>rlnCoordinateX</code>, <code>rlnCoordinateY</code>, <code>rlnCoordinateZ</code></li>
+<li>Class: <code>rlnClassNumber</code></li>
+<li>Class numbering must start at <strong>1</strong> and be <strong>sequential</strong>.</li>
+</ul>
+<p><strong>CSV file</strong></p>
+<ul>
+<li>Coordinates: <code>centroid-0</code>, <code>centroid-1</code>, <code>centroid-2</code> (z, y, x)</li>
+<li>Class: <code>semantic_class</code></li>
+<li>Class numbering must start at <strong>1</strong> and be <strong>sequential</strong>.</li>
+</ul>
+<hr>
+<h2 id="processing_create_binary_map_after_sta"><code>processing_create_binary_map_after_sta</code><a class="headerlink" href="#processing_create_binary_map_after_sta" title="Permanent link">¶</a></h2>
+<p>Create a <strong>binary</strong> tomogram mask by placing a thresholded STA average map into a tomogram using particle orientations.</p>
+<h3 id="when-to-use_3">When to use<a class="headerlink" href="#when-to-use_3" title="Permanent link">¶</a></h3>
+<ul>
+<li>You have a STA pipeline that produced:<ul>
+<li>a STAR file with orientations, and</li>
+<li>an average map (subvolume) representing the particle</li>
+</ul>
+</li>
+<li>You want shape-aware labels rather than spheres.</li>
+</ul>
+<h3 id="command_2">Command<a class="headerlink" href="#command_2" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code>cryosiam<span class="w"> </span>processing_create_binary_map_after_sta<span class="w"> </span>--star_file<span class="w"> </span>/path/to/sta_orientations.star<span class="w"> </span>--map_file<span class="w"> </span>/path/to/average_map.mrc<span class="w"> </span>--map_threshold<span class="w"> </span><span class="m">0</span>.15<span class="w"> </span>--output_dir<span class="w"> </span>/path/to/output_masks<span class="w"> </span>--example_tomogram<span class="w"> </span>/path/to/example_tomogram.mrc
+</code></pre></div>
+<h3 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th style="text-align: right;">Type</th>
+<th style="text-align: center;">Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--star_file</code></td>
+<td style="text-align: right;"><code>str</code></td>
+<td style="text-align: center;">✅</td>
+<td>STAR file with orientations after STA</td>
+</tr>
+<tr>
+<td><code>--map_file</code></td>
+<td style="text-align: right;"><code>str</code></td>
+<td style="text-align: center;">✅</td>
+<td>Map inserted into the tomogram (expected to be a <strong>cubic subvolume</strong>)</td>
+</tr>
+<tr>
+<td><code>--output_dir</code></td>
+<td style="text-align: right;"><code>str</code></td>
+<td style="text-align: center;">✅</td>
+<td>Output directory for generated masks</td>
+</tr>
+<tr>
+<td><code>--map_threshold</code></td>
+<td style="text-align: right;"><code>float</code></td>
+<td style="text-align: center;">✅</td>
+<td>Threshold used to binarize the inserted map</td>
+</tr>
+<tr>
+<td><code>--example_tomogram</code></td>
+<td style="text-align: right;"><code>str</code></td>
+<td style="text-align: center;">✅</td>
+<td>A reference tomogram used to determine output 3D size</td>
+</tr>
+<tr>
+<td><code>--tomo_name</code></td>
+<td style="text-align: right;"><code>str</code></td>
+<td style="text-align: center;">❌</td>
+<td>Process only one tomogram (name must match <code>rlnMicrographName</code>)</td>
 </tr>
 </tbody>
 </table>
 <hr>
-<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">¶</a></h2>
+<h2 id="processing_create_multiclass_from_binary_masks"><code>processing_create_multiclass_from_binary_masks</code><a class="headerlink" href="#processing_create_multiclass_from_binary_masks" title="Permanent link">¶</a></h2>
+<p>Combine multiple binary masks (one per class) into a single <strong>multi-class</strong> semantic mask.</p>
+<h3 id="expected-folder-structure">Expected folder structure<a class="headerlink" href="#expected-folder-structure" title="Permanent link">¶</a></h3>
+<p><code>root_binary_masks_folder</code> must contain one subfolder per class label, each holding binary masks for that label:</p>
+<div class="highlight"><pre><span></span><code>root_binary_masks_folder/
+├── class_1/
+│ ├── TS_01.mrc
+│ └── TS_02.mrc
+├── class_2/
+│ ├── TS_01.mrc
+│ └── TS_02.mrc
+└── class_3/
+  ├── TS_01.mrc
+  └── TS_02.mrc
+</code></pre></div>
+<h3 id="command_3">Command<a class="headerlink" href="#command_3" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code>cryosiam<span class="w"> </span>processing_create_multiclass_from_binary_masks<span class="w"> </span>--root_binary_masks_folder<span class="w"> </span>/path/to/root_binary_masks_folder<span class="w"> </span>--output_dir<span class="w"> </span>/path/to/output_multiclass_masks
+</code></pre></div>
+<h3 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th style="text-align: right;">Type</th>
+<th style="text-align: center;">Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--root_binary_masks_folder</code></td>
+<td style="text-align: right;"><code>str</code></td>
+<td style="text-align: center;">✅</td>
+<td>Folder containing per-class subfolders with binary masks</td>
+</tr>
+<tr>
+<td><code>--output_dir</code></td>
+<td style="text-align: right;"><code>str</code></td>
+<td style="text-align: center;">✅</td>
+<td>Output directory for multi-class masks</td>
+</tr>
+<tr>
+<td><code>--tomo_name</code></td>
+<td style="text-align: right;"><code>str</code></td>
+<td style="text-align: center;">❌</td>
+<td>Process only one tomogram (include file extension)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="notes-and-best-practices">Notes and best practices<a class="headerlink" href="#notes-and-best-practices" title="Permanent link">¶</a></h2>
 <ul>
-<li><a href="../subtomogram_embeddings/">Subtomogram embeddings</a></li>
+<li>All coordinates are expected in <strong>voxel space</strong>.</li>
+<li>Always visually inspect a few outputs before training.</li>
+<li>These tools are commonly used in:<ul>
+<li><a href="../semantic_training/">Semantic segmentation training</a> (Steps 1–3)</li>
 <li><a href="../particle_identification/">Particle identification</a></li>
-<li><a href="../visualization/">Visualization</a></li>
+<li><a href="../subtomogram_embeddings/">Subtomogram embeddings</a> (center-based inputs)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="../semantic_training/">Semantic segmentation training</a></li>
 <li><a href="../usage/">Usage overview</a></li>
 </ul>
 

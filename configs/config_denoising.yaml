@@ -1,5 +1,4 @@
 data_folder: '/scratch/stojanov/dataset1/tomograms'
-log_dir: '/scratch/stojanov/dataset1/'
 prediction_folder: '/scratch/stojanov/dataset1/predictions/denoised'
 
 trained_model: '/scratch/stojanov/trained_models/cryosiam_denoising.ckpt'
@@ -11,7 +10,6 @@ save_raw_predictions: False
 scale_prediction: True
 
 parameters:
-  gpu_devices: 1
   data:
     patch_size: [ 128, 128, 128 ]
     min: 0
