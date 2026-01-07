@@ -58,9 +58,10 @@ nav:
     - Semantic segmentation training: semantic_training.md
     - Instance segmentation: instance.md
     - Subtomogram embeddings: subtomogram_embeddings.md
+    - Processing functions: processing_functions.md
+  - Trained models: trained_models.md
   - Tutorial: tutorial.md
   - Visualization: visualization.md
-  - Trained models: trained_models.md
 
 plugins:
   - search

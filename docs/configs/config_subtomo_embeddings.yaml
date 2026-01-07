@@ -1,6 +1,7 @@
 data_folder: '/scratch/stojanov/dataset1/predictions/denoised'
 instances_mask_folder: '/scratch/stojanov/dataset1/predictions/instances'
-log_dir: '/scratch/stojanov/dataset1/'
+centers_file: '/scratch/stojanov/dataset1/ribosome_centers.star'
+centers_patch_size: 64
 prediction_folder: '/scratch/stojanov/dataset1/predictions/subtomo_embeds'
 trained_model: '/g/zaugg/stojanov/simulated_datasets/final_models/simsiam_contrastive/version_1/model/last.ckpt'
 contrastive: True
@@ -33,7 +34,6 @@ visualization:
   3d_umap: False
 
 parameters:
-  gpu_devices: 0
   data:
     patch_size: [ 64, 64, 64 ]
     min: 0

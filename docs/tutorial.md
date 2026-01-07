@@ -12,7 +12,7 @@ We’ll go from raw tomogram to:
 - particle identification
 
 > **Why TS_02?** This tomogram was used to generate the examples in the figures from
-> the [CryoSiam paper](https://www.biorxiv.org/content/10.1101/2025.11.11.687379).
+> the [CryoSiam preprint](https://www.biorxiv.org/content/10.1101/2025.11.11.687379).
 
 
 ---
@@ -90,7 +90,6 @@ Create `configs/config_denoising.yaml` (download and adapt from [the general exa
 
 ```yaml
 data_folder: '/scratch/cryosiam_tutorial/data'
-log_dir: '/scratch/cryosiam_tutorial/'
 prediction_folder: '/scratch/cryosiam_tutorial/preds/denoised'
 
 trained_model: '/scratch/cryosiam_tutorial/models/cryosiam_denoising.ckpt'
@@ -102,7 +101,6 @@ save_raw_predictions: False
 scale_prediction: True
 
 parameters:
-  gpu_devices: 1
   data:
     patch_size: [ 128, 128, 128 ]
     min: 0
@@ -146,8 +144,7 @@ Create `configs/config_lamella.yaml` (download and adapt from [the general examp
 
 ```yaml
 data_folder: '/scratch/cryosiam_tutorial/preds/denoised'
-log_dir: '/scratch/TS02_tutorial/'
-prediction_folder: '/scratch/TS02_tutorial/preds/lamella'
+prediction_folder: '/scratch/cryosiam_tutorial/preds/lamella'
 
 trained_model: '/scratch/cryosiam_tutorial/models/cryosiam_lamella.ckpt'
 file_extension: '.mrc'
@@ -157,7 +154,6 @@ test_files: null
 save_internal_files: False
 
 parameters:
-  gpu_devices: 1
   data:
     patch_size: [ 128, 128, 128 ]
     min: 0
@@ -205,7 +201,6 @@ Create `configs/config_semantic.yaml` download and adapt from [the general examp
 ```yaml
 data_folder: '/scratch/cryosiam_tutorial/preds/denoised'
 mask_folder: '/scratch/cryosiam_tutorial/preds/lamella'
-log_dir: '/scratch/cryosiam_tutorial/'
 prediction_folder: '/scratch/cryosiam_tutorial/preds/semantic'
 
 trained_model: '/scratch/cryosiam_tutorial/models/cryosiam_semantic_segmentation.ckpt'
@@ -214,7 +209,6 @@ file_extension: '.mrc'
 test_files: null
 
 parameters:
-  gpu_devices: 1
   data:
     patch_size: [ 128, 128, 128 ]
     min: 0
@@ -262,7 +256,6 @@ Create `configs/config_instance.yaml` download and adapt from [the general examp
 ```yaml
 data_folder: '/scratch/cryosiam_tutorial/preds/denoised'
 mask_folder: '/scratch/cryosiam_tutorial/preds/lamella'
-log_dir: '/scratch/cryosiam_tutorial/'
 prediction_folder: '/scratch/cryosiam_tutorial/preds/instance'
 
 trained_model: '/scratch/cryosiam_tutorial/models/cryosiam_instance.ckpt'
@@ -273,7 +266,6 @@ test_files: null
 save_raw_predictions: False
 
 parameters:
-  gpu_devices: 1
   data:
     patch_size: [ 128, 128, 128 ]
     min: 0
@@ -316,7 +308,7 @@ Output:
 
 ## Step 5 - Filter and visualize instances within a mask (membrane proteins)
 
-This step takes the predicted mask for the membrane and isolates the instances interacting with that mask
+This step takes the predicted mask for the membrane and isolates the subset of instance objects that spatially overlap with the selected semantic mask. 
 
 Take the config file from the previous step, and add the fields ```filtering_mask_folder```, ```filtering_mask_expand_voxels``` and ```filtering_mask_expand_labels```.
 There is also support to use a mask provided as a mrc format file, and the field ```filtering_mask_folder: '.mrc'``` can be added to the config file to use that type of a mask. 
@@ -324,7 +316,6 @@ There is also support to use a mask provided as a mrc format file, and the field
 ```yaml
 data_folder: '/scratch/cryosiam_tutorial/preds/denoised'
 mask_folder: '/scratch/cryosiam_tutorial/preds/lamella'
-log_dir: '/scratch/cryosiam_tutorial/'
 prediction_folder: '/scratch/cryosiam_tutorial/preds/instance'
 
 trained_model: '/scratch/cryosiam_tutorial/models/cryosiam_instance.ckpt'
@@ -341,7 +332,6 @@ test_files: null
 save_raw_predictions: False
 
 parameters:
-  gpu_devices: 1
   data:
     patch_size: [ 128, 128, 128 ]
     min: 0
@@ -388,12 +378,13 @@ Output:
 Download the model
 from [here](https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main/simsiam_embeds_denoised_convex_hull.ckpt).
 
+This example uses the convex hull masking model (`masking_type: 1`), which requires instance segmentation masks.
+
 Create `configs/config_subtomo_embeddings.yaml` download and adapt from [the general example](configs/config_subtomo_embeddings.yaml)):
 
 ```yaml
 data_folder: '/scratch/cryosiam_tutorial/preds/denoised'
 instances_mask_folder: '/scratch/cryosiam_tutorial/preds/instance'
-log_dir: '/scratch/cryosiam_tutorial/'
 prediction_folder: '/scratch/cryosiam_tutorial/preds/subtomo_embeds'
 
 trained_model: '/scratch/cryosiam_tutorial/models/simsiam_embeds_denoised_convex_hull.ckpt'
@@ -427,7 +418,6 @@ visualization:
   3d_umap: False
 
 parameters:
-  gpu_devices: 0
   data:
     patch_size: [ 64, 64, 64 ]
     patch_overlap: null
@@ -493,7 +483,6 @@ Create `configs/config_semantic_particle.yaml` download and adapt from [the gene
 ```yaml
 data_folder: '/scratch/cryosiam_tutorial/preds/denoised'
 mask_folder: '/scratch/cryosiam_tutorial/preds/lamella'
-log_dir: '/scratch/cryosiam_tutorial/'
 prediction_folder: '/scratch/cryosiam_tutorial/preds/semantic_particle'
 
 trained_model: '/scratch/cryosiam_tutorial/models/cryosiam_semantic_myco_candidates.ckpt'
@@ -502,7 +491,6 @@ file_extension: '.mrc'
 test_files: null
 
 parameters:
-  gpu_devices: 1
   data:
     patch_size: [ 128, 128, 128 ]
     min: 0
@@ -512,7 +500,7 @@ parameters:
   network:
     in_channels: 1
     spatial_dims: 3
-    out_chanels: 14
+    out_channels: 14
     threshold: 0.7
 
 hyper_parameters:

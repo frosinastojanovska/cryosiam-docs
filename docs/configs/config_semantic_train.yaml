@@ -1,0 +1,70 @@
+data_folder: '/scratch/stojanov/dataset1/predictions/denoised'
+labels_folder: '/scratch/stojanov/dataset1/semantic_gt_for_training'
+noisy_data_folder: null
+patches_folder: '/scratch/stojanov/dataset1/models/dense_simsiam_semantic_complexes/patches'
+temp_dir: '/scratch/stojanov/dataset1/models/dense_simsiam_semantic_complexes'
+log_dir: '/scratch/stojanov/dataset1/models/dense_simsiam_semantic_complexes'
+prediction_folder: '/scratch/stojanov/dataset1/models/dense_simsiam_semantic_complexes/predictions'
+pretrained_model: '/scratch/stojanov/trained_models/dense_simsiam_pretrained.ckpt'
+file_extension: '.mrc'
+
+train_files: [ 'sample_1.mrc', 'sample_2.mrc', 'sample_3.mrc', 'sample_4.mrc', 'sample_5.mrc',
+               'sample_6.mrc', 'sample_7.mrc', 'sample_8.mrc', 'sample_9.mrc', 'sample_10.mrc',
+               'sample_11.mrc', 'sample_12.mrc', 'sample_13.mrc', 'sample_14.mrc', 'sample_15.mrc',
+               'sample_16.mrc', 'sample_17.mrc', 'sample_18.mrc', 'sample_19.mrc', 'sample_20.mrc',
+               'sample_21.mrc', 'sample_22.mrc', 'sample_23.mrc', 'sample_24.mrc', 'sample_25.mrc',
+               'sample_26.mrc', 'sample_27.mrc', 'sample_28.mrc', 'sample_29.mrc', 'sample_30.mrc' ]
+
+val_files: null
+validation_ratio: 0.1
+
+continue_training: False
+
+labels_folder_for_filtering: null
+selected_labels: null
+
+parameters:
+  nodes: 1
+  gpu_devices: 8
+  data:
+    patch_size: [ 128, 128, 128 ]
+    patch_overlap: 0.5
+    remove_only_background: False
+    min: 0
+    max: 1
+    mean: 0
+    std: 1
+  transforms:
+    low_pass_sigma_range: [ 0.1, 0.6 ]
+    high_pass_sigma_range: [ 0.1, 0.2 ]
+    high_pass_sigma2_range: [ 4, 6 ]
+    noise_sigma_range: [ 0.01, 0.05 ]
+    combine_transforms: False
+    use_noisy_input: False
+    scale_intensity_factors: null
+    elastic: null
+    zoom: [ 0.8, 1.2 ]
+    rotate: [ 3.14, 3.14, 3.14 ]
+    flip: True
+  network:
+    in_channels: 1
+    spatial_dims: 3
+    out_channels: 7
+    dense_dim: 64
+    filters: [ 32, 64 ]
+    kernel_size: 3
+    padding: 1
+    distance_prediction: True
+    use_dice_loss: True
+    unfreeze_decoder: True
+    unfreeze_backbone: True
+
+hyper_parameters:
+  cache_rate: 0
+  val_interval: 1
+  batch_size: 3
+  optimizer: 'adamw' # one of 'sgd', 'adam', 'adamw'
+  lr: 0.001
+  momentum: 0.9
+  weight_decay: 0.00001
+  max_epochs: 200

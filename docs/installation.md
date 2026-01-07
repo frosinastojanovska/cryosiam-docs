@@ -110,7 +110,7 @@ Download from: https://www.anaconda.com/products/distribution
 
 ---
 
-After installing Miniforge or Anaconda, return to the [main Conda installation steps](#step-1-create_the_environment) above.
+After installing Miniforge or Anaconda, return to the [main Conda installation steps](#step-1-create-the-environment) above.
 
 ---
 

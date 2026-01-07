@@ -1,28 +1,119 @@
 # Subtomogram Embeddings Generation
 
-The Subtomogram Embeddings task extracts fixed-length feature representations from segmented subtomograms.  
-These embeddings capture the 3D structural and textural properties of each instance and enable unsupervised comparison, visualization, and clustering.
+The **subtomogram embeddings** module extracts fixed-length feature representations from segmented subtomograms.
+These embeddings capture the **3D structural and textural properties** of individual macromolecular complexes and enable
+unsupervised comparison, visualization, and clustering.
 
-> **Workflow:** `Instance Segmentation → Subtomogram Embeddings → Visualization → (Optional Clustering)`  
-> Embeddings are generated from **instance masks** produced in the previous step.
+Embeddings are computed using a self-supervised SimSiam model fine-tuned with contrastive learning and can be generated
+from either:
+
+- Instance segmentation masks, or
+- Particle center coordinates (e.g. from particle identification or external pickers)
+
+---
+
+> **Supported pipelines:**
+> - `Instance Segmentation → Subtomogram Embeddings → Visualization → (Optional Clustering)`
+> - `Provided center coordinates (example Particle Identification) → Subtomogram Embeddings → Visualization → (Optional Clustering)`
+
+---
+
+## Overview
+
+For each detected instance, CryoSiam extracts a local 3D subtomogram and maps it into a high-dimensional embedding
+space.
+
+> **Quick guide**
+>
+> - You have instance masks → use **instance-based embeddings**
+> - You only have particle coordinates → use **center-based embeddings**
+
+
+---
+
+### Input modes for subtomogram extraction
+
+CryoSiam supports two alternative input modes.
+
+#### 1. Instance-based embeddings
+
+Subtomograms are extracted from instance segmentation masks.
+
+**Required input**
+
+- instances_mask_folder
+
+**Characteristics**
+
+- Object shapes define subtomogram regions
+- Supports masking strategies (masking_type)
+- Recommended when instance segmentation is available
+
+#### 2. Center-based embeddings
+
+Subtomograms are extracted as fixed-size cubes centered on particle coordinates.
+
+This mode is intended for:
+
+- Particle Identification outputs
+- External particle pickers
+- Manually curated coordinates
+
+**Required input**
+
+- centers_file
+- centers_patch_size
+
+Instance segmentation is not required in this mode.
+> **Important constraint**
+>
+> When using center-based embeddings:
+> - `centers_patch_size` should be **close to the expected physical size of the particle**.
+    > Overly large patches include excessive background signal and significantly degrade embedding quality.
+
+---
+
+### Embedding models and masking strategies
+
+CryoSiam provides **three embedding variants**, controlled by the `masking_type` parameter (when working with masks
+provided from instance segmentation).
+Each variant corresponds to a different strategy for masking background signal when extracting subtomograms:
+
+| Masking type | Description                                                                         | When to use                                                                        |
+|--------------|-------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
+| `0`          | **No masking** – the raw subtomogram is extracted without applying an instance mask | Use when instance masks are unreliable or when full surrounding context is desired |
+| `1`          | **Convex hull masking** – the instance mask is expanded to its convex hull          | Recommended default; balances object focus with local context                      |
+| `2`          | **Strict masking** – only voxels inside the instance mask are retained              | Use when isolating object shape and internal structure is critical                 |
+
+Each masking strategy corresponds to a **separately trained embedding model**.
+Make sure that the selected `masking_type` matches the trained model specified by `trained_model`.
+
+> **Note:**  
+> For **center-based embeddings**, only **`masking_type: 0` (no masking)** is supported.
+> Masking types `1` and `2` require instance masks and are incompatible with center-based extraction.
+
+> **Recommendation:**  
+> Use **`masking_type: 1` (convex hull masking)** for most datasets, as it avoids errors with strict instance masking
+> while suppressing
+> background noise.
 
 ---
 
 ## Example Results
 
-- **UMAP visualization:** Each point represents a subtomogram embedding.
-- **KMeans clusters:** Distinct color-coded groups of similar structural features.
-- **Spectral clusters:** Captures fine-grained structural variability.
+- **UMAP visualization:** each point represents a subtomogram embedding
+- **KMeans clustering:** coarse grouping of similar structures
+- **Spectral clustering:** captures fine-grained structural variability
 
-### Embedding Space Projection
+### Embedding space projection (UMAP)
 
 ![2D UMAP embedding](images/embeddings/umap.png){ width="400" }
 
-### KMeans Clustering
+### KMeans clustering
 
 ![KMeans clusters](images/embeddings/kmeans.png){ width="400" }
 
-### Spectral Clustering
+### Spectral clustering
 
 ![Spectral clusters](images/embeddings/spectral.png){ width="400" }
 
@@ -30,24 +121,72 @@ These embeddings capture the 3D structural and textural properties of each insta
 
 ## Trained Model
 
-You can download the trained model from
-here: [CryoSiam subtomogram embedding model (v1.0)](https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main/simsiam_embeds_denoised_convex_hull.ckpt)
+Pre-trained embedding models are available for the different masking strategies.
+
+Example model (convex hull masking):
+[CryoSiam subtomogram embedding convex-hull model (v1.0)](https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main/simsiam_embeds_denoised_convex_hull.ckpt)
+
+Example model for centers (no masking):
+[CryoSiam subtomogram embedding no masking model (v1.0)](https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main/simsiam_embeds_denoised_no_masking.ckpt)
+
+A list of all the provided models is available here:
+[Trained models](trained_models.md)
 
 ---
 
-## :octicons-command-palette-16: Commands
+## :octicons-command-palette-16: Running subtomogram embeddings
 
-### Generate Embeddings
+### Generate embeddings from instance masks
 
 ```bash
 cryosiam simsiam_embeddings_predict --config_file=configs/subtomo_embeddings.yaml
 ```
 
-Optionally, process a single tomogram:
+To process a single tomogram only:
 
 ```bash
 cryosiam simsiam_embeddings_predict --config_file=configs/subtomo_embeddings.yaml --filename TS_01.mrc
 ```
+
+---
+
+### Generate embeddings from particle centers
+
+```bash
+cryosiam simsiam_embeddings_from_centers_predict --config_file configs/subtomo_embeddings.yaml
+```
+
+To process a single tomogram only:
+
+```bash
+cryosiam simsiam_embeddings_from_centers_predict --config_file=configs/subtomo_embeddings.yaml --filename TS_01.mrc
+```
+
+This command:
+
+- Reads particle centers from a .star or .csv file
+- Extracts fixed-size subtomograms around each center
+- Computes embeddings using the selected SimSiam model
+
+---
+
+### Particle centers file format
+
+When using center-based embeddings, particle coordinates must be provided in a .star or .csv file.
+
+**Mandatory fields**
+
+| Field name	 | STAR equivalent	   | Description           |
+|-------------|--------------------|-----------------------|
+| tomo	       | rlnMicrographName	 | Tomogram name or path |
+| centroid-0	 | rlnCoordinateZ	    | Z coordinate (voxel)  |
+| centroid-1	 | rlnCoordinateY	    | Y coordinate (voxel)  |
+| centroid-2	 | rlnCoordinateX	    | X coordinate (voxel)  |
+
+- One row per particle
+- Coordinates must be in voxel space
+- All tomograms to be processed must be listed in the same file
+- Additional columns are allowed and ignored
 
 ---
 
@@ -57,11 +196,11 @@ cryosiam simsiam_embeddings_predict --config_file=configs/subtomo_embeddings.yam
 cryosiam simsiam_visualize_embeddings --config_file=configs/subtomo_embeddings.yaml
 ```
 
-This command generates UMAP/PCA projections and distance maps for qualitative inspection.
+This command generates PCA/UMAP projections and distance maps for qualitative inspection.
 
 ---
 
-### (Optional) Cluster Embeddings
+### (Optional) Cluster embeddings
 
 **KMeans clustering:**
 
@@ -84,7 +223,8 @@ cryosiam simsiam_embeddings_spectral_clustering --config_file=configs/subtomo_em
 ```yaml
 data_folder: '/scratch/stojanov/dataset1/predictions/denoised'
 instances_mask_folder: '/scratch/stojanov/dataset1/predictions/instances'
-log_dir: '/scratch/stojanov/dataset1/'
+centers_file: '/scratch/stojanov/dataset1/ribosome_centers.star'
+centers_patch_size: 32
 prediction_folder: '/scratch/stojanov/dataset1/predictions/subtomo_embeds'
 trained_model: '/g/zaugg/stojanov/simulated_datasets/final_models/simsiam_contrastive/version_1/model/last.ckpt'
 contrastive: True
@@ -117,7 +257,6 @@ visualization:
   3d_umap: False
 
 parameters:
-  gpu_devices: 0
   data:
     patch_size: [ 64, 64, 64 ]
     patch_overlap: null
@@ -140,39 +279,40 @@ hyper_parameters:
 
 ### Top‑level keys
 
-| Key                     | Type                  | Must change the default value | Description                                                                           |
-|-------------------------|-----------------------|------------------------------:|---------------------------------------------------------------------------------------|
-| `data_folder`           | `str`                 |                             ✅ | Path to tomograms (raw or denoised).                                                  |
-| `instances_mask_folder` | `str`                 |                             ✅ | Path to **instance segmentation masks** (input regions).                              |
-| `log_dir`               | `str`                 |                             ❌ | Directory for runtime logs.                                                           |
-| `prediction_folder`     | `str`                 |                             ✅ | Output directory for generated embeddings.                                            |
-| `trained_model`         | `str`                 |                             ✅ | Path to pretrained SimSiam model checkpoint (`.ckpt`).                                |
-| `contrastive`           | `bool`                |                             ❌ | Indicates whether model uses contrastive training (SimSiam).                          |
-| `file_extension`        | `str`                 |                             ❌ | File type of tomograms (e.g., `.mrc`).                                                |
-| `test_files`            | `list[str]` or `null` |                             ❌ | Specific files to process; `null` = all.                                              |
-| `min_particle_size`     | `int`                 |                             ✅ | Minimum voxel size for valid particle region.                                         |
-| `max_particle_size`     | `int` or `null`       |                             ❌ | Maximum voxel size; `null` = no limit.                                                |
-| `masking_type`          | `int`                 |                             ❌ | Mask generation method (0 = no masking, 1 = convex hull masking, 2 - strict masking). |
-| `expand_labels`         | `int`                 |                             ❌ | Number of voxels to expand around mask boundaries for convex hull or strict masking.  |
+| Key                     | Type                  | Must change the default value | Description                                                                          |
+|-------------------------|-----------------------|------------------------------:|--------------------------------------------------------------------------------------|
+| `data_folder`           | `str`                 |                             ✅ | Path to denoised tomograms                                                           |
+| `instances_mask_folder` | `str`                 |                             ✅ | Path to **instance segmentation masks**; `null` when working with centers            |
+| `centers_file`          | `str`                 |                             ✅ | Path to particle centers file; `null` when working with instance masks               |
+| `centers_patch_size`    | `int`                 |                             ✅ | Patch size around particle centers; `null` when working with instance masks          |
+| `prediction_folder`     | `str`                 |                             ✅ | Output directory for embeddings                                                      |
+| `trained_model`         | `str`                 |                             ✅ | SimSiam embedding model checkpoint (`.ckpt`)                                         |
+| `contrastive`           | `bool`                |                             ❌ | Indicates contrastive (SimSiam) training                                             |
+| `file_extension`        | `str`                 |                             ❌ | Input file extension (`.mrc` or `.rec`, default: `.mrc`)                             |
+| `test_files`            | `list[str]` or `null` |                             ❌ | Specific tomograms to process; `null` processes all files                            |
+| `min_particle_size`     | `int`                 |                             ✅ | Minimum voxel size of valid instances                                                |
+| `max_particle_size`     | `int` or `null`       |                             ❌ | Maximum voxel size (optional); `null` = no limit.                                    |
+| `masking_type`          | `int`                 |                             ❌ | Mask generation method (0 = no masking, 1 = convex hull masking, 2 - strict masking) |
+| `expand_labels`         | `int`                 |                             ❌ | Number of voxels to expand around mask boundaries for convex hull or strict masking  |
 
 ---
 
 ### `clustering_kmeans`
 
-| Key             | Type   | Must change the default value | Description                                               |
-|-----------------|--------|------------------------------:|-----------------------------------------------------------|
-| `num_clusters`  | `int`  |                             ✅ | Number of clusters for KMeans algorithm.                  |
-| `visualization` | `bool` |                             ❌ | If `true`, generate scatter/UMAP plots of the embeddings. |
+| Key             | Type   | Must change the default value | Description                                              |
+|-----------------|--------|------------------------------:|----------------------------------------------------------|
+| `num_clusters`  | `int`  |                             ✅ | Number of clusters for KMeans algorithm                  |
+| `visualization` | `bool` |                             ❌ | If `true`, generate scatter/UMAP plots of the embeddings |
 
 ---
 
 ### `clustering_spectral`
 
-| Key                     | Type   | Must change the default value | Description                                       |
-|-------------------------|--------|------------------------------:|---------------------------------------------------|
-| `num_clusters`          | `int`  |                             ✅ | Expected number of spectral clusters.             |
-| `estimate_num_clusters` | `bool` |                             ❌ | If `true`, automatically estimate cluster number. |
-| `visualization`         | `bool` |                             ❌ | Enable cluster visualizations.                    |
+| Key                     | Type   | Must change the default value | Description                                      |
+|-------------------------|--------|------------------------------:|--------------------------------------------------|
+| `num_clusters`          | `int`  |                             ✅ | Expected number of spectral clusters             |
+| `estimate_num_clusters` | `bool` |                             ❌ | If `true`, automatically estimate cluster number |
+| `visualization`         | `bool` |                             ❌ | Enable cluster visualizations                    |
 
 ---
 
@@ -191,42 +331,41 @@ hyper_parameters:
 
 ### `parameters`
 
-| Key                    | Type                  | Must change the default value | Description                                   |
-|------------------------|-----------------------|------------------------------:|-----------------------------------------------|
-| `gpu_devices`          | `int` or `list[int]`  |                             ❌ | GPU(s) to use.                                |
-| `data.patch_size`      | `list[int]`           |                             ❌ | 3D patch size around each instance region.    |
-| `data.min`             | `float`               |                             ❌ | Intensity floor for normalization.            |
-| `data.max`             | `float`               |                             ❌ | Intensity ceiling for normalization.          |
-| `data.mean`            | `float`               |                             ❌ | Mean used for normalization.                  |
-| `data.std`             | `float`               |                             ❌ | Std used for normalization.                   |
-| `network.spatial_dims` | `int`                 |                             ❌ | Dimensionality (3 for subtomograms).          |
-| `network.in_channels`  | `int`                 |                             ❌ | Number of channels (usually 1).               |
-| `network.dim`          | `int`                 |                             ❌ | Dimension of embedding space (e.g., `1024`).  |
+| Key                    | Type        | Must change the default value | Description                                     |
+|------------------------|-------------|------------------------------:|-------------------------------------------------|
+| `data.patch_size`      | `list[int]` |                             ❌ | Sliding-window patch size for 3D inference      |
+| `data.min`             | `float`     |                             ❌ | Intensity minimum value for data scaling        |
+| `data.max`             | `float`     |                             ❌ | Intensity maximum value for data scaling        |
+| `data.mean`            | `float`     |                             ❌ | Mean used for normalization                     |
+| `data.std`             | `float`     |                             ❌ | Std used for normalization                      |
+| `network.in_channels`  | `int`       |                             ❌ | Number of input channels (usually `1`)          |
+| `network.spatial_dims` | `int`       |                             ❌ | Dimensionality of the model (`3` for tomograms) |
+| `network.dim`          | `int`       |                             ❌ | Dimension of embedding space (e.g., `1024`).    |
 
 ---
 
 ### `hyper_parameters`
 
-| Key          | Type  | Must change the default value | Description                                      |
-|--------------|-------|------------------------------:|--------------------------------------------------|
-| `batch_size` | `int` |                             ❌ | Number of subtomograms per batch (default `10`). |
-
+| Key          | Type  | Must change the default value | Description                                     |
+|--------------|-------|------------------------------:|-------------------------------------------------|
+| `batch_size` | `int` |                             ❌ | Number of subtomograms per batch (default `10`) |
 
 ---
 
 ## Troubleshooting
 
-| Symptom                   | Suggested Fix                                       |
-|---------------------------|-----------------------------------------------------|
-| Empty embedding CSV       | Check instance masks and `instances_mask_folder`.   |
-| Few or zero embeddings    | Adjust `min_particle_size`.                         |
-| GPU memory error          | Reduce `batch_size` or use smaller `patch_size`.    |
-| Clusters overlap visually | Increase `num_clusters` or try spectral clustering. |
+| Symptom                            | Suggested Fix                                      |
+|------------------------------------|----------------------------------------------------|
+| Empty embedding CSV                | Check instance masks and `instances_mask_folder`   |
+| Few embeddings                     | Lower `min_particle_size`                          |
+| GPU memory error                   | Reduce `batch_size`                                |
+| Clusters overlap visually          | Increase `num_clusters` or use spectral clustering |
+| Embeddings dominated by background | Reduce `centers_patch_size`                        |
 
 ---
 
 ## Next Steps
 
-- [Instance segmentation](instance.md) → required input for embeddings
-- [Visualization](visualization.md) → explore embedding clusters in napari
+- [Instance segmentation](instance.md)
+- [Visualization](visualization.md)
 - [Usage overview](usage.md)

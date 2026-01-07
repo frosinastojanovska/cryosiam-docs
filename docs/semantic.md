@@ -23,8 +23,12 @@ Semantic segmentation in CryoSiam has **two distinct capabilities**:
     - Classifies voxels *within the lamella* into biological classes.
     - Trained to work with denoised tomograms.
 
+3. **Semantic Postprocessing (optional)**
+    - Removes small, spurious connected components
+    - Applied independently per semantic class
+
 **Recommended pipeline:**  
-`Denoising → Lamella Prediction → Semantic Segmentation`
+`Denoising → Lamella Prediction → Semantic Segmentation → (Optional Postprocessing)`
 
 ---
 
@@ -64,7 +68,7 @@ ___
 
 ## :octicons-command-palette-16: Running semantic segmentation
 
-Semantic segmentation is usually run in **two stages**.
+Semantic segmentation is usually run in **two stages** (optionally three).
 
 ---
 
@@ -95,6 +99,22 @@ cryosiam semantic_predict --config_file=configs/config_semantic.yaml
 - Loads the trained semantic segmentation model
 - Uses lamella masks to restrict predictions
 - Writes semantic segmentation outputs to disk
+
+---
+
+### Stage 3: Semantic postprocessing (optional)
+
+This step removes **small connected components** independently for each semantic class.
+
+```bash
+cryosiam semantic_postprocessing --config_file=configs/config_semantic.yaml
+```
+
+Optionally process a single tomogram only:
+
+```bash
+cryosiam semantic_postprocessing --config_file=configs/config_semantic.yaml --filename TS_01.mrc
+```
 
 ---
 

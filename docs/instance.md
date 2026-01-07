@@ -1,32 +1,43 @@
 # Instance Segmentation
 
-The instance segmentation task of CryoSiam identifies individual macromolecular complexes as distinct volumetric
-objects within a tomogram.  
-It is typically used **after lamella prediction** to restrict analysis to relevant sample regions and avoid false
-positives outside the lamella.
+The **instance segmentation module** in CryoSiam identifies **individual macromolecular complexes** as distinct,
+volumetric objects within a tomogram.
 
-> **Recommended:** Run [lamella prediction](semantic.md) first and set the `mask_folder` in the configuration to exclude
-> background noise.  
-> **Workflow:** `Denoising → Lamella Prediction → Instance Segmentation`
+Unlike semantic segmentation, which labels voxels by class, instance segmentation separates **individual particles**,
+even when they belong to the same class or touch each other.
+
+Instance segmentation is typically run **after lamella prediction** to restrict analysis to the sample region and avoid
+false positives outside the lamella.
+
+> **Recommended pipeline:**  
+> `Denoising → Lamella Prediction → Instance Segmentation`
 
 ---
 
+## Overview
 
-## Example Results
+Instance segmentation produces:
 
-- **Instance masks:** Each detected object labeled uniquely.
-- **Probability map:** Voxel-wise confidence of object presence.
-- **Lamella mask (optional):** Restricts predictions to valid sample area.
+- **Instance masks** – each detected object is labeled with a unique ID
+- **Probability maps** – voxel-wise confidence of object presence and boundaries
+- **Optional lamella masking** – restricts predictions to valid sample regions
 
-### Input (Raw Tomogram)
+Lamella masking is strongly recommended, as the instance model was trained only on lamella regions.
+
+
+---
+
+## Example results
+
+### Input (denoised tomogram)
 
 ![Denoised tomogram](images/instance/denoised_tomogram.png){ width="300" }
 
-### Lamella Mask (Recommended)
+### Lamella mask (recommended)
 
 ![Lamella mask](images/instance/lamella_mask.png){ width="400" }
 
-### Instance Segmentation Result
+### Instance segmentation output
 
 ![Instance segmentation output](images/instance/instance_results.png)
 
@@ -34,29 +45,29 @@ positives outside the lamella.
 
 ## Trained Model
 
-You can download the trained model from
-here: [CryoSiam instance segmentation model (v1.0)](https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main/cryosiam_instance.ckpt)
+A pre-trained instance segmentation model is available:
+[CryoSiam instance segmentation model (v1.0)](https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main/cryosiam_instance.ckpt)
 
 ---
 
-## :octicons-command-palette-16: Command
+## :octicons-command-palette-16: Running instance segmentation
 
-Run instance segmentation with:
+Run instance segmentation using a YAML configuration file:
 
 ```bash
 cryosiam instance_predict --config_file=configs/config_instance.yaml
 ```
 
-Optionally, process a specific tomogram file only:
+To process a **single tomogram only**, use:
 
 ```bash
 cryosiam instance_predict --config_file=configs/config_instance.yaml --filename TS_01.mrc
 ```
 
+### Visualization
 
-**Visualization**
-For visualization of the results, CryoSiam-Vis can be used as described [here](visualization.md#visualize_instance).
-
+Instance masks and probability maps can be visualized using CryoSiam-Vis.
+See visualization instructions [here](visualization.md#visualize_instance).
 
 ---
 
@@ -67,7 +78,6 @@ For visualization of the results, CryoSiam-Vis can be used as described [here](v
 ```yaml
 data_folder: '/scratch/stojanov/dataset1/predictions/denoised'
 mask_folder: '/scratch/stojanov/dataset1/predictions/lamella'
-log_dir: '/scratch/stojanov/dataset1/'
 prediction_folder: '/scratch/stojanov/dataset1/predictions/instance'
 
 trained_model: '/scratch/stojanov/trained_models/cryosiam_instance.ckpt'
@@ -78,7 +88,6 @@ test_files: null
 save_raw_predictions: False
 
 parameters:
-  gpu_devices: 1
   data:
     patch_size: [ 128, 128, 128 ]
     min: 0
@@ -105,65 +114,64 @@ hyper_parameters:
 
 ### Top‑level keys
 
-| Key | Type | Must change the default value | Description |
-|---|---|---:|---|
-| `data_folder` | `str` | ✅ | Directory containing denoised tomograms for instance segmentation. |
-| `mask_folder` | `str` | ✅ | Directory with lamella masks (recommended to limit segmentation to lamella regions). |
-| `log_dir` | `str` | ❌ | Folder where logs and runtime information are stored. |
-| `prediction_folder` | `str` | ✅ | Output directory for instance predictions. |
-| `trained_model` | `str` | ✅ | Path to the trained CryoSiam instance model checkpoint (`.ckpt`). |
-| `file_extension` | `str` | ❌ | File extension of input tomograms (`.mrc`, `.rec`, etc.). |
-| `test_files` | `list[str]` or `null` | ❌ | List of specific files to process. `null` = all in `data_folder`. |
-| `save_raw_predictions` | `bool` | ❌ | If `true`, also save raw network outputs before any cleanup. |
+| Key                   | Type                  | Must change the default value | Description                                                  |
+|-----------------------|-----------------------|------------------------------:|--------------------------------------------------------------|
+| `data_folder`         | `str`                 |                             ✅ | Directory containing denoised tomograms                      |
+| `mask_folder`         | `str`                 |                             ✅ | Directory containing lamella masks (recommended              |
+| `prediction_folder`   | `str`                 |                             ✅ | Output directory for instance segmentation results           |
+| `trained_model`       | `str`                 |                             ✅ | Path to the instance segmentation model checkpoint (`.ckpt`) |
+| `file_extension`      | `str`                 |                             ❌ | Input file extension (`.mrc` or `.rec`, default: `.mrc`)     |
+| `test_files`          | `list[str]` or `null` |                             ❌ | Specific tomograms to process; `null` processes all files    |
+| `save_internal_files` | `bool`                |                             ❌ | Save intermediate outputs (probability maps)                 |
 
 ---
 
 ### `parameters`
 
-| Key | Type | Must change the default value | Description |
-|---|---|---:|---|
-| `gpu_devices` | `int` or `list[int]` | ❌ | GPU(s) to use for inference. |
-| `data.patch_size` | `list[int]` | ❌ | 3D patch size for sliding‑window inference (here `[64,64,64]`). Reduce if OOM. |
-| `data.min` | `float` | ❌ | Intensity minimum for normalization. |
-| `data.max` | `float` | ❌ | Intensity maximum for normalization. |
-| `data.mean` | `float` | ❌ | Normalization mean. |
-| `data.std` | `float` | ❌ | Normalization standard deviation. |
-| `network.in_channels` | `int` | ❌ | Number of input channels (usually `1`). |
-| `network.spatial_dims` | `int` | ❌ | Dimensionality of the model (always `3`). |
-| `network.threshold_foreground` | `float` | ✅ | Foreground probability cutoff for seed/region proposals (default `0.4`). Lower = more sensitive. |
-| `network.boundary_bias` | `float` | ❌ | Bias toward separating touching objects; higher values enforce stronger borders. |
-| `network.min_center_distance` | `int` | ❌ | Minimum allowed distance (voxels) between centers (controls splitting). |
-| `network.max_center_distance` | `int` | ❌ | Maximum allowed distance (voxels) for merging/association. |
-| `network.distance_type` | `int` | ❌ | Distance strategy: `0`=predicted, `1`=predicted+cdist (default), `2`=cdist only. |
-| `network.postprocessing` | `bool` | ❌ | Apply connected‑components cleanup and size filtering if implemented. |
-
-> **Tips**  
-> • Lower `threshold_foreground` to recover faint objects; raise it to reduce false positives.  
-> • Tune `boundary_bias` and center‑distance settings to improve separation of touching particles.  
-> • Keep `patch_size` and `batch_size` balanced to fit GPU memory.
+| Key                            | Type        | Must change the default value | Description                                                                               |
+|--------------------------------|-------------|------------------------------:|-------------------------------------------------------------------------------------------|
+| `data.patch_size`              | `list[int]` |                             ❌ | Sliding-window patch size for 3D inference                                                |
+| `data.min`                     | `float`     |                             ❌ | Intensity minimum value for data scaling                                                  |
+| `data.max`                     | `float`     |                             ❌ | Intensity maximum value for data scaling                                                  |
+| `data.mean`                    | `float`     |                             ❌ | Mean used for normalization                                                               |
+| `data.std`                     | `float`     |                             ❌ | Std used for normalization                                                                |
+| `network.in_channels`          | `int`       |                             ❌ | Number of input channels (usually `1`)                                                    |
+| `network.spatial_dims`         | `int`       |                             ❌ | Dimensionality of the model (`3` for tomograms)                                           |
+| `network.threshold_foreground` | `float`     |                             ✅ | Foreground probability cutoff for seed generation (default `0.4`). Lower = more sensitive |
+| `network.boundary_bias`        | `float`     |                             ❌ | Bias controlling separation of touching objects; higher values enforce stronger borders   |
+| `network.min_center_distance`  | `int`       |                             ❌ | Minimum allowed distance (voxels) between centers (controls splitting)                    |
+| `network.max_center_distance`  | `int`       |                             ❌ | Maximum allowed distance (voxels) for merging/association                                 |
+| `network.distance_type`        | `int`       |                             ❌ | Distance strategy: `0` predicted, `1` predicted+cdist (default), `2` cdist only           |
+| `network.postprocessing`       | `bool`      |                             ❌ | Apply additional connected-component cleanup                                              |
 
 ---
 
-### `hyper_parameters`
+#### `hyper_parameters`
 
-| Key | Type | Must change the default value | Description                                                                             |
-|---|---|---:|-----------------------------------------------------------------------------------------|
-| `batch_size` | `int` | ❌ | Number of patches per inference batch (here `10`). Reduce if you hit GPU memory limits. |
+| Key          | Type  | Must change the default value | Description                                      |
+|--------------|-------|------------------------------:|--------------------------------------------------|
+| `batch_size` | `int` |                             ❌ | Number of 3D patches processed per forward pass. |
+
+> **Tips**  
+> Lower `threshold_foreground` to detect weaker objects; raise it to reduce false positives.  
+> Tune `boundary_bias` and center-distance parameters to better separate touching particles.  
+> Balance `batch_size` and `patch_size` to fit GPU memory.
 
 ---
 
 ## Troubleshooting
 
-| Symptom                  | Suggested Fix                                                   |
-|--------------------------|-----------------------------------------------------------------|
-| GPU memory error         | Reduce `batch_size` or `data.patch_size`.                       |
-| Objects outside lamella  | Use lamella mask and set `mask_folder` properly.                |
+| Symptom                 | Suggested Fix                                                        |
+|-------------------------|----------------------------------------------------------------------|
+| CUDA out of memory      | Reduce `batch_size` or `patch_size`                                  |
+| Objects outside lamella | Ensure lamella prediction was run and `mask_folder` is set correctly |
+| Over-segmentation       | Increase `threshold_foreground` or adjust center-distance parameters |
 
 ---
 
 ## Next Steps
 
-- [Semantic segmentation](semantic.md) → upstream voxel classification
-- [Particle identification](particle_identification.md) → downstream localization
-- [Visualization](visualization.md) → explore instance masks in napari
+- [Subtomogram embeddings](subtomogram_embeddings.md)
+- [Particle identification](particle_identification.md)
+- [Visualization](visualization.md)
 - [Usage overview](usage.md)
