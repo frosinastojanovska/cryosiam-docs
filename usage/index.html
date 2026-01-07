@@ -551,6 +551,8 @@ You're not viewing the latest version.
       
         
       
+        
+      
     
     
       
@@ -765,6 +767,15 @@ You're not viewing the latest version.
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#running-cryosiam-at-scale-slurm-hpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running CryoSiam at Scale (Slurm / HPC)
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -918,6 +929,28 @@ You're not viewing the latest version.
   
   <span class="md-ellipsis">
     Processing functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm_parallel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scaling to large datasets on HPC
     
   </span>
   
@@ -1147,6 +1180,15 @@ You're not viewing the latest version.
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#running-cryosiam-at-scale-slurm-hpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running CryoSiam at Scale (Slurm / HPC)
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1291,6 +1333,20 @@ weights and user-provided ground truth data.</p>
 <div class="highlight"><pre><span></span><code>cryosiam<span class="w"> </span>&lt;module<span class="w"> </span>name&gt;<span class="w"> </span>--config_file<span class="w"> </span>configs/&lt;module&gt;.yaml
 </code></pre></div>
 <p>Detailed explanations of configuration options are provided on the documentation page of each module.</p>
+<hr>
+<h2 id="running-cryosiam-at-scale-slurm-hpc">Running CryoSiam at Scale (Slurm / HPC)<a class="headerlink" href="#running-cryosiam-at-scale-slurm-hpc" title="Permanent link">¶</a></h2>
+<p>CryoSiam prediction commands run on <strong>one GPU per process</strong>.
+To efficiently process large datasets on HPC systems, predictions should be
+<strong>parallelized across tomograms using Slurm job submission</strong>.</p>
+<p>Instead of processing all tomograms in a single command, CryoSiam allows
+processing <strong>one tomogram per job</strong> via the <code>--filename</code> argument.</p>
+<p>This enables:</p>
+<ul>
+<li>Full utilization of multi-GPU clusters</li>
+<li>Independent job retries</li>
+<li>Clean scaling to hundreds of tomograms</li>
+</ul>
+<p>For more details see: <a href="../slurm_parallel/">Scaling to large datasets on HPC</a></p>
 
 
 

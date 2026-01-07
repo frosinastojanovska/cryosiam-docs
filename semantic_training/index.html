@@ -551,6 +551,8 @@ You're not viewing the latest version.
       
         
       
+        
+      
     
     
       
@@ -1102,6 +1104,28 @@ You're not viewing the latest version.
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm_parallel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scaling to large datasets on HPC
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1532,7 +1556,8 @@ training with extensive data augmentation.</p>
 <li><strong>Patch creation</strong></li>
 <li><strong>Model training</strong></li>
 </ol>
-<p>Each step is executed explicitly to give full control and reproducibility. Example configuration file is given <a href="#example-configuration-semantic_trainyaml">below</a>. </p>
+<p>Each step is executed explicitly to give full control and reproducibility. Example configuration file is
+given <a href="#example-configuration-semantic_trainyaml">below</a>.</p>
 <hr>
 <h2 id="pretrained-weights">Pretrained weights<a class="headerlink" href="#pretrained-weights" title="Permanent link">¶</a></h2>
 <p>To fine-tune instead of training from scratch, download the pretrained checkpoint:</p>
@@ -1556,7 +1581,7 @@ training with extensive data augmentation.</p>
 <li>Select <strong>one label value</strong> or <strong>multiple label values</strong></li>
 <li>Create new masks containing <strong>only the selected class(es)</strong></li>
 </ul>
-<p>If a single label value is selected, the output is a <strong>binary foreground mask</strong>.<br>
+<p>If a single label value is selected, the output is a <strong>binary foreground mask</strong>.
 If multiple label values are selected, the output contains <strong>only those classes</strong>.</p>
 <p>This step <strong>does not modify the original labels</strong>. Filtered masks are written to a new output folder.</p>
 <h3 id="configuration-options">Configuration options<a class="headerlink" href="#configuration-options" title="Permanent link">¶</a></h3>
@@ -1565,7 +1590,7 @@ If multiple label values are selected, the output contains <strong>only those cl
 <li><code>selected_labels</code> – a single label value or a list of label values to keep</li>
 </ul>
 <h3 id="command">Command<a class="headerlink" href="#command" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code>cryosiam<span class="w">  </span>semantic_filter_ground_truth<span class="w">  </span>--config_file<span class="o">=</span>configs/semantic_training.yaml
+<div class="highlight"><pre><span></span><code>cryosiam<span class="w"> </span>semantic_filter_ground_truth<span class="w"> </span>--config_file<span class="o">=</span>configs/semantic_training.yaml
 </code></pre></div>
 <p>Produces</p>
 <ul>
@@ -1580,7 +1605,7 @@ masks automatically</strong> from given coordinates and/or RELION type orientati
 <li>Generate masks directly from <strong>density maps or probability maps</strong></li>
 </ul>
 <blockquote>
-<p><strong>Note:</strong><br>
+<p><strong>Note:</strong>
 Mask generation is handled by dedicated preprocessing tools and is <strong>not part of the semantic training pipeline itself
 </strong>.</p>
 </blockquote>
@@ -1610,11 +1635,11 @@ of the pretrained semantic segmentation model.</p>
 </ul>
 <h3 id="command_1">Command<a class="headerlink" href="#command_1" title="Permanent link">¶</a></h3>
 <div class="highlight"><pre><span></span><code>cryosiam<span class="w"> </span>processing_invert_scale<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--input_path<span class="o">=</span>folder<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--output_path<span class="o">=</span>out_folder<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--invert<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--lower_end_percentage<span class="w"> </span><span class="m">0</span>.1<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--upper_end_percentage<span class="w"> </span><span class="m">99</span>.9
+<span class="w"> </span>--input_path<span class="o">=</span>folder<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--output_path<span class="o">=</span>out_folder<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--invert<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--lower_end_percentage<span class="w"> </span><span class="m">0</span>.1<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--upper_end_percentage<span class="w"> </span><span class="m">99</span>.9
 </code></pre></div>
 <p>For a detailed explanation of this function and its parameters, refer to
 <a href="../processing_functions/">Processing functions</a>.</p>
@@ -1628,7 +1653,7 @@ derived from the existing masks.</p>
 <p>Note: the CLI command name includes “preprocess”, but in this workflow it is used only for distance-map creation.</p>
 </blockquote>
 <h3 id="command_2">Command<a class="headerlink" href="#command_2" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code>cryosiam<span class="w">  </span>semantic_train_preprocess<span class="w">  </span>--config_file<span class="o">=</span>configs/semantic_training.yaml
+<div class="highlight"><pre><span></span><code>cryosiam<span class="w"> </span>semantic_train_preprocess<span class="w"> </span>--config_file<span class="o">=</span>configs/semantic_training.yaml
 </code></pre></div>
 <p>Outputs</p>
 <ul>
@@ -1662,7 +1687,7 @@ GPU-based training. Patch creation is required because tomograms are big 3D volu
 <li><code>parameters.data.remove_only_background</code> - if <code>True</code>, patches containing only background labels are discarded.</li>
 </ul>
 <h3 id="command_3">Command:<a class="headerlink" href="#command_3" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code>cryosiam<span class="w">  </span>semantic_train_create_patches<span class="w">  </span>--config_file<span class="o">=</span>configs/semantic_training.yaml
+<div class="highlight"><pre><span></span><code>cryosiam<span class="w"> </span>semantic_train_create_patches<span class="w"> </span>--config_file<span class="o">=</span>configs/semantic_training.yaml
 </code></pre></div>
 <p><strong>Outputs</strong></p>
 <ul>
@@ -1671,7 +1696,7 @@ GPU-based training. Patch creation is required because tomograms are big 3D volu
 <li>Distance-map patches</li>
 </ul>
 <hr>
-<h2 id="step-5-train-the-semantic-segmentation-model">Step  5. Train  the  semantic segmentation model<a class="headerlink" href="#step-5-train-the-semantic-segmentation-model" title="Permanent link">¶</a></h2>
+<h2 id="step-5-train-the-semantic-segmentation-model">Step 5. Train the semantic segmentation model<a class="headerlink" href="#step-5-train-the-semantic-segmentation-model" title="Permanent link">¶</a></h2>
 <p>This step runs the full semantic segmentation training pipeline using <strong>PyTorch Lightning</strong>.
 Training is performed on the patches generated in Step 4 and optionally initialized from pretrained weights.</p>
 <h3 id="what-this-step-does_3">What this step does<a class="headerlink" href="#what-this-step-does_3" title="Permanent link">¶</a></h3>
@@ -1686,11 +1711,11 @@ Training is performed on the patches generated in Step 4 and optionally initiali
 </ul>
 <p>Training supports <strong>single-GPU, multi-GPU, and multi-node</strong> execution.</p>
 <h3 id="command_4">Command<a class="headerlink" href="#command_4" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code>cryosiam<span class="w">  </span>semantic_train<span class="w">  </span>--config_file<span class="o">=</span>configs/semantic_training.yaml
+<div class="highlight"><pre><span></span><code>cryosiam<span class="w"> </span>semantic_train<span class="w"> </span>--config_file<span class="o">=</span>configs/semantic_training.yaml
 </code></pre></div>
 <h3 id="training-on-slurm-clusters">Training on Slurm clusters<a class="headerlink" href="#training-on-slurm-clusters" title="Permanent link">¶</a></h3>
 <p>When running on a Slurm-managed system, use:</p>
-<div class="highlight"><pre><span></span><code>srun<span class="w"> </span>cryosiam<span class="w">  </span>semantic_train<span class="w">  </span>--config_file<span class="o">=</span>configs/semantic_training.yaml
+<div class="highlight"><pre><span></span><code>srun<span class="w"> </span>cryosiam<span class="w"> </span>semantic_train<span class="w"> </span>--config_file<span class="o">=</span>configs/semantic_training.yaml
 </code></pre></div>
 <p>Ensure that Slurm resource requests (GPUs, nodes, CPUs) match the configuration parameters.</p>
 <h3 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">¶</a></h3>
@@ -1709,7 +1734,7 @@ Training is performed on the patches generated in Step 4 and optionally initiali
 <span class="nt">continue_training</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
 </code></pre></div>
 <hr>
-<h2 id="example-configuration-semantic_trainyaml">Example  Configuration  (semantic_train.yaml)<a class="headerlink" href="#example-configuration-semantic_trainyaml" title="Permanent link">¶</a></h2>
+<h2 id="example-configuration-semantic_trainyaml">Example Configuration (semantic_train.yaml)<a class="headerlink" href="#example-configuration-semantic_trainyaml" title="Permanent link">¶</a></h2>
 <p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z"></path><path d="M7.25 7.689V2a.75.75 0 0 1 1.5 0v5.689l1.97-1.969a.749.749 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 6.78a.749.749 0 1 1 1.06-1.06z"></path></svg></span> <a href="../configs/config_semantic_train.yaml">Download example config</a></p>
 <div class="highlight"><pre><span></span><code><span class="nt">data_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/stojanov/dataset1/predictions/denoised'</span>
 <span class="nt">labels_folder</span><span class="p">:</span><span class="w"> </span><span class="s">'/scratch/stojanov/dataset1/semantic_gt_for_training'</span>
@@ -1783,14 +1808,14 @@ Training is performed on the patches generated in Step 4 and optionally initiali
 <span class="w">  </span><span class="nt">max_epochs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">200</span>
 </code></pre></div>
 <hr>
-<h2 id="config-reference">Config  Reference<a class="headerlink" href="#config-reference" title="Permanent link">¶</a></h2>
-<h3 id="toplevel-keys">Top‑level  keys<a class="headerlink" href="#toplevel-keys" title="Permanent link">¶</a></h3>
+<h2 id="config-reference">Config Reference<a class="headerlink" href="#config-reference" title="Permanent link">¶</a></h2>
+<h3 id="toplevel-keys">Top‑level keys<a class="headerlink" href="#toplevel-keys" title="Permanent link">¶</a></h3>
 <table>
 <thead>
 <tr>
 <th>Key</th>
 <th>Type</th>
-<th style="text-align: right;">Must  change  the  default  value</th>
+<th style="text-align: right;">Must change the default value</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -1799,13 +1824,13 @@ Training is performed on the patches generated in Step 4 and optionally initiali
 <td><code>data_folder</code></td>
 <td><code>str</code></td>
 <td style="text-align: right;">✅</td>
-<td>Tomograms  or  precomputed  predictions  used  as  input</td>
+<td>Tomograms or precomputed predictions used as input</td>
 </tr>
 <tr>
 <td><code>labels_folder</code></td>
 <td><code>str</code></td>
 <td style="text-align: right;">✅</td>
-<td>Ground-truth  semantic  labels</td>
+<td>Ground-truth semantic labels</td>
 </tr>
 <tr>
 <td><code>labels_folder_for_filtering</code></td>
