@@ -16,6 +16,35 @@ Semantic segmentation training in CryoSiam follows a **five-step** CLI workflow:
 Each step is executed explicitly to give full control and reproducibility. Example configuration file is
 given [below](#example-configuration-semantic_trainyaml).
 
+
+--- 
+## Expected Input Structure
+
+CryoSiam expects **paired tomograms and ground-truth labels** with matching filenames.
+
+- All **input tomograms** must be stored in a single folder as `.mrc` or `.rec` files.
+- All **ground-truth label volumes** must be stored in a separate folder.
+- Each label file must have the **same base filename** as its corresponding tomogram.
+
+### Example
+
+```text
+data_folder/
+├── TS_01.mrc
+├── TS_02.mrc
+└── TS_03.mrc
+
+labels_folder/
+├── TS_01.mrc
+├── TS_02.mrc
+└── TS_03.mrc
+```
+
+CryoSiam automatically matches tomograms to labels by filename.  
+
+> **Note:**  
+> File extensions must match the value of `file_extension` in your configuration (e.g., `.mrc` or `.rec`).
+
 ---
 
 ## Pretrained weights
