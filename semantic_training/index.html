@@ -733,6 +733,30 @@ You're not viewing the latest version.
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#expected-input-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Expected Input Structure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Expected Input Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#pretrained-weights" class="md-nav__link">
     <span class="md-ellipsis">
       Pretrained weights
@@ -1223,6 +1247,30 @@ You're not viewing the latest version.
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#expected-input-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Expected Input Structure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Expected Input Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#pretrained-weights" class="md-nav__link">
     <span class="md-ellipsis">
       Pretrained weights
@@ -1558,6 +1606,30 @@ training with extensive data augmentation.</p>
 </ol>
 <p>Each step is executed explicitly to give full control and reproducibility. Example configuration file is
 given <a href="#example-configuration-semantic_trainyaml">below</a>.</p>
+<hr>
+<h2 id="expected-input-structure">Expected Input Structure<a class="headerlink" href="#expected-input-structure" title="Permanent link">¶</a></h2>
+<p>CryoSiam expects <strong>paired tomograms and ground-truth labels</strong> with matching filenames.</p>
+<ul>
+<li>All <strong>input tomograms</strong> must be stored in a single folder as <code>.mrc</code> or <code>.rec</code> files.</li>
+<li>All <strong>ground-truth label volumes</strong> must be stored in a separate folder.</li>
+<li>Each label file must have the <strong>same base filename</strong> as its corresponding tomogram.</li>
+</ul>
+<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code>data_folder/
+├── TS_01.mrc
+├── TS_02.mrc
+└── TS_03.mrc
+
+labels_folder/
+├── TS_01.mrc
+├── TS_02.mrc
+└── TS_03.mrc
+</code></pre></div>
+<p>CryoSiam automatically matches tomograms to labels by filename.  </p>
+<blockquote>
+<p><strong>Note:</strong><br>
+File extensions must match the value of <code>file_extension</code> in your configuration (e.g., <code>.mrc</code> or <code>.rec</code>).</p>
+</blockquote>
 <hr>
 <h2 id="pretrained-weights">Pretrained weights<a class="headerlink" href="#pretrained-weights" title="Permanent link">¶</a></h2>
 <p>To fine-tune instead of training from scratch, download the pretrained checkpoint:</p>
