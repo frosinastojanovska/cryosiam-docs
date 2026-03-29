@@ -5,7 +5,8 @@ It is typically the first step in a CryoSiam pipeline, preceding semantic segmen
 particle identification.
 
 For best performance, it is recommended to use **WBP-reconstructed tomograms**, as the denoising model was trained on
-simulated WBP data.
+simulated WBP data. Since the implementation of WBP reconstruction in AreTomo3 is different from the IMOD implementation, 
+there is additional model supporting WBP reconstruction from AreTomo3. 
 
 ![Noisy vs Denoised Tomogram](images/denoising/comparison.png)
 
@@ -20,6 +21,8 @@ simulated WBP data.
 A pre-trained denoising model is provided and can be downloaded from:
 
 [CryoSiam denoising model (v1.0)](https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main/cryosiam_denoising.ckpt)
+
+[CryoSiam denoising model - AreTomo3 supported (v1.0)](https://huggingface.co/frosinastojanovska/cryosiam_v1.0/blob/main/cryosiam_denoising_aretomo3_included.ckpt)
 
 ---
 
